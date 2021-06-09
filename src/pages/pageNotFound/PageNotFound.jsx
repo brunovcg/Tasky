@@ -2,6 +2,7 @@ import NotFound from '../../assets/page-not-found.png';
 import {Container, Info} from './styles';
 import Button from '../../components/button/Button'
 
+
 const PageNotFound = () => {
     return (
         <Container>
