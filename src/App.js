@@ -1,10 +1,11 @@
 import GlobalStyle from './styles/globalStyles';
+import Routes from './routes/routes';
 
 function App() {
   return (
     <div>
       <GlobalStyle/>
-      <h1>Hello Tasky</h1>
+      <Routes/>
     </div>
   );
 }
