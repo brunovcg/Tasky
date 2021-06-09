@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const StyledGrid = materialStyled(Grid) ( ({ theme }) => ({
   position: 'absolute',
   width: '25vw',
-  height: '40vh',
+  height: 'auto',
   left: '35vw',
   top: '35vh',
 }));
@@ -24,6 +24,7 @@ export const StyledPaper = materialStyled(Paper) ( ({ theme }) => ({
 export const DivH1 = styled.div `
   width: 80%;
   height: 10%;
+  margin: 5%;
 `;
 
 export const H1 = styled.h1 `
@@ -35,7 +36,7 @@ export const H1 = styled.h1 `
 export const Form = styled.form `
   width: 80%;
   height: 60%;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 `;
 
 export const InputsDiv = styled.div `
@@ -52,14 +53,19 @@ export const InputsDiv = styled.div `
 export const EachDivInput = styled.div `
 `;
 
-export const DivInput = styled.div `
-  width: 80%;
+export const DivButton = styled.div `
+  width: 100%;
+  margin: 5% 0 0 0;
+
+  display: flex;
+  justify-content: center;
 `;
 
 export const Input = styled.input `
   width: 100%;
   padding: 4% 5%;
   border: none;
+  margin: 3% 0;
 `;
 
 
