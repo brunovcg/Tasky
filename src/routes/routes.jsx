@@ -1,32 +1,35 @@
 import {Route, Switch} from 'react-router-dom';
+import PageNotFound from '../pages/pageNotFound/PageNotFound';
 
-export const routes = () => {
+const routes = () => {
     return (
         <Switch>
-            <Route>
-                {/* <Home/> */}
+            {/* <Route>
+                <Home/>
             </Route>
             <Route>
-                {/* <Signup/> */}
+                <Signup/>
             </Route>
             <Route>
-                {/* <Login/> */}
+                <Login/>
             </Route>
             <Route>
-                {/* <Dashboard/> */}
+                <Dashboard/>
             </Route>
             <Route>
-                {/* <Habits/> */}
+                <Habits/>
             </Route>
             <Route>
-                {/* <Groups/> */}
+                <Groups/>
             </Route>
             <Route>
-                {/* <Group/> */}
-            </Route>
+                <Group/>
+            </Route> */}
             <Route>
-                {/* <PageNotFound/> */}
+                <PageNotFound/>
             </Route>
         </Switch>
     )
 }
+
+export default routes;
