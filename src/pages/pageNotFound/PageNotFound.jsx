@@ -1,6 +1,7 @@
 import NotFound from '../../assets/page-not-found.png';
 import {Container, Info} from './styles';
 
+
 const PageNotFound = () => {
     return (
         <Container>

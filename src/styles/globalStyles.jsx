@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
     :root {
-        --gradient-blue: linear-gradient(to Right, #00b4db, #0083b0);
+        --gradient-blue: linear-gradient(#00b4db, #0083b0);
         --red: #f20505;
         --dark-red: #bf0404;
         --sand: #bfac95;
