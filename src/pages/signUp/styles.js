@@ -61,10 +61,6 @@ export const Container = styled.div`
             justify-content: center;
             padding-top: 20px;
 
-            input{
-                
-            }
-
             .blueBoxFormError{
                 height: 5%;
                 margin: 2px;
@@ -93,7 +89,44 @@ export const Container = styled.div`
             height: 15%;
         }
     }
-    
 
+    @media (max-width: 660px){
 
-`
+        flex-direction: column;
+
+        .whiteBox, .blueBox{
+            width: 100vw;
+        }
+
+        .whiteBox{
+            height: 25%;
+
+            .whiteBoxTitle{
+                padding-top:15%;
+            }
+
+            .whiteBoxName{
+                position: absolute;
+                top: 15px;
+                left: 15px;
+            }
+        }
+
+        .blueBox{
+            height: 75%;
+
+            .blueBoxForm{
+
+                .blueBoxFormError{
+                    height: 8%;
+
+                    p{               
+                        width: 80%;
+                        background-color: var(--dark-red);
+                        font-size: 1.2rem;         
+                    }
+            }
+        }
+    }
+
+}`
