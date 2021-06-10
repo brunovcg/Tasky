@@ -1,6 +1,6 @@
 import {Route, Switch} from 'react-router-dom';
 import PageNotFound from '../pages/pageNotFound/PageNotFound';
-import Groups from '../pages/groups/groups';
+// import Groups from '../pages/';
 import Dashboard from '../pages/dashboard/Dashboard';
 
 const routes = () => {
