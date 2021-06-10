@@ -1,22 +1,29 @@
-import {Container, UserContainer, Link, LinkContainer} from './styles';
+import {Container, UserContainer, Link, LinkContainer, ButtonContainer, Img} from './styles';
 import User from '../../assets/user.png';
-import MenuIcon from '@material-ui/icons/Menu';
-// import Button from '../button/Button';
+// import MenuIcon from '@material-ui/icons/Menu';
+import Button from '../button/Button';
 
 const SideMenu = () => {
     return(
         <Container>
-            <span>
+            {/* <span>
                 <MenuIcon/>
-            </span>
+            </span> */}
             <UserContainer>
-                <img src={User} alt='user'/>
+                <Img src={User} alt='user'/>
+                <p>User Name</p>
+                <LinkContainer>
+                    <Link>Habits</Link>
+                    <Link>Groups</Link>
+                </LinkContainer>
             </UserContainer>
-            <p>User</p>
-            <LinkContainer>
-                <Link>Habits</Link>
-                <Link>Groups</Link>
-            </LinkContainer>
+            <ButtonContainer>
+                <Button
+                    setColor={'var(--red)'}
+                    setSize={'large'}
+                    click={() => console.log('Logout')}
+                >Logout</Button>
+            </ButtonContainer>
         </Container>
     )
 }
