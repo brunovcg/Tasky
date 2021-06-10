@@ -1,5 +1,7 @@
 import {Header, Container, MainContainer} from './styles';
 import SideMenu from '../../components/sideMenu/SideMenu';
+import RoutesDashboard from '../../routes/routesDashboard';
+
 
 const Dashboard = () => {
     return (
@@ -13,7 +15,7 @@ const Dashboard = () => {
                     <h1>Tasky</h1>
                 </Header>
                 <MainContainer>
-                    
+                    <RoutesDashboard/>
                 </MainContainer>
             </div>
         </Container>
