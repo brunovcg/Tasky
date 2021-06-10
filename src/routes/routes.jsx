@@ -1,5 +1,6 @@
 import {Route, Switch} from 'react-router-dom';
 import PageNotFound from '../pages/pageNotFound/PageNotFound';
+import Dashboard from '../pages/dashboard/Dashboard';
 
 const routes = () => {
     return (
@@ -12,19 +13,10 @@ const routes = () => {
             </Route>
             <Route>
                 <Login/>
-            </Route>
-            <Route>
+            </Route> */}
+            <Route path='/dashboard'>
                 <Dashboard/>
             </Route>
-            <Route>
-                <Habits/>
-            </Route>
-            <Route>
-                <Groups/>
-            </Route>
-            <Route>
-                <Group/>
-            </Route> */}
             <Route>
                 <PageNotFound/>
             </Route>
