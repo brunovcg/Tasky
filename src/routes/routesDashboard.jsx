@@ -1,11 +1,11 @@
 import {Route, Switch} from 'react-router-dom';
-import Groups from '../pages/groups/groups';
+import Group from '../pages/group/Group';
 
 const routesDashboard = () => {
     return (
         <Switch>
-            <Route path='/dashboard/groups'>
-                <Groups/>
+            <Route path='/dashboard/group'>
+                <Group/>
             </Route>
         </Switch>
     )

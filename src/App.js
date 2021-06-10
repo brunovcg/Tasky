@@ -6,8 +6,7 @@ function App() {
   return (
     <div> 
       <GlobalStyle/>
-      <SignUp/>
-      {/* <Routes/> */}
+      <Routes/>
      
     </div>
   );
