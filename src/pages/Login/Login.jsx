@@ -1,26 +1,47 @@
-import { StyledGrid, HeaderGrid, BodyGrid, FirstDiv, SecondDiv, ThirdDiv, H1, H1Title, H1text, StyledLink, InputDiv } from './styles'
-import Input from '../../components/Input/Input'
+import { StyledGrid, HeaderGrid, BodyForm, FirstDiv, SecondDiv, ThirdDiv, H1, H1Title, H1text, StyledLink, EachDivInput, Form, DivsInputs, DivButton } from './styles'
+import Input from '../../components/Input/Input';
+import Button from '../../components/button/Button';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
 const Login = () => {
 
+  const schema = yup.object().shape({
+    email: yup.string().required('Email is required').email('Invalid Email'),
+    password: yup.string().required('Password is required'),
+  });
+
+  const { handleSubmit, register, formState: { errors } } = useForm( { resolver: yupResolver(schema) } )
+
+  const submitFunc = (data) => console.log(data)
+
   return (
-    <StyledGrid container justify='column' >
-      <HeaderGrid item>
+    <StyledGrid >
+      <HeaderGrid>
         <FirstDiv>
           <H1>Tasky</H1>
         </FirstDiv>
         <SecondDiv>
-          <H1Title>Login</H1Title>
+          <H1Title >Login</H1Title>
         </SecondDiv>
         <ThirdDiv>
-          <H1text>Don't have an account yet? <StyledLink>Sign In</StyledLink> </H1text>
+          <H1text>Don't have an account yet? <StyledLink to='/sigup' >Sign Up</StyledLink> </H1text>
         </ThirdDiv>
       </HeaderGrid>
-      <BodyGrid item>
-        <InputDiv>
-          <Input />
-        </InputDiv>
-      </BodyGrid>
+      <BodyForm onSubmit={handleSubmit(submitFunc)} >
+        <DivsInputs >
+          <EachDivInput>
+            <Input placeholder='Email' {...register('email')} />
+          </EachDivInput>
+          <EachDivInput>
+            <Input placeholder='Password' {...register('password')} />
+          </EachDivInput>
+        </DivsInputs>
+        <DivButton>
+          <Button type='submit' setColor='red' setSize='large' >Login</Button>
+        </DivButton>
+      </BodyForm>
     </StyledGrid>
   )
 };
