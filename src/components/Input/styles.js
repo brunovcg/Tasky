@@ -7,6 +7,7 @@ export const Container = styled.div`
     padding: 1rem;
     width: 100%;
     transition: 0.5s;
+    height: 30px;
 
     input{
         background: transparent;

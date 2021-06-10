@@ -33,7 +33,7 @@ const SignUp = () => {
                     </div>
 
                     <Input
-                        placeholder="what's your e-email?"    
+                        placeholder="What's your e-email?"    
                         register={""}
                         name="email"
                     />
