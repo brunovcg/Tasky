@@ -63,7 +63,8 @@ export const Container = styled.div`
 
             .blueBoxFormError{
                 height: 5%;
-                margin: 2px;
+                margin-top: 1px;
+                margin-bottom: 5px;
 
                 p{               
 
@@ -72,7 +73,7 @@ export const Container = styled.div`
                     height: 1rem;
                     height: fit-content;
                     background-color: var(--dark-red);
-                    font-size: 0.6rem;
+                    font-size: 0.8rem;
                     font-variant: small-caps;
                     color: var(--white);
                     font-family: sans-serif;

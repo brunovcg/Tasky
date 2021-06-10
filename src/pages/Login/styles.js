@@ -48,20 +48,37 @@ export const SecondDiv = styled.div `
     display: flex;
     justify-content: center;
     align-items: center;
+
+  @media (min-width: 600px) {
+    flex-direction: column;
+    justify-content: center;
+  }
 `
 
 export const H1 = styled.h1 `
   font-size: 150%;
   padding: 2%;
+
+  @media (min-width: 600px) {
+    display: none;
+  }
 `
 
 export const H1Title = styled.h1 `
   font-family: unset;
   font-size: 280%;
+
+  @media (min-width: 600px) {
+    font-size: 380%;
+  }
 `
 
 export const H1text = styled.p `
   color: var(--dark-red);
+
+  @media (min-width: 600px) {
+    display: none;
+  }
 `
 
 export const StyledLink = styled(Link) `
@@ -101,7 +118,6 @@ export const EachDivInput = styled.div `
   @media (min-width: 600px) {
     width: 60%;
     margin-top: 0%;
-    background-color: green;
   }
 `
 
@@ -112,3 +128,21 @@ export const DivButton = styled.div `
   justify-content: center;
 `
 
+export const BottomH1 = styled.h1 `
+  display: none;
+
+  @media (min-width: 600px) {
+    font-size: 250%;
+    display: unset;
+  }
+`
+
+export const H1DesktopText = styled.p `
+  display: none;
+
+@media (min-width: 600px) {
+  color: var(--dark-red);
+  margin-top: 3%;
+  display: unset;
+}
+`

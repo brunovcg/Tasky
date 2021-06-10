@@ -1,4 +1,4 @@
-import { StyledGrid, HeaderGrid, BodyForm, FirstDiv, SecondDiv, ThirdDiv, H1, H1Title, H1text, StyledLink, EachDivInput, Form, DivsInputs, DivButton } from './styles'
+import { StyledGrid, HeaderGrid, BodyForm, FirstDiv, SecondDiv, ThirdDiv, H1, H1Title, H1text, StyledLink, EachDivInput, Form, DivsInputs, DivButton, BottomH1, H1DesktopText } from './styles'
 import Input from '../../components/Input/Input';
 import Button from '../../components/button/Button';
 import { useForm } from 'react-hook-form';
@@ -24,9 +24,11 @@ const Login = () => {
         </FirstDiv>
         <SecondDiv>
           <H1Title >Login</H1Title>
+          <H1DesktopText>Don't have an account yet? <StyledLink to='/sigup' >Sign Up</StyledLink> </H1DesktopText>
         </SecondDiv>
         <ThirdDiv>
           <H1text>Don't have an account yet? <StyledLink to='/sigup' >Sign Up</StyledLink> </H1text>
+          <BottomH1>Tasky</BottomH1>
         </ThirdDiv>
       </HeaderGrid>
       <BodyForm onSubmit={handleSubmit(submitFunc)} >
