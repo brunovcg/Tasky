@@ -12,8 +12,8 @@ export const Container = styled.div`
     }
 
     img {
-        width: 45rem;
-        height: 30rem;
-        margin-top: 10rem;
+        max-width: 100%;
+        height: 100%;
+        margin-top: 100px;
     }
 `;
