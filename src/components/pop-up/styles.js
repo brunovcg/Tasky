@@ -12,12 +12,10 @@ export const StyledGrid = materialStyled(Grid) ( ({ theme }) => ({
 export const StyledPaper = materialStyled(Paper) ( ({ theme }) => ({
   width: '100%',
   height: '100%',
-
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-
   backgroundImage: 'var(--gradient-blue)',
 }));
 
@@ -28,7 +26,8 @@ export const DivH1 = styled.div `
 `;
 
 export const H1 = styled.h1 `
-  font-size: 100%;
+  font-size: 130%;
+  font-weight: 400;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: white;
 `;
@@ -42,12 +41,10 @@ export const Form = styled.form `
 export const InputsDiv = styled.div `
   width: 100%;
   height: 100%;
-
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-
 `;
 
 export const EachDivInput = styled.div `
@@ -56,7 +53,6 @@ export const EachDivInput = styled.div `
 export const DivButton = styled.div `
   width: 100%;
   margin: 5% 0 0 0;
-
   display: flex;
   justify-content: center;
 `;
