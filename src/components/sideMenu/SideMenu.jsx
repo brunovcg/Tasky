@@ -6,9 +6,12 @@ import Button from '../button/Button';
 const SideMenu = () => {
     return(
         <Container>
-            {/* <span>
-                <MenuIcon/>
-            </span> */}
+            {/* {
+                width='500px' &&
+                <span>
+                    <MenuIcon/>
+                </span>
+            } */}
             <UserContainer>
                 <Img src={User} alt='user'/>
                 <p>User Name</p>
@@ -20,7 +23,7 @@ const SideMenu = () => {
             <ButtonContainer>
                 <Button
                     setColor={'var(--red)'}
-                    setSize={'large'}
+                    setSize={'small'}
                     click={() => console.log('Logout')}
                 >Logout</Button>
             </ButtonContainer>
