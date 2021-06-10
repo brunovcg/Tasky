@@ -1,10 +1,7 @@
 import NotFound from '../../assets/page-not-found.png';
 import {Container, Info} from './styles';
-<<<<<<< HEAD
-=======
 import SideMenu from '../../components/sideMenu/SideMenu';
 
->>>>>>> c87d8d7988a1d0a0ced4d61ac2b0bcd78b4c1633
 
 const PageNotFound = () => {
     return (

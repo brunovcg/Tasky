@@ -5,11 +5,11 @@ import * as yup                                     from 'yup';
 import { yupResolver }                              from '@hookform/resolvers/yup';
 import MyButton                                     from '../button/Button'
 import { useContext }                               from 'react';
-import { InputDataContext }                         from '../../providers/formData' 
+import { FormDataContext }                         from '../../providers/formData' 
 
 export const PopUp = ({ title, form }) => {
 
-  const { setFormData } = useContext(InputDataContext);
+  const { setFormData } = useContext(FormDataContext);
 
   let firstInput = null;
   let secondInput = null;
@@ -22,23 +22,23 @@ export const PopUp = ({ title, form }) => {
 
   if (form === 'new Habit') {
     firstInput = 'title';
-    secondInput = 'Category';
-    thirdInput = 'Frequency';
+    secondInput = 'category';
+    thirdInput = 'frequency';
     cardOne = true
   }
   if (form === 'new Group') {
-    firstInput = 'Name';
-    secondInput = 'Description';
-    thirdInput = 'Category';
+    firstInput = 'name';
+    secondInput = 'description';
+    thirdInput = 'category';
     cardTwo = true;
   }
   if (form === 'new Activity') {
-    firstInput = 'Title';
+    firstInput = 'title';
     cardThree = true;
   }
   if (form === 'new Goal') {
-    firstInput = 'Title';
-    secondInput = 'Difficult';
+    firstInput = 'title';
+    secondInput = 'difficult';
     percentage = '%';
     cardFour = true;
   }

@@ -1,12 +1,12 @@
-import { InputDataProvider } from './formData'
+import { FormDataProvider } from './formData'
 
 const providers = ({children}) => {
     //colocar o children como filho
     
     return (
-        <InputDataProvider>
+        <FormDataProvider>
             {children}
-        </InputDataProvider>
+        </FormDataProvider>
     )
 }
 
