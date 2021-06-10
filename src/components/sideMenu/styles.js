@@ -9,11 +9,6 @@ export const Container = styled.div`
     align-items: center;
     justify-content: space-between;
 
-    span {
-        color: var(--white);
-        visibility: hidden;
-    }
-
     @media (max-width: 500px) {
         width: 7vw;
         height: 1.5vh;
@@ -46,6 +41,11 @@ export const Img = styled.img`
     background-color: #dcdcdc;
     margin-top: 2rem;
     align-items: center;
+
+    @media (max-width: 700px) {
+        width: 2rem;
+        height: 2rem;
+    }
 `;
 
 export const LinkContainer = styled.div`
@@ -59,15 +59,23 @@ export const Link = styled.a`
     height: 3vh;
     border-bottom: 1px solid var(--white);
     color: var(--white);
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin: 1rem;
 
     :hover {
         font-weight: bold;
         border-bottom: 2px solid var(--white);
     }
+
+    @media (max-width: 700px) {
+        font-size: 0.8rem;
+    }
 `;
 
 export const ButtonContainer = styled.div`
     margin-bottom: 1rem;
+
+    @media (max-width: 500px) {
+        visibility: hidden;
+    }
 `;
