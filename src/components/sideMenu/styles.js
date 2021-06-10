@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    width: 10vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background: var(--gradient-blue);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
 
     @media (max-width: 500px) {
         width: 7vw;
@@ -73,9 +73,14 @@ export const Link = styled.a`
 `;
 
 export const ButtonContainer = styled.div`
-    margin-bottom: 1rem;
+    margin: 1rem;
 
     @media (max-width: 500px) {
         visibility: hidden;
     }
+`;
+
+export const GroupMembers = styled.div`
+    height: fit-content;
+    width: 90%;
 `;

@@ -1,4 +1,4 @@
-import {Container, UserContainer, Link, LinkContainer, ButtonContainer, Img} from './styles';
+import {Container, UserContainer, Link, LinkContainer, ButtonContainer, Img, GroupMembers} from './styles';
 import User from '../../assets/user.png';
 // import MenuIcon from '@material-ui/icons/Menu';
 import Button from '../button/Button';
@@ -27,6 +27,7 @@ const SideMenu = () => {
                     click={() => console.log('Logout')}
                 >Logout</Button>
             </ButtonContainer>
+            <GroupMembers/>
         </Container>
     )
 }
