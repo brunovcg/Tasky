@@ -10,13 +10,11 @@ const Group = () => {
 
     const [hidden, setHidden] = useState(true);
 
-    const {useWindowDimensions} = useWindowSize()
+    const {useWindowDimensions} = useWindowSize();
 
-    const {width} = useWindowDimensions()
-
+    const {width} = useWindowDimensions();
 
     const changeDisplay = () => {
-
         setHidden(!hidden)
     }
 

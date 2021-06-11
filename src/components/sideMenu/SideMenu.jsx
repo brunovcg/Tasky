@@ -3,9 +3,16 @@ import User from '../../assets/user.png';
 // import MenuIcon from '@material-ui/icons/Menu';
 import Button from '../button/Button';
 import {MembersContainer} from './styles';
+import { useWindowSize } from '../../providers/windowSize';
 
 
 const SideMenu = () => {
+    
+    const {useWindowDimensions} = useWindowSize()
+
+    const {width} = useWindowDimensions()
+
+
     return(
         <>
         <Container>
@@ -26,7 +33,7 @@ const SideMenu = () => {
             <ButtonContainer>
                 <Button
                     setColor={'var(--red)'}
-                    setSize={'small'}
+                    setSize={'medium'}
                     click={() => console.log('Logout')}
                 >Logout</Button>
             </ButtonContainer>
@@ -38,13 +45,9 @@ const SideMenu = () => {
                 <div>membro 3</div>
                 <div>membro 4</div> */}
             </MembersContainer>
-
         </Container>
 
-
-            
-
-            </>
+        </>
     )
 }
 

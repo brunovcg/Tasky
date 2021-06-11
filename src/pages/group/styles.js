@@ -68,8 +68,7 @@ export const GroupContainer = styled.div`
             .activitiesTitle{
                 display: flex;
                 justify-content: center;
-                align-items: center;
-                
+                align-items: center;            
             }
 
             .activitiesMain{
@@ -79,10 +78,7 @@ export const GroupContainer = styled.div`
             @media (max-width: 500px) {
                 width:100%;
             }
-        
         }
-
-        
     }
 
 

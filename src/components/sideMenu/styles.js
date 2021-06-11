@@ -56,7 +56,6 @@ export const LinkContainer = styled.div`
 
 export const Link = styled.a`
     width: 7vw;
-    height: 3vh;
     border-bottom: 1px solid var(--white);
     color: var(--white);
     font-size: 1rem;
