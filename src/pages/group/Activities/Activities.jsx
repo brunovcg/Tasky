@@ -1,5 +1,5 @@
 
-import { ActivitiesContainer } from "./styles"
+import { ActivitiesContainer } from "../styles"
 
 
 const Activities = () => {
