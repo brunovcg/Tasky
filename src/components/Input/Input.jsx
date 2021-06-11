@@ -1,9 +1,9 @@
-import {Container} from './styles'
+import {Container, StyledInput} from './styles'
 
-const Input = ({ ...rest }) => {
+const Input = ({...rest }) => {
     return (
         <Container>
-            <input { ...rest } />
+           <StyledInput {...rest}/>
         </Container>
     )
 }

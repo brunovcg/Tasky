@@ -73,7 +73,7 @@ export const Container = styled.div`
                     height: 1rem;
                     height: fit-content;
                     background-color: var(--dark-red);
-                    font-size: 0.8rem;
+                    font-size: 1rem;
                     font-variant: small-caps;
                     color: var(--white);
                     font-family: sans-serif;
