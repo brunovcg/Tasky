@@ -64,5 +64,10 @@ export const Input = styled.input `
   margin: 3% 0;
 `;
 
-
+export const Select = styled.select `
+  width: 100%;
+  padding: 4% 5%;
+  border: none;
+  margin: 2% 0;
+`
 
