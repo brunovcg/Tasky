@@ -1,6 +1,5 @@
 import NotFound from '../../assets/page-not-found.png';
-import {Container, Info} from './styles';
-import SideMenu from '../../components/sideMenu/SideMenu';
+import {Container, Info} from './styles.js';
 
 
 const PageNotFound = () => {

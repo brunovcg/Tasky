@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 const MyButton = styled.button`
-    width: ${props=> {if(props.setSize === "large") {return "90px"}     
+    width: ${props=> {if(props.setSize === "huge") {return "180px"}  
+        else if (props.setSize === "large") { return "90px"}    
         else if (props.setSize === "medium") { return "70px"} 
         else {return "50px"}
     }};
@@ -12,7 +13,8 @@ const MyButton = styled.button`
     border-radius: 5px;
     margin: 5px;
     font-weight: bold;
-    font-size: ${props=> {if(props.setSize === "large") {return "0.8rem"}     
+    font-size: ${props=> {if(props.setSize === "huge") {return "0.9rem"}     
+        else if (props.setSize === "large") { return "0.8rem"} 
         else if (props.setSize === "medium") { return "0.7rem"} 
         else {return "0.5rem"}
     }};
