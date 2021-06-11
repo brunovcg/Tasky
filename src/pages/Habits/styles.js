@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Card = styled.div`
-    width: 29%;
+    width: 14rem;
     height: 18%;
     padding: 1rem;
     margin: 1rem;
@@ -15,6 +15,10 @@ export const Card = styled.div`
 
     :hover {
         box-shadow: 1px 1px 5px var(--grey);
+    }
+
+    @media (max-width: 500px) {
+        width: 12rem;
     }
 `;
 
@@ -30,7 +34,13 @@ export const CardButtons = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-left: 1rem
+    margin-left: 1rem;
+    
+   
+
+    @media (max-width: 500px) {
+        margin-left: 0rem;
+    }
 `
 
 export const HeaderOfHabits = styled.div`
