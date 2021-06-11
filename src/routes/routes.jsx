@@ -16,7 +16,7 @@ const routes = () => {
             <Route path='/login' >
                 <Login />
             </Route>
-            <Route>
+            <Route path='/dashboard/home'>
                 <Dashboard/>
             </Route>
             <Route>
