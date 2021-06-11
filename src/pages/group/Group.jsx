@@ -15,9 +15,6 @@ const Groups = () => {
             <div className="mainContainer">
 
             </div>
-
-
-
         </>
     )
 }
