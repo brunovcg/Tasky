@@ -1,10 +1,12 @@
 import { WindowSizeProvider } from "./windowSize";
-
+import { FormDataProvider } from './formData';
 
 const providers = ({children}) => {
     return(
         <WindowSizeProvider>
-            {children}
+            <FormDataProvider>
+                {children}
+            </FormDataProvider>
         </WindowSizeProvider>
     )
 }
