@@ -1,6 +1,6 @@
 import NotFound from '../../assets/page-not-found.png';
-import {Container, Info} from './styles';
-import Button from '../../components/button/Button'
+import {Container, Info} from './styles.js';
+
 
 const PageNotFound = () => {
     return (

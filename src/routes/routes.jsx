@@ -1,30 +1,25 @@
 import {Route, Switch} from 'react-router-dom';
+import Login from '../pages/Login/Login';
 import PageNotFound from '../pages/pageNotFound/PageNotFound';
+import SignUp from '../pages/signUp/SignUp';
+import Dashboard from '../pages/dashboard/Dashboard';
+import Home from '../pages/Home/Home';
 
 const routes = () => {
     return (
         <Switch>
-            {/* <Route>
+            <Route exact path='/'>
                 <Home/>
             </Route>
-            <Route>
-                <Signup/>
+            <Route path='/signup'>
+                <SignUp/>
             </Route>
-            <Route>
-                <Login/>
+            <Route path='/login' >
+                <Login />
             </Route>
-            <Route>
+            <Route path='/dashboard'>
                 <Dashboard/>
             </Route>
-            <Route>
-                <Habits/>
-            </Route>
-            <Route>
-                <Groups/>
-            </Route>
-            <Route>
-                <Group/>
-            </Route> */}
             <Route>
                 <PageNotFound/>
             </Route>
