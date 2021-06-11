@@ -8,7 +8,7 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-
+ 
     @media (max-width: 500px) {
         width: 7vw;
         height: 1.5vh;
@@ -84,3 +84,13 @@ export const GroupMembers = styled.div`
     height: fit-content;
     width: 90%;
 `;
+
+export const MembersContainer = styled.div`
+    background-color: var(--blue);
+    width: 90%;
+    height: fit-content;
+    color: var(--white);
+    font-size: 0.8rem;
+    padding-left: 5px;
+   
+`

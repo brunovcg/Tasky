@@ -82,54 +82,30 @@ export const GroupContainer = styled.div`
         
         }
 
-
-
-
-
-        
-
-        @media (max-width: 500px){
-            .hidden{
-                display: none;
-            }
-        }
-
         
     }
 
 
     @media (max-width: 500px){
-            position: absolute;
-            left:0;
-            width: 100vw;
-
-           
-
+        position: absolute;
+        left:0;
+        width: 100vw;         
     }
-
- 
-
- 
-
-
 `
 
 export const GoalsContainer = styled.div`
-
     background-color: var(--dark-grey);
     width: 100%;
     height: 70px;
     margin: 10px 0;
-
-
 `
 
 export const ActivitiesContainer = styled.div`
-
     background-color: var(--dark-grey);
     width: 100%;
     height: 70px;
     margin: 10px 0;
-
-
 `
+
+
+

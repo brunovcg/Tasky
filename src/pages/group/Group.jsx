@@ -6,7 +6,7 @@ import { useState} from 'react';
 import { useWindowSize } from '../../providers/windowSize';
 
 
-const Groups = () => {
+const Group = () => {
 
     const [hidden, setHidden] = useState(true);
 
@@ -50,15 +50,9 @@ const Groups = () => {
                     
                     : ( hidden ? <ActivitiesList/> : <GoalsList/>)
                  }
-                      
-                
-                
             </div>
-
-
-
         </GroupContainer>
     )
 }
 
-export default Groups
+export default Group
