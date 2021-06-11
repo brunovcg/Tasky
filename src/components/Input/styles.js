@@ -11,12 +11,12 @@ export const Container = styled.div`
 
     input{
         background: transparent;
-        color: var (--grey);
+        color: var(--grey);
         border: 0;
         height: 100%;
         width: 100%;
         &::placeholder{
-            color: var(--grey)
+            color: var(--grey);
         }
     }
 `;

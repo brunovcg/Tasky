@@ -9,7 +9,7 @@ const routesDashboard = () => {
                 <HomeDashboard/>
             </Route>
             <Route path='/dashboard/groups'>
-                <Groups/>
+                {/* <Groups/> */}
             </Route>
         </Switch>
     )
