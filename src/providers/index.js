@@ -1,5 +1,12 @@
+import { WindowSizeProvider } from "./windowSize";
+
+
 const providers = ({children}) => {
-    //colocar o children como filho
+    return(
+    <WindowSizeProvider>
+        {children}
+    </WindowSizeProvider>
+    )
 }
 
 export default providers;
