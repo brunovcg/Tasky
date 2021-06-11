@@ -21,9 +21,6 @@ const Groups = () => {
     }
 
 
- 
-
-
     return(
         <GroupContainer>
 
