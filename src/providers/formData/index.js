@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useContext } from 'react';
 
 export const FormDataContext = createContext();
 
@@ -12,3 +12,5 @@ export const FormDataProvider = ({ children }) => {
     </FormDataContext.Provider>
   );
 };
+
+export const usePopUp = () => useContext(FormDataContext);

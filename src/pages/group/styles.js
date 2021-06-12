@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const GroupContainer = styled.div`
-
     padding: 20px;
 
     .headerGroup{
@@ -36,13 +35,13 @@ export const GroupContainer = styled.div`
 
     .mainGroup{
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
         width: 100%;
         margin-top:10px;
 
         .groupGoals{
             margin: 20px 0;
-            width: 45%;
+            width: 40%;
             
             
             .goalTitle{
@@ -68,7 +67,7 @@ export const GroupContainer = styled.div`
 
         .groupActivities{
             margin: 20px 0;
-            width: 45%;
+            width: 55%;
             
             .activitiesTitle{
                 display: flex;
@@ -104,14 +103,48 @@ export const GoalsContainer = styled.div`
     height: 170px;
     margin: 10px 0;
     display: flex;
-   
+    border-radius: 8px;
 
     .infoContainer{
         width:50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 30px;
+
+        h3{
+            padding-bottom: 7px;
+            color: var(--white);
+        }
+
+        p{
+            color: white;
+            font-variant: small-caps;
+            font-weight: bold;
+            width: 100px;
+            margin: 5px 0;
+            border-radius: 8px;
+            padding: 2px 0 2px 5px;
+        }
+
+        .doneContainer{
+                background-color: var(--blue);
+                .doneInfo{
+                    font-weight: normal;
+                }
+            }
+           
+        .todoContainer{
+            background-color: var(--red); 
+            .todoInfo{
+                
+                font-weight: normal;
+            }
+        }
     }
 
     .chartContainer{
-        width: 70%;
+        width: 65%;
         height: 100%;
         display: flex;
         flex-direction: column-reverse;
@@ -119,7 +152,7 @@ export const GoalsContainer = styled.div`
         justify-content: center;
 
         .chartBox{
-            width: 45%;
+            width: 50%;
             height: 80%;
             display: flex;
             justify-content: center;
@@ -131,38 +164,7 @@ export const GoalsContainer = styled.div`
 
         }
 
-        .label{
-            color: var(--white);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height:20%;
-            width: 100%;
-
-            .colorContainer{
-
-                display: flex;
-                width:50%;
-                justify-content: center;
-                align-items: center;
-                
-
-                .colorBox{
-                    width: 10px;
-                    height: 10px;
-                    margin-right:4px;
-                
-                }
-
-                .red{
-                    background-color: var(--red)
-                }
-
-                .blue{
-                    background-color: var(--blue)
-                }
-            }
-        }
+        
 
     }
 `
@@ -170,8 +172,40 @@ export const GoalsContainer = styled.div`
 export const ActivitiesContainer = styled.div`
     background-color: var(--dark-grey);
     width: 100%;
-    height: 70px;
+    height: 120px;
     margin: 10px 0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .taskContainer{
+        width: 80%;
+
+        p{  
+            font-size: 0.9rem;
+            color: var(--white);
+            padding: 12px 12px 12px 20px;
+            display: flex;
+            height: 100%;
+            width: 95%;
+        }
+
+        @media(max-width: 500px){
+            width: 70%;
+        }
+    }
+   
+
+    .buttonContainer{
+        width: 25%;
+        display: flex;
+        justify-content: center;
+
+        @media(max-width: 500px){
+            width: 30%;
+        }
+    }
 `
 
 

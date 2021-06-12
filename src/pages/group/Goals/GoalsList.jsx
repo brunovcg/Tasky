@@ -1,8 +1,17 @@
 import Goals from './Goals';
 import Button from '../../../components/button/Button'
-
+// import {PopUp} from '../../../components/pop-up/PopUp' 
+import { useState } from 'react';
 
 const GoalsList = () => {
+
+    const [goalPopUp, setGoalPopUp] = useState(false)
+
+
+    const handleNewGoal = () => {
+        setGoalPopUp(!goalPopUp)
+    }
+
 
 
     return(
@@ -22,6 +31,11 @@ const GoalsList = () => {
                         <Goals/>     
                         <Goals/>          
                     </div>
+
+                    <div className="popUps">
+
+                    </div>
+
                 </div>
     )
 }

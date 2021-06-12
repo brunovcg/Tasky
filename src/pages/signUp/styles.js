@@ -3,7 +3,7 @@ import styled, {css} from 'styled-components'
 export const Container = styled.div`
 
     display: flex;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
 
     .whiteBox, .blueBox{
@@ -16,6 +16,7 @@ export const Container = styled.div`
     }
 
     .whiteBox{
+        background-color: var(--white);
         
         .whiteBoxTitle{
             height: 85%;
