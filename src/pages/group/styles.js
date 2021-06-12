@@ -36,7 +36,7 @@ export const GroupContainer = styled.div`
 
     .mainGroup{
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
         width: 100%;
         margin-top:10px;
 
@@ -47,13 +47,18 @@ export const GroupContainer = styled.div`
             
             .goalTitle{
                 display: flex;
-                justify-content: center;
+                justify-content: space-between;
                 align-items: center;
-                
+
+                h3{
+                    color:var(--red);
+                }
             }
 
             .goalMain{
                 margin-top: 20px;
+
+              
             }
 
             @media (max-width: 500px) {
@@ -67,8 +72,12 @@ export const GroupContainer = styled.div`
             
             .activitiesTitle{
                 display: flex;
-                justify-content: center;
-                align-items: center;            
+                justify-content: space-between;
+                align-items: center;     
+
+                h3{
+                    color:var(--red);
+                }       
             }
 
             .activitiesMain{
@@ -92,8 +101,70 @@ export const GroupContainer = styled.div`
 export const GoalsContainer = styled.div`
     background-color: var(--dark-grey);
     width: 100%;
-    height: 70px;
+    height: 170px;
     margin: 10px 0;
+    display: flex;
+   
+
+    .infoContainer{
+        width:50%;
+    }
+
+    .chartContainer{
+        width: 70%;
+        height: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+
+        .chartBox{
+            width: 45%;
+            height: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            @media(max-width: 500px){
+                width: 60%;
+            }
+
+        }
+
+        .label{
+            color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height:20%;
+            width: 100%;
+
+            .colorContainer{
+
+                display: flex;
+                width:50%;
+                justify-content: center;
+                align-items: center;
+                
+
+                .colorBox{
+                    width: 10px;
+                    height: 10px;
+                    margin-right:4px;
+                
+                }
+
+                .red{
+                    background-color: var(--red)
+                }
+
+                .blue{
+                    background-color: var(--blue)
+                }
+            }
+        }
+
+    }
 `
 
 export const ActivitiesContainer = styled.div`

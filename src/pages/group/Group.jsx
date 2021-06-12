@@ -1,9 +1,10 @@
-import GoalsList from './GoalsList'
-import ActivitiesList from './ActivitiesList'
+import GoalsList from './Goals/GoalsList'
+import ActivitiesList from './Activities/ActivitiesList'
 import {GroupContainer} from './styles';
 import Button from '../../components/button/Button'
 import { useState} from 'react';
 import { useWindowSize } from '../../providers/windowSize';
+
 
 
 const Group = () => {
@@ -49,6 +50,7 @@ const Group = () => {
                     : ( hidden ? <ActivitiesList/> : <GoalsList/>)
                  }
             </div>
+
         </GroupContainer>
     )
 }
