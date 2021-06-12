@@ -1,5 +1,5 @@
 import Goals from './Goals';
-import Button from '../../../components/button/Button'
+import Button from '../../../components/button/Button';
 // import {PopUp} from '../../../components/pop-up/PopUp' 
 import { useState } from 'react';
 

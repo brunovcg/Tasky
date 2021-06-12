@@ -54,13 +54,18 @@ export const Container = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: center;
+        height: 100%;
 
         .blueBoxForm{
-            height: 85%;
+            height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding-top: 20px;
+
+           
+            div{
+                margin-top: 15px;
+            }
 
             .blueBoxFormError{
                 height: 5%;
@@ -88,7 +93,11 @@ export const Container = styled.div`
         }
 
         .blueBoxButton{
+            margin-top: 10px;
             height: 15%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
 
@@ -115,7 +124,7 @@ export const Container = styled.div`
         }
 
         .blueBox{
-            height: 75%;
+            height: 100%;
 
             .blueBoxForm{
 
