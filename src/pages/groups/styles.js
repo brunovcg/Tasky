@@ -11,7 +11,7 @@ export const HeaderContainer = styled.div`
 `;
 
 export const Card = styled.div`
-    width: 45%;
+    width: 30%;
     height: 10%;
     padding: 1rem;
     margin: 1rem;
@@ -38,8 +38,9 @@ export const Card = styled.div`
     }
 
     @media (max-width: 500px) {
+        align-content: center;
         .img {
-            margin: auto;
+            margin: 5px auto 0;
         }
     }
 `;
