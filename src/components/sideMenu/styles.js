@@ -15,6 +15,7 @@ export const Container = styled.div`
             else if (props.setVisibility === 'visible') {return 'visible'}
         }};
         position: absolute;
+        z-index: 2;
         width: 50%;
         height: 100%;         
     }
