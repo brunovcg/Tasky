@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const StyledGrid = materialStyled(Grid) ( ({ theme }) => ({
-  width: '100vw',
+  width: '100%',
   height: '100vh',
   background: 'white',
 

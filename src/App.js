@@ -4,7 +4,7 @@ import Routes from './routes/routes';
 function App() {
 
   return (
-    <div> 
+    <div id="mainBody"> 
       <GlobalStyle/>
       <Routes/>
     </div>

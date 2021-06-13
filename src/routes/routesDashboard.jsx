@@ -7,7 +7,7 @@ import Habits from '../pages/Habits/Habits';
 const routesDashboard = () => {
     return (
         <Switch>
-            <Route path='/dashboard/home'>
+            <Route exact path='/dashboard/'>
                 <HomeDashboard/>
             </Route>
             <Route path='/dashboard/habits'>
