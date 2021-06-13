@@ -32,5 +32,13 @@ export const Header = styled.header`
         position: absolute;
         top: 20px;
         right: 10px;
+        transition: 0.4s;
+    }
+
+    @media (max-width: 500px) {
+        h1 {
+            font-size: 20px;
+            top: 32px;
+        }
     }
 `;

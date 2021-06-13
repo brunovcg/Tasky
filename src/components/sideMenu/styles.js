@@ -10,17 +10,27 @@ export const Container = styled.div`
     justify-content: flex-start;
  
     @media (max-width: 500px) {
-        width: 7vw;
-        height: 1.5vh;
-
-        span {
-            visibility: visible;
-        }
+        visibility: ${props => {
+            if (props.setVisibility === 'hidden') {return 'hidden'}
+            else if (props.setVisibility === 'visible') {return 'visible'}
+        }};
+        position: absolute;
+        width: 50%;
+        height: 100%;         
     }
+`;
+
+export const MenuBurguer = styled.button`
+    left: 5px;
+    background-color: transparent;
+    border: none;
+    color: var(--red);
+    position: relative;
 `;
 
 export const UserContainer = styled.div`
     text-align: center;
+    transition: 0.1s;
 
     p {
         text-align: center;
@@ -28,7 +38,7 @@ export const UserContainer = styled.div`
     }
 
     @media (max-width: 500px) {
-        visibility: hidden;
+        
     }
 
 `;
@@ -55,7 +65,6 @@ export const LinkContainer = styled.div`
 `;
 
 export const Link = styled.a`
-    width: 7vw;
     border-bottom: 1px solid var(--white);
     color: var(--white);
     font-size: 1rem;
@@ -75,7 +84,7 @@ export const ButtonContainer = styled.div`
     margin: 1rem;
 
     @media (max-width: 500px) {
-        visibility: hidden;
+        
     }
 `;
 
