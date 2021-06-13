@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    width: 100vw;
+    width: 100%;
     height: fit-content;
     min-height: 100vh;
     display: flex;
@@ -27,6 +27,7 @@ export const Header = styled.header`
     align-items: center;
     height: 10vh;
     color: var(--red);
+    position: relative;
 
     h1 {
         position: absolute;

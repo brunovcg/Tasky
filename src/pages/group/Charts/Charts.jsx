@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Doughnut, Line } from 'react-chartjs-2';
+import { Doughnut} from 'react-chartjs-2';
 
 
   
-  export const PieChart = () => {
+  export const PieChart = ({doneData, todoData}) => {
       const [chartData, setChartData] = useState({})
 
         const chart = () => {
@@ -13,10 +13,10 @@ import { Doughnut, Line } from 'react-chartjs-2';
                 datasets:[
                     {
                         label: "Taskys Status",
-                        data:[90,10],
+                        data:[todoData,doneData],
                         backgroundColor:[
-                            '#42b1dc',
-                            '#f20505'
+                            '#f20505',
+                            '#42b1dc'
                         ],
                         borderWidth:1,
                     }

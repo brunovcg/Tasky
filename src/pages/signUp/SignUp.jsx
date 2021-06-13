@@ -21,68 +21,70 @@ const SignUp = () => {
             </div>
 
             <div className="blueBox">
-                <div className="blueBoxForm">
+                <form>
+                    <div className="blueBoxForm">
+                        
+                            <Input
+                                placeholder="User Name"    
+                                register={""}
+                                name="userName"
+                            />
+                            <div className={"blueBoxFormError"}>
+                                <p>{"erro teste"}</p>
+                            </div>
 
-                    <Input
-                        placeholder="User Name"    
-                        register={""}
-                        name="userName"
-                    />
-                    <div className={"blueBoxFormError"}>
-                        <p>{"erro teste"}</p>
-                    </div>
+                            <Input
+                                placeholder="What's your e-email?"    
+                                register={""}
+                                name="email"
+                            />
+                            <div className={"blueBoxFormError"}>
+                                <p>{""}</p>
+                            </div>
 
-                    <Input
-                        placeholder="What's your e-email?"    
-                        register={""}
-                        name="email"
-                    />
-                    <div className={"blueBoxFormError"}>
-                        <p>{""}</p>
-                    </div>
+                            <Input
+                                placeholder="Please confirm you e-mail"    
+                                register={""}
+                                name="confirmEmail"
+                            />
+                            <div className={"blueBoxFormError"}>
+                                <p>{""}</p>
+                            </div>
 
-                    <Input
-                        placeholder="Please confirm you e-mail"    
-                        register={""}
-                        name="confirmEmail"
-                    />
-                    <div className={"blueBoxFormError"}>
-                        <p>{""}</p>
-                    </div>
+                            <Input
+                                placeholder="Chose a password"    
+                                register={""}
+                                name="password"
+                                type="password"
+                            />
+                            <div className={"blueBoxFormError"}>
+                                <p>{""}</p>
+                            </div>
 
-                    <Input
-                        placeholder="Chose a password"    
-                        register={""}
-                        name="password"
-                        type="password"
-                    />
-                    <div className={"blueBoxFormError"}>
-                        <p>{""}</p>
-                    </div>
+                            <Input
+                                placeholder="Please confirm password"    
+                                register={""}
+                                name="confirmPassword"
+                                type="password"
+                            />
+                            <div className={"blueBoxFormError"}>
+                                <p>{"erro teste 2"}</p>
+                            </div>
+                        </div>  
 
-                    <Input
-                        placeholder="Please confirm password"    
-                        register={""}
-                        name="confirmPassword"
-                        type="password"
-                    />
-                    <div className={"blueBoxFormError"}>
-                        <p>{"erro teste 2"}</p>
-                    </div>
-                </div>  
-                <div className="blueBoxButton">
+                        <div className="blueBoxButton">
 
-                    <Button 
-                        setColor={'var(--red)'}
-                        setSize={'large'}
-                        click={()=>console.log("test sign up")}
-                        type="submit"
-                        >Sign Up
-                    </Button>
-                </div>
-                
+                            <Button 
+                                setColor={'var(--red)'}
+                                setSize={'large'}
+                                click={()=>console.log("test sign up")}
+                                type="submit"
+                                >Sign Up
+                            </Button>
+                        </div>
+                    </form>
             </div>
-
+            
         </Container>
     )
 }
