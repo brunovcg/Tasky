@@ -7,25 +7,13 @@ const Goals = () => {
     return(
         <GoalsContainer>
             <div className="infoContainer">
-                <h3>Goal</h3>
+                <h3>Title</h3>
+                <p>Dificult: <span>{"Easy"}</span></p>
+                <p className="doneContainer">Done: <span className="doneInfo">{10}%</span></p>
+                <p className="todoContainer">To-Do: <span className="todoInfo">{90}%</span></p>
             </div>
             <div className="chartContainer">
-                
-                <div className="label"> 
-                    <div className="colorContainer">
-                        <div className="colorBox red"></div>
-                        <h6>Done</h6>
-                    </div>
-                        
-                    <div className="colorContainer">
-                        <div className="colorBox blue"></div>
-                        <h6>To-do</h6>
-                    </div>
-                </div>
-
-
-
-                <PieChart/>
+                <PieChart doneData={10} todoData={90}/>
             </div>
             
         </GoalsContainer>

@@ -4,7 +4,9 @@ export const Container = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 10rem 5rem;
+    margin: 20vh auto;
+    width: 100%;
+    background-color: var(--white);
 
     img {
         width: 50vw;

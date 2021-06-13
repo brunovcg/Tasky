@@ -102,7 +102,7 @@ export const PopUp = ({ title, form }) => {
             { completeAct && <Select {...register(completeAct)} > { ['one', 'two', 'tree', 'four'].map( (el) => <option> {el} </option> ) } </Select> }
           </InputsDiv>
           <DivButton>
-            <MyButton type='submit' setColor='red' setSize='large' >Salvar</MyButton>
+            <MyButton type='submit' setColor='red' setSize='large'>Salvar</MyButton>
           </DivButton>
         </Form>
       </StyledPaper>

@@ -24,10 +24,10 @@ const Login = () => {
         </FirstDiv>
         <SecondDiv>
           <H1Title >Login</H1Title>
-          <H1DesktopText>Don't have an account yet? <StyledLink to='/sigup' >Sign Up</StyledLink> </H1DesktopText>
+          <H1DesktopText>Don't have an account yet? <StyledLink to='/signup' >Sign Up</StyledLink> </H1DesktopText>
         </SecondDiv>
         <ThirdDiv>
-          <H1text>Don't have an account yet? <StyledLink to='/sigup' >Sign Up</StyledLink> </H1text>
+          <H1text>Don't have an account yet? <StyledLink to='/signup' >Sign Up</StyledLink> </H1text>
           <BottomH1>Tasky</BottomH1>
         </ThirdDiv>
       </HeaderGrid>
