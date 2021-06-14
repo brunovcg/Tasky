@@ -9,6 +9,14 @@ export const Container = styled.div`
     height: 100vh;
     background: var(--gradient-blue);
     
+    .taskMobile{
+        display: none;
+    }
+
+    .titleMobile{
+        display: none;
+    }
+
     p{
         font-size: 0.8rem;
         color: var(--maroon);
@@ -38,5 +46,46 @@ export const Container = styled.div`
         Button{
             margin: 1rem;
         }
+    }
+
+    @media (max-width: 660px){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        background: var(--gradient-blue);
+
+        .mobileTop{
+            background: var(--white);
+            height: 30%;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            .taskMobile{
+                display: flex;
+            }
+        
+            .titleMobile{
+                display: flex;
+            }
+
+            .task{
+                display: none
+            }
+        }    
+        
+        .whiteBox{
+
+            margin-top: 4rem;
+
+            .title{
+                display: none;
+            }
+        }
+        
     }
 `
