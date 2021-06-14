@@ -1,9 +1,9 @@
 import {Container, StyledInput} from './styles'
 
-const Input = ({...rest }) => {
+const Input = ({register, name, ...rest}) => {
     return (
         <Container>
-           <StyledInput {...rest}/>
+            <input {...register(name)} { ...rest }/>
         </Container>
     )
 }
