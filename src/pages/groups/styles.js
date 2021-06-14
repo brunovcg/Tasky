@@ -37,11 +37,9 @@ export const Card = styled.div`
         height: 50px;
     }
 
-    @media (max-width: 500px) {
-        align-content: center;
-        .img {
-            margin: 5px auto 0;
-        }
+    @media (max-width: 686px) {
+        justify-content: space-between;
+        width: 90%;
     }
 `;
 
@@ -50,4 +48,10 @@ export const CardsContainer = styled.div`
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-evenly;
+
+    @media (max-width: 686px) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 `;
