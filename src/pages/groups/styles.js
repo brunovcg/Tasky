@@ -52,5 +52,6 @@ export const CardsContainer = styled.div`
     @media (max-width: 686px) {
         flex-direction: column;
         justify-content: center;
+        align-items: center;
     }
 `;
