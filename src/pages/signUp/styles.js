@@ -3,7 +3,7 @@ import styled, {css} from 'styled-components'
 export const Container = styled.div`
 
     display: flex;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
 
     .whiteBox, .blueBox{
@@ -16,6 +16,8 @@ export const Container = styled.div`
     }
 
     .whiteBox{
+        background-color: var(--white);
+    
         
         .whiteBoxTitle{
             height: 85%;
@@ -24,14 +26,19 @@ export const Container = styled.div`
             justify-content: center;
 
             h2{
-                font-size: 2.5rem;
+                font-size: 4rem;
                 text-align: center;
                 color: var(--red);
+
+                @media (max-width:500px){
+                    font-size: 3rem;
+                }
             }
 
             p{
                 font-size: 0.8rem;
                 color: var(--dark-red);
+                text-align: center;
             }
 
             a{
@@ -53,13 +60,18 @@ export const Container = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: center;
+        height: 100%;
 
         .blueBoxForm{
-            height: 85%;
+            height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding-top: 20px;
+
+           
+            div{
+                margin-top: 15px;
+            }
 
             .blueBoxFormError{
                 height: 5%;
@@ -87,7 +99,11 @@ export const Container = styled.div`
         }
 
         .blueBoxButton{
+            margin-top: 10px;
             height: 15%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
 
@@ -114,7 +130,7 @@ export const Container = styled.div`
         }
 
         .blueBox{
-            height: 75%;
+            height: 100%;
 
             .blueBoxForm{
 

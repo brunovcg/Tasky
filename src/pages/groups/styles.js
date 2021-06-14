@@ -11,7 +11,7 @@ export const HeaderContainer = styled.div`
 `;
 
 export const Card = styled.div`
-    width: 45%;
+    width: 30%;
     height: 10%;
     padding: 1rem;
     margin: 1rem;
@@ -37,10 +37,9 @@ export const Card = styled.div`
         height: 50px;
     }
 
-    @media (max-width: 500px) {
-        .img {
-            margin: auto;
-        }
+    @media (max-width: 686px) {
+        justify-content: space-between;
+        width: 90%;
     }
 `;
 
@@ -49,4 +48,10 @@ export const CardsContainer = styled.div`
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-evenly;
+
+    @media (max-width: 686px) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 `;

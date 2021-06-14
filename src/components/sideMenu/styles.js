@@ -10,17 +10,30 @@ export const Container = styled.div`
     justify-content: flex-start;
  
     @media (max-width: 500px) {
-        width: 7vw;
-        height: 1.5vh;
-
-        span {
-            visibility: visible;
-        }
+        visibility: ${props => {
+            if (props.setVisibility === 'hidden') {return 'hidden'}
+            else if (props.setVisibility === 'visible') {return 'visible'}
+        }};
+        position: absolute;
+        z-index: 2;
+        width: 50%;
+        height: 100vh;         
     }
+`;
+
+export const MenuBurguer = styled.button`
+    left: 10px;
+    top: 10px;
+    background-color: transparent;
+    border: none;
+    color: var(--red);
+    position: absolute;
+    z-index: 3;
 `;
 
 export const UserContainer = styled.div`
     text-align: center;
+    transition: 0.1s;
 
     p {
         text-align: center;
@@ -28,7 +41,7 @@ export const UserContainer = styled.div`
     }
 
     @media (max-width: 500px) {
-        visibility: hidden;
+        
     }
 
 `;
@@ -54,12 +67,15 @@ export const LinkContainer = styled.div`
     margin-top: 1.5rem;
 `;
 
-export const Link = styled.a`
-    width: 7vw;
+export const StyledLink = styled.a`
     border-bottom: 1px solid var(--white);
     color: var(--white);
     font-size: 1rem;
     margin: 1rem;
+
+    a {
+        color: var(--white)
+    }
 
     :hover {
         font-weight: bold;
@@ -75,7 +91,7 @@ export const ButtonContainer = styled.div`
     margin: 1rem;
 
     @media (max-width: 500px) {
-        visibility: hidden;
+        
     }
 `;
 
