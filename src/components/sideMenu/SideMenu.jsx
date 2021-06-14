@@ -1,4 +1,4 @@
-import {Container, UserContainer, Link, LinkContainer, ButtonContainer, Img, GroupMembers, MenuBurguer} from './styles';
+import {Container, UserContainer, StyledLink, LinkContainer, ButtonContainer, Img, GroupMembers, MenuBurguer} from './styles';
 import User from '../../assets/user.png';
 import Button from '../button/Button';
 import {MembersContainer} from './styles';
@@ -18,7 +18,6 @@ const SideMenu = ({setVisibility}) => {
 
     const changeDisplay = () => {
         setHidden(!hidden)
-        console.log('changeDisplay')
         if (hidden === false) {
             setShow('visible');
         } else {
@@ -40,10 +39,10 @@ const SideMenu = ({setVisibility}) => {
         <Img src={User} alt='user'/>
         <p>User Name</p>
         <LinkContainer>
-                <Link>Habits</Link>
-                <Link>Groups</Link>
-            </LinkContainer>
-            </UserContainer>
+                <StyledLink>Habits</StyledLink>
+                <StyledLink>Groups</StyledLink>
+        </LinkContainer>
+        </UserContainer>
         <ButtonContainer>
         <Button
                 setColor={'var(--red)'}
