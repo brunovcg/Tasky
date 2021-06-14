@@ -5,6 +5,7 @@ export const Container = styled.div`
     height: fit-content;
     min-height: 100vh;
     display: flex;
+    background-color: var(--white);
 
     .DivContainer {
         width: 85%; 
@@ -18,6 +19,13 @@ export const Container = styled.div`
 export const MainContainer = styled.div`
     height: 90%;
     width: 100%;
+    background-color: var(--white);
+
+    @media (max-width: 500px) {
+        position: absolute;
+        left: 0;
+        width: 100vw;
+    }
 `;
 
 export const Header = styled.header`
@@ -28,7 +36,7 @@ export const Header = styled.header`
     height: 10vh;
     color: var(--red);
     position: relative;
-
+    background-color: var(--white);
     h1 {
         position: absolute;
         top: 20px;
@@ -37,6 +45,13 @@ export const Header = styled.header`
     }
 
     @media (max-width: 500px) {
+        justify-content: flex-start;
+        padding-left: 30%;
+        position: relative;
+        left: 0;
+        width: 100vw;
+        height: 10vh;
+
         h1 {
             font-size: 20px;
             top: 32px;

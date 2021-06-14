@@ -5,10 +5,11 @@ import {MembersContainer} from './styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import { useWindowSize } from '../../providers/windowSize';
 import { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
 const SideMenu = ({setVisibility}) => {
 
-    const [hidden, setHidden] = useState(true);
+    const [hidden, setHidden] = useState(false);
 
     const [show, setShow] = useState('hidden');
     
@@ -18,6 +19,7 @@ const SideMenu = ({setVisibility}) => {
 
     const changeDisplay = () => {
         setHidden(!hidden)
+        console.log(show)
         if (hidden === false) {
             setShow('visible');
         } else {
@@ -25,11 +27,18 @@ const SideMenu = ({setVisibility}) => {
         }
     }
 
+    const history = useHistory();
+
+    const handleClick = (path) => {
+        history.push(path);
+        localStorage.clear();
+    }
+
     return(
         <>
         {
             width < 500 &&
-            <MenuBurguer onClick={changeDisplay}>
+            <MenuBurguer onClick={() => changeDisplay()}>
                 <MenuIcon/>
             </MenuBurguer>
         }
@@ -39,16 +48,17 @@ const SideMenu = ({setVisibility}) => {
         <Img src={User} alt='user'/>
         <p>User Name</p>
         <LinkContainer>
-                <StyledLink>Habits</StyledLink>
-                <StyledLink>Groups</StyledLink>
+                <StyledLink><Link to='/dashboard/habits'>Habits</Link></StyledLink>
+                <StyledLink><Link to='/dashboard/groups'>Groups</Link></StyledLink>
         </LinkContainer>
         </UserContainer>
         <ButtonContainer>
         <Button
                 setColor={'var(--red)'}
                 setSize={'medium'}
-                click={() => console.log('Logout')}
-                >Logout</Button>
+                click={() => handleClick('/')}
+
+        >Logout</Button>
                 </ButtonContainer>
                 <GroupMembers>
                     <MembersContainer>
