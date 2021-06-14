@@ -17,7 +17,7 @@ export const Container = styled.div`
         position: absolute;
         z-index: 2;
         width: 50%;
-        height: 115vh;         
+        height: 100vh;         
     }
 `;
 
@@ -73,8 +73,8 @@ export const StyledLink = styled.a`
     font-size: 1rem;
     margin: 1rem;
 
-    Link {
-        text-decoration: none;
+    a {
+        color: var(--white)
     }
 
     :hover {
