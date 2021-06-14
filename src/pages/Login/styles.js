@@ -153,6 +153,6 @@ export const ErrorMSG = styled.p `
   color: var(--dark-red);
   font-weight: 600;
   width: 100%;
-  height: 45%;
+  height: 35%;
   text-align: center;
 `
