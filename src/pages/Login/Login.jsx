@@ -1,4 +1,5 @@
-import { StyledGrid, HeaderGrid, BodyForm, FirstDiv, SecondDiv, ThirdDiv, H1, H1Title, H1text, StyledLink, EachDivInput, Form, DivsInputs, DivButton, BottomH1, H1DesktopText } from './styles'
+import { StyledGrid, HeaderGrid, BodyForm, FirstDiv, SecondDiv, ThirdDiv, H1, H1Title, H1text, StyledLink, EachDivInput } from './styles';
+import { DivsInputs, DivButton, BottomH1, H1DesktopText, ErrorMSG } from './styles';
 import Input from '../../components/Input/Input';
 import Button from '../../components/button/Button';
 import { useForm } from 'react-hook-form';
@@ -41,10 +42,12 @@ const Login = () => {
       <BodyForm onSubmit={handleSubmit(submitFunc)} >
         <DivsInputs >
           <EachDivInput>
-            <Input placeholder='Email' {...register('username')} />
+            <Input placeholder='Username' {...register('username')} />
+            <ErrorMSG>{errors.username?.message}</ErrorMSG>
           </EachDivInput>
           <EachDivInput>
             <Input placeholder='Password' {...register('password')} />
+            <ErrorMSG>{errors.password?.message}</ErrorMSG>
           </EachDivInput>
         </DivsInputs>
         <DivButton>
