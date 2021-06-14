@@ -12,7 +12,7 @@ export const Container = styled.div`
     }
 
     .SideMenuContainer {
-        /* width: 15%; */
+        width: 15%;
     }
 `;
 
