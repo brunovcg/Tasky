@@ -12,13 +12,14 @@ export const Card = styled.div`
     justify-content: center;
     align-items: flex-start;
     transition: 0.3s;
+    border-radius: 8px;
 
     :hover {
         box-shadow: 1px 1px 5px var(--grey);
     }
 
     @media (max-width: 500px) {
-        width: 12rem;
+        width: 100%;
     }
 `;
 
@@ -28,6 +29,29 @@ export const CardText = styled.div`
     flex-direction: column;
     align-items: left;
     margin-bottom: 1rem;
+    font-variant: small-caps;
+
+    .titleCard {
+        font-variant: normal;
+        font-weight: bold;
+
+       
+    }
+
+    .infoCard{
+        font-weight: bold;
+        color: var(--blue)
+    }
+
+    .categoryInfo, .frequencyInfo{
+        font-variant: small-caps;
+        font-size: 20px;
+        font-weight: bold;
+        color: var(--white)
+
+    }
+
+ 
 `
 
 export const CardButtons = styled.div`
@@ -35,6 +59,8 @@ export const CardButtons = styled.div`
     flex-direction: row;
     align-items: center;
     margin-left: 1rem;
+    width: 100%;
+    justify-content: space-around;
     
    
 

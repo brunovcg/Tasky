@@ -5,9 +5,9 @@ const CardHabits = () => {
     return (
         <Card>
             <CardText>
-                <p>Title</p>
-                <p>Category</p>
-                <p>Frequency</p>
+                <p className="titleCard">{"Title"}</p>
+                <p className="infoCard">Category: <span className="categoryInfo">{"teste categoria"}</span></p>
+                <p className="infoCard">Frequency  <span className="frequencyInfo">{"teste frequencia"}</span></p>
             </CardText>
             <CardButtons>
                 <Button
