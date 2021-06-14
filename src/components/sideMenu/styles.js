@@ -73,6 +73,10 @@ export const StyledLink = styled.a`
     font-size: 1rem;
     margin: 1rem;
 
+    Link {
+        text-decoration: none;
+    }
+
     :hover {
         font-weight: bold;
         border-bottom: 2px solid var(--white);
