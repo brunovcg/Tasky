@@ -17,12 +17,13 @@ export const Container = styled.div`
         position: absolute;
         z-index: 2;
         width: 50%;
-        height: 100%;         
+        height: 115vh;         
     }
 `;
 
 export const MenuBurguer = styled.button`
-    left: 5px;
+    left: 10px;
+    top: 10px;
     background-color: transparent;
     border: none;
     color: var(--red);
