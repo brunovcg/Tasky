@@ -45,6 +45,13 @@ export const InputsDiv = styled.div `
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+
+  input {
+    width: 100%;
+    padding: 4% 5%;
+    border: none;
+    margin: 3% 0;
+  }
 `;
 
 export const EachDivInput = styled.div `
@@ -55,13 +62,6 @@ export const DivButton = styled.div `
   margin: 5% 0 0 0;
   display: flex;
   justify-content: center;
-`;
-
-export const Input = styled.input `
-  width: 100%;
-  padding: 4% 5%;
-  border: none;
-  margin: 3% 0;
 `;
 
 export const Select = styled.select `
