@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    width: 100%;
+    width: 100vw;
     height: fit-content;
     min-height: 100vh;
     display: flex;
@@ -12,7 +12,7 @@ export const Container = styled.div`
     }
 
     .SideMenuContainer {
-        width: 15%;
+        /* width: 15%; */
     }
 `;
 
@@ -46,7 +46,7 @@ export const Header = styled.header`
 
     @media (max-width: 500px) {
         justify-content: flex-start;
-        padding-left: 30%;
+        padding-left: 40%;
         position: relative;
         left: 0;
         width: 100vw;
