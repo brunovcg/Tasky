@@ -26,7 +26,8 @@ export const MenuBurguer = styled.button`
     background-color: transparent;
     border: none;
     color: var(--red);
-    position: relative;
+    position: absolute;
+    z-index: 3;
 `;
 
 export const UserContainer = styled.div`
@@ -65,7 +66,7 @@ export const LinkContainer = styled.div`
     margin-top: 1.5rem;
 `;
 
-export const Link = styled.a`
+export const StyledLink = styled.a`
     border-bottom: 1px solid var(--white);
     color: var(--white);
     font-size: 1rem;
