@@ -1,5 +1,59 @@
+import Button from '../../components/button/Button';
+import {Container} from './styles' 
+import Task from '../../assets/task2.png'
+import { useHistory } from 'react-router-dom'
+
 const Home = () => {
-    return (<div></div>)
+    const history = useHistory()
+
+    const handleGoToSignUp = (path) => {
+        return history.push(path)
+    }
+
+    const handleGoToLogin = (path) => {
+        return history.push(path)
+    }
+
+    
+    return (
+        <Container>
+            
+            <div>
+                <img src={Task} />
+            </div>
+            
+            <div className="whiteBox">
+                <div className="title">
+                    <h1>Tasky</h1>
+                </div>
+                
+                <div className="boxText">
+                    <p>
+                        Lorem Ipsum is simply dummy text<br />
+                        of the printing and typesetting<br />
+                        industry.
+                    </p>
+                </div>
+                
+                <div className="buttonPlace">
+                    
+                    <Button 
+                        setColor={'var(--red)'} 
+                        setSize={'large'} 
+                        click={() => handleGoToSignUp('/signup')}
+                    >Sign Up</Button>
+                    
+                    <Button 
+                        setColor={'var(--blue)'} 
+                        setSize={'large'} 
+                        click={() => handleGoToLogin('/login')}
+                    >Login</Button>
+
+                </div>
+            </div>
+            
+        </Container>
+    )
 }
 
 export default Home;
