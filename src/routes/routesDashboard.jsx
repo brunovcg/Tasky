@@ -6,6 +6,13 @@ import Habits from '../pages/Habits/Habits';
 import PageNotFound from '../pages/pageNotFound/PageNotFound';
 
 const routesDashboard = () => {
+
+    const userGroupRoutes = (route) => (
+        <Route path={`/dashboard/group=${route}`} >
+            <Group>{route}</Group>
+        </Route>
+    )
+
     return (
         <Switch>
             <Route exact path='/dashboard/'>
@@ -17,9 +24,10 @@ const routesDashboard = () => {
             <Route path='/dashboard/groups'>
                 <Groups/>
             </Route>
-            <Route path='/dashboard/group'>
+            {/* <Route path='/dashboard/group'>
                 <Group/>
-            </Route>
+            </Route> */}
+            { ['num1', 'num2'].map((el) => userGroupRoutes(el)) }
             <Route>
                 <PageNotFound/>
             </Route>

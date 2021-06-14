@@ -15,7 +15,6 @@ const Goals = () => {
             <div className="chartContainer">
                 <PieChart doneData={10} todoData={90}/>
             </div>
-            
         </GoalsContainer>
     )
 }
