@@ -4,17 +4,24 @@ import Button from '../../components/button/Button';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { useContext } from 'react';
+import { LoginRequestContext } from '../../providers/login';
 
 const Login = () => {
 
+  const { setUserLoginData } = useContext(LoginRequestContext);
+
   const schema = yup.object().shape({
-    email: yup.string().required('Email is required').email('Invalid Email'),
+    username: yup.string().required('Email is required'),
     password: yup.string().required('Password is required'),
   });
 
+
   const { handleSubmit, register, formState: { errors } } = useForm( { resolver: yupResolver(schema) } )
 
-  const submitFunc = (data) => console.log(data)
+  const submitFunc = (data) => {
+    setUserLoginData(data);
+  };
 
   return (
     <StyledGrid >
@@ -34,7 +41,7 @@ const Login = () => {
       <BodyForm onSubmit={handleSubmit(submitFunc)} >
         <DivsInputs >
           <EachDivInput>
-            <Input placeholder='Email' {...register('email')} />
+            <Input placeholder='Email' {...register('username')} />
           </EachDivInput>
           <EachDivInput>
             <Input placeholder='Password' {...register('password')} />
