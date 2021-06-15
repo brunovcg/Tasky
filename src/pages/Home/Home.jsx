@@ -39,9 +39,7 @@ const Home = () => {
                 
                 <div className="boxText">
                     <p>
-                        Lorem Ipsum is simply dummy text<br />
-                        of the printing and typesetting<br />
-                        industry.
+                        Hit your goals through team working.
                     </p>
                 </div>
                 
