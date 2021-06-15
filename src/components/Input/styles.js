@@ -8,10 +8,8 @@ export const Container = styled.div`
     transition: 0.5s;
     height: 30px;
 
-`;
-
-export const StyledInput = styled.input`
-    background: transparent;
+    input{
+        background: transparent;
     padding-left: 2px;
     color: var(--grey);
     border: 0;
@@ -20,5 +18,18 @@ export const StyledInput = styled.input`
     &::placeholder{
         color: var(--grey)
     }
+    }
+`;
 
-` 
+// export const StyledInput = styled.input`
+//     background: transparent;
+//     padding-left: 2px;
+//     color: var(--grey);
+//     border: 0;
+//     height: 90%;
+//     width: 90%;
+//     &::placeholder{
+//         color: var(--grey)
+//     }
+
+// ` 
