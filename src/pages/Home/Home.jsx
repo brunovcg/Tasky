@@ -1,6 +1,7 @@
 import Button from '../../components/button/Button';
 import {Container} from './styles' 
 import Task from '../../assets/task2.png'
+import TaskMobile from '../../assets/taskMobile.png'
 import { useHistory } from 'react-router-dom'
 
 const Home = () => {
@@ -17,9 +18,18 @@ const Home = () => {
     
     return (
         <Container>
-            
-            <div>
-                <img src={Task} />
+            <div className="mobileTop">
+                <div className="task">
+                    <img src={Task} />
+                </div>
+
+                <div className="taskMobile">
+                    <img src={TaskMobile} width="50" heigth="50"/>
+                </div>
+                
+                <div className="titleMobile">
+                        <h1>Tasky</h1>
+                </div>
             </div>
             
             <div className="whiteBox">
@@ -51,6 +61,7 @@ const Home = () => {
 
                 </div>
             </div>
+            
             
         </Container>
     )
