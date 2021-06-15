@@ -1,42 +1,80 @@
 import Goals from './Goals';
 import Button from '../../../components/button/Button';
-// import {PopUp} from '../../../components/pop-up/PopUp' 
+import {PopUp} from '../../../components/pop-up/PopUp';
 import { useState } from 'react';
+import { UserGoals } from './userGoals';
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import Input from '../../../components/Input/Input.jsx';
+import { useContext } from 'react';
+import { NewGoalContext } from '../../../providers/newGoal';
+import { Fade, Modal } from '@material-ui/core';
 
 const GoalsList = () => {
 
+    const { setNewGoalData } = useContext(NewGoalContext)
+
     const [goalPopUp, setGoalPopUp] = useState(false)
 
+    const [goalsList, setGoalsList] = useState();
 
-    const handleNewGoal = () => {
-        setGoalPopUp(!goalPopUp)
+    const schema = yup.object().shape({
+        title: yup.string().required('This field is required'),
+        difficulty: yup.string().required('This field is required'),
+        how_much_achieved: yup.number().required('This field is required'),
+    })
+
+    const { register, handleSubmit, formState: { error } } = useForm({ resolver: yupResolver(schema) })
+
+    const handleNewGoal = (data) => {
+        setGoalPopUp(false)
+        return setNewGoalData(data)
     }
 
+    const handleCloseModal = () => setGoalPopUp(false);
 
+    useEffect( () => {
+        UserGoals(setGoalsList)
+    }, [])
 
     return(
-        <div className="groupGoals">
+        <>
+            <div className="groupGoals">
 
-                    <div className="goalTitle">   
-                        <h3>Goals</h3>
-                        <Button
-                            setSize={"large"}
-                            setColor={"var(--blue)"}   
-                            click={()=>console.log("teste ADD Goal")}
-                            >+ Goal
-                        </Button>
-                    </div>
-                    <div className="goalMain">
-                        <Goals/>
-                        <Goals/>     
-                        <Goals/>          
-                    </div>
+                        <div className="goalTitle">   
+                            <h3>Goals</h3>
+                            <Button
+                                setSize={"large"}
+                                setColor={"var(--blue)"}   
+                                click={() => setGoalPopUp(true)}
+                                >+ Goal
+                            </Button>
+                        </div>
+                        <div className="goalMain">
+                            { goalsList && goalsList.map((el) => <Goals {...el} />) }
+                        </div>
 
-                    <div className="popUps">
+                        <div className="popUps">
 
-                    </div>
+                        </div>
 
-                </div>
+            </div>
+            { goalPopUp && 
+                <Modal open={goalPopUp} onClose={handleCloseModal} >
+                    <Fade in={true} >
+                        <div>
+                            <PopUp title='new Goal' onSubmit={handleSubmit(handleNewGoal)} >
+                                <Input register={register} name='title' placeholder='Title' />
+                                <Input register={register} name='difficulty' placeholder='Difficulty' />
+                                <Input register={register} name='how_much_achieved' placeholder='How Much Achieved' />
+                            </PopUp>
+                        </div> 
+                    </Fade>
+                </Modal>
+            }
+        </>
     )
 }
 
