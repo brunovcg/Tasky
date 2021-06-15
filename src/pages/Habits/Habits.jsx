@@ -9,6 +9,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { api } from '../../service/api';
 import jwt_decode from 'jwt-decode';
+import { useEffect } from 'react';
 
 
 
@@ -16,12 +17,12 @@ const Habits = () => {
 
     const [token] = useState(JSON.parse(localStorage.getItem("@tasky/login/token")) || "");
 
-    const [decodedId] = useState(jwt_decode(token).user_id)
+    const [decodedId] = useState(jwt_decode(token).user_id || "")
 
 
     const [showNewHabit, setShowNewHabit] = useState(false)
 
-   const [habbits, setHabbits] = useState([]);
+   const [habits, setHabits] = useState([]);
 
    const schema = yup.object().shape({
         title: yup.string().required('A title is required'),
@@ -57,54 +58,120 @@ const Habits = () => {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
-           }.then((_)=> {alert("POSTED!")}).catch(()=>console.log('something wrong happend'))
-       )
+           }
+       ).then((_)=> {alert("POSTED!")}).catch(()=>alert('something wrong happend'))
    }
 
-   const deleteFunction = () => {}
+   const deleteFunction = (hab) => {
+        api.delete(
+            `/habits/${hab.id}/`, 
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+            }
+        ).then((_)=> alert(`${hab.title} deleted`))
+   }
 
-   const updateFunction=()=>{}
+   const updateFunction=(hab)=>{
+    const task = {
+        how_much_achieved: 100,
+        achieved: true
 
-
-    const handlePopUp = (state, setState) => {
-        setState(!state)
     }
+
+        api.patch(
+            `/habits/${hab.id}/`,
+            task,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        ).then((_)=> alert(`${hab.title} updated`))
+   }
+
+   const initFunction=()=>{
+        api.get(
+            '/habits/personal/', 
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+               }
+        ).then(response=> setHabits(response.data))
+   }
+
+
+    const handlePopUp = () => {
+        setShowNewHabit(!showNewHabit)
+    }
+
+    useEffect(()=>{
+        initFunction()
+    },[habits])
 
 
 
     return (
         <>
-        <button onClick={()=> console.log(token, decodedId)}>Teste</button>     
+            <button onClick={()=> console.log(showNewHabit)}>user</button>
             <main>
                 <HeaderOfHabits>
                     <h2>Habits</h2>
                     <Button
                         setColor={'var(--blue)'}
                         setSize={'large'}
-                        click={()=>handlePopUp(showNewHabit, setShowNewHabit)}
+                        click={()=>handlePopUp()}
                     >+ New Habit</Button>
                 </HeaderOfHabits>
 
                 <CardsPlace>
+
+                    {habits.map(res=>
+                        <CardHabits
+                            clickDelete={()=>deleteFunction(res)}
+                            clickUpdate={()=>updateFunction(res)}
+                            title={res.title}
+                            difficulty={res.difficulty}
+                            frequency={res.frequency}
+                            category={res.category}
+                            status={res.achieved}
+                        
+                        />)
                     
-                    <CardHabits 
-                        clickDelete={deleteFunction}
-                        clickUpdate={updateFunction}
-                    />
-                  
+                    }
+                   
+                                    
                 </CardsPlace>
                 
                {    <div className="popUpContainer">{
                          showNewHabit && 
                             <PopUp 
                                 title="Add New Habit"
-                                onSubmit={handleSubmit(submitFunction)}
+                                onSubmit={
+                                handleSubmit(submitFunction)                               
+                                }
+                                click={
+                                    
+                                    errors.length ===0 ? handleSubmit : null
+                                    
+                                    // ()=>{
+                                    
+                                    
+                                    // if( errors.length === 0){handlePopUp()}
+                                    // }
+                                    
+                                
+                                }
+                                    
                             >     
-                            {/* <button onClick={()=>handlePopUp(showNewHabit, setShowNewHabit)}>X</button>                 */}
+                                      
                                 <Input 
                                     name="title"
                                     register={register}
                                     placeholder="Name this Habbit!"/>
+
                                 <Input 
                                     name="frequency"
                                     register={register}
