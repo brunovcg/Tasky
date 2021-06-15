@@ -8,14 +8,16 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { api } from '../../service/api';
+import jwt_decode from 'jwt-decode';
+
 
 
 const Habits = () => {
 
-    const [token] = useState(JSON.parse(localStorage.getItem("@KenzieHub:token")) || ""
-    );
+    const [token] = useState(JSON.parse(localStorage.getItem("@tasky/login/token")) || "");
 
-    
+    const [decodedId] = useState(jwt_decode(token).user_id)
+
 
     const [showNewHabit, setShowNewHabit] = useState(false)
 
@@ -46,7 +48,7 @@ const Habits = () => {
            frequency, 
            achieved: false,
            how_much_achieved: 0,
-           user: "pegar do storage"}
+           user: decodedId}
 
        api.post(
            '/habits/',
@@ -72,6 +74,7 @@ const Habits = () => {
 
     return (
         <>
+        <button onClick={()=> console.log(token, decodedId)}>Teste</button>     
             <main>
                 <HeaderOfHabits>
                     <h2>Habits</h2>
@@ -85,7 +88,7 @@ const Habits = () => {
                 <CardsPlace>
                     
                     <CardHabits 
-                        clickDelete={deleteFunction }
+                        clickDelete={deleteFunction}
                         clickUpdate={updateFunction}
                     />
                   
@@ -95,14 +98,25 @@ const Habits = () => {
                          showNewHabit && 
                             <PopUp 
                                 onClick={()=>handlePopUp(showNewHabit, setShowNewHabit)}
-                                title="Add New Habit" >
-                                
-
-
-                                <Input placeholder="Name this Habbit!"/>
-                                <Input placeholder="How often??"/>
-                                <Input placeholder="How hard is it?"/>
-                                <Input placeholder="Categorize it!"/>
+                                title="Add New Habit"
+                                onSubmit={handleSubmit(submitFunction)}
+                            >                     
+                                <Input 
+                                    name="title"
+                                    register={register}
+                                    placeholder="Name this Habbit!"/>
+                                <Input 
+                                    name="frequency"
+                                    register={register}
+                                    placeholder="How often??"/>
+                                <Input 
+                                    name="difficulty"
+                                    register={register}
+                                    placeholder="How hard is it?"/>
+                                <Input 
+                                    name="category"
+                                    register={register}
+                                    placeholder="Categorize it!"/>
                             </PopUp>
                 }  </div>
                }
