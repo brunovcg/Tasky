@@ -2,9 +2,11 @@ import {Container, StyledInput} from './styles'
 
 const Input = ({register, name, ...rest}) => {
     return (
-        <Container>
-            <input {...register(name)} { ...rest }/>
-        </Container>
+        
+            <StyledInput 
+            // {...register(name)} 
+            { ...rest }/>
+       
     )
 }
 

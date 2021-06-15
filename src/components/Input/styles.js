@@ -15,21 +15,23 @@ export const Container = styled.div`
     border: 0;
     height: 90%;
     width: 90%;
+        &::placeholder{
+            color: var(--grey)
+        }
+    }
+    
+`;
+
+
+export const StyledInput = styled.input`
+    background: var(--white);
+    padding-left: 2px;
+    color: var(--grey);
+    border: 0;
+    height: 90%;
+    width: 90%;
     &::placeholder{
         color: var(--grey)
     }
-    }
-`;
 
-// export const StyledInput = styled.input`
-//     background: transparent;
-//     padding-left: 2px;
-//     color: var(--grey);
-//     border: 0;
-//     height: 90%;
-//     width: 90%;
-//     &::placeholder{
-//         color: var(--grey)
-//     }
-
-// ` 
+` 
