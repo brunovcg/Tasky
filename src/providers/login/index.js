@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
-import axios from 'axios';
-import { api } from '../../service/api'
+import { api } from '../../service/api';
 
 export const LoginRequestContext = createContext();
 
@@ -11,10 +10,13 @@ export const LoginRequestProvider = ({ children }) => {
   const addTokenLocalStorage = (data) => {
     localStorage.setItem('@tasky/login/token', JSON.stringify(data));
   }
-
+  console.log(userLoginData)
   const makeLoginRequest = () => {
-    axios.post('https://kabit-api.herokuapp.com/sessions/', userLoginData)
-      .then( response => addTokenLocalStorage(response.data.access) )
+    api.post('sessions/', userLoginData.data)
+      .then( response => {
+        addTokenLocalStorage(response.data.access)
+        return userLoginData.redirect
+      })
   }
 
   useEffect( () => {

@@ -7,21 +7,25 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useContext } from 'react';
 import { LoginRequestContext } from '../../providers/login';
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
 
   const { setUserLoginData } = useContext(LoginRequestContext);
+
+  const history = useHistory();
 
   const schema = yup.object().shape({
     username: yup.string().required('Email is required'),
     password: yup.string().required('Password is required'),
   });
 
+  const redirect = () => history.push('/dashboard');
 
   const { handleSubmit, register, formState: { errors } } = useForm( { resolver: yupResolver(schema) } )
 
   const submitFunc = (data) => {
-    setUserLoginData(data);
+    setUserLoginData({data, redirect: redirect()});
   };
 
   return (
