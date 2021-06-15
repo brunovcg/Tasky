@@ -3,10 +3,15 @@ import styled from 'styled-components';
 
 export const StyledGrid = materialStyled(Grid) ( ({ theme }) => ({
   position: 'absolute',
-  width: '25vw',
+  width: '85vw',
   height: 'auto',
-  left: '35vw',
+  left: '7vw',
   top: '35vh',
+  [theme.breakpoints.up('sm')]: {
+    width: '25vw',
+    left: '35vw',
+    top: '35vh',
+  }
 }));
 
 export const StyledPaper = materialStyled(Paper) ( ({ theme }) => ({
@@ -47,10 +52,10 @@ export const InputsDiv = styled.div `
   align-items: center;
 
   input {
-    /* width: 100%; */
-    /* padding: 4% 5%; */
-    /* border: none; */
-    /* margin: 3% 0; */
+    width: 100%;
+    padding: 4% 5%;
+    border: none;
+    margin: 3% 0;
   }
 `;
 
