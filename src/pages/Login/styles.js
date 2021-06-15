@@ -112,8 +112,10 @@ export const EachDivInput = styled.div `
   width: 80%;
   margin-top: 20%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 20%;
 
   @media (min-width: 600px) {
     width: 60%;
@@ -145,4 +147,12 @@ export const H1DesktopText = styled.p `
   margin-top: 3%;
   display: unset;
 }
+`
+
+export const ErrorMSG = styled.p `
+  color: var(--dark-red);
+  font-weight: 600;
+  width: 100%;
+  height: 35%;
+  text-align: center;
 `
