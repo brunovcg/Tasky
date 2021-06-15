@@ -1,7 +1,14 @@
 import { Card, CardText, CardButtons } from './styles';
 import Button from '../../components/button/Button';
 
-const CardHabits = () => {
+
+
+const CardHabits = ({clickDelete, clickUpdate}) => {
+
+
+    
+
+
     return (
         <Card>
             <CardText>
@@ -13,12 +20,12 @@ const CardHabits = () => {
                 <Button
                     setColor={'var(--blue)'}
                     setSize={'medium'}
-                    // click={() => }
+                    click={clickUpdate}
                 >Update</Button>
                 <Button
                     setColor={'var(--red)'}
                     setSize={'medium'}
-                    // click={() => }
+                    click={clickDelete}
                 >Delete</Button>
             </CardButtons>    
         </Card>
