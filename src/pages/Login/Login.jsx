@@ -1,20 +1,32 @@
-import { StyledGrid, HeaderGrid, BodyForm, FirstDiv, SecondDiv, ThirdDiv, H1, H1Title, H1text, StyledLink, EachDivInput, Form, DivsInputs, DivButton, BottomH1, H1DesktopText } from './styles'
+import { StyledGrid, HeaderGrid, BodyForm, FirstDiv, SecondDiv, ThirdDiv, H1, H1Title, H1text, StyledLink, EachDivInput } from './styles';
+import { DivsInputs, DivButton, BottomH1, H1DesktopText, ErrorMSG } from './styles';
 import Input from '../../components/Input/Input';
 import Button from '../../components/button/Button';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { useContext } from 'react';
+import { LoginRequestContext } from '../../providers/login';
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
 
+  const { setUserLoginData } = useContext(LoginRequestContext);
+
+  const history = useHistory();
+
   const schema = yup.object().shape({
-    email: yup.string().required('Email is required').email('Invalid Email'),
+    username: yup.string().required('Email is required'),
     password: yup.string().required('Password is required'),
   });
 
+  const redirect = () => history.push('/dashboard');
+
   const { handleSubmit, register, formState: { errors } } = useForm( { resolver: yupResolver(schema) } )
 
-  const submitFunc = (data) => console.log(data)
+  const submitFunc = (data) => {
+    setUserLoginData({data, redirect: redirect()});
+  };
 
   return (
     <StyledGrid >
@@ -34,10 +46,12 @@ const Login = () => {
       <BodyForm onSubmit={handleSubmit(submitFunc)} >
         <DivsInputs >
           <EachDivInput>
-            <Input placeholder='Email' {...register('email')} />
+            <Input placeholder='Username' register={register} name='username' />
+            <ErrorMSG>{errors.username?.message}</ErrorMSG>
           </EachDivInput>
           <EachDivInput>
-            <Input placeholder='Password' {...register('password')} />
+            <Input type='password' placeholder='Password' register={register} name='password' />
+            <ErrorMSG>{errors.password?.message}</ErrorMSG>
           </EachDivInput>
         </DivsInputs>
         <DivButton>

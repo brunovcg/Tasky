@@ -14,7 +14,7 @@ export default createGlobalStyle`
     }
 
     #mainBody{
-        max-width: 1600px;
+        /* max-width: 2000px; */
         margin: 0 auto;
     }
 
