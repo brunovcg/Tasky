@@ -42,11 +42,11 @@ const Login = () => {
       <BodyForm onSubmit={handleSubmit(submitFunc)} >
         <DivsInputs >
           <EachDivInput>
-            <Input placeholder='Username' {...register('username')} />
+            <Input placeholder='Username' register={register} name='username' />
             <ErrorMSG>{errors.username?.message}</ErrorMSG>
           </EachDivInput>
           <EachDivInput>
-            <Input placeholder='Password' {...register('password')} />
+            <Input type='password' placeholder='Password' register={register} name='password' />
             <ErrorMSG>{errors.password?.message}</ErrorMSG>
           </EachDivInput>
         </DivsInputs>
