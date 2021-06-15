@@ -97,10 +97,10 @@ const Habits = () => {
                {    <div className="popUpContainer">{
                          showNewHabit && 
                             <PopUp 
-                                onClick={()=>handlePopUp(showNewHabit, setShowNewHabit)}
                                 title="Add New Habit"
                                 onSubmit={handleSubmit(submitFunction)}
-                            >                     
+                            >     
+                            {/* <button onClick={()=>handlePopUp(showNewHabit, setShowNewHabit)}>X</button>                 */}
                                 <Input 
                                     name="title"
                                     register={register}
@@ -117,7 +117,9 @@ const Habits = () => {
                                     name="category"
                                     register={register}
                                     placeholder="Categorize it!"/>
+                                    
                             </PopUp>
+                            
                 }  </div>
                }
 
