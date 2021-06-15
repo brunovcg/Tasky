@@ -84,5 +84,18 @@ export const CardsPlace = styled.div`
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: flex-start;
-    margin-top: 2rem
+    margin-top: 2rem;
 `;
+
+export const ErrorPop = styled.div`
+    color: var(--red);
+    font-size: 0.8rem;
+    min-height: 20px;
+`
+
+
+export const PopUpContainer = styled.div`
+  position: absolute;
+  top:-70px;
+`
+
