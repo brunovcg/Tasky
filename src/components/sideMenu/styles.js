@@ -17,16 +17,18 @@ export const Container = styled.div`
         position: absolute;
         z-index: 2;
         width: 50%;
-        height: 100%;         
+        height: 100vh;         
     }
 `;
 
 export const MenuBurguer = styled.button`
-    left: 5px;
+    left: 10px;
+    top: 10px;
     background-color: transparent;
     border: none;
     color: var(--red);
-    position: relative;
+    position: absolute;
+    z-index: 3;
 `;
 
 export const UserContainer = styled.div`
@@ -65,11 +67,15 @@ export const LinkContainer = styled.div`
     margin-top: 1.5rem;
 `;
 
-export const Link = styled.a`
+export const StyledLink = styled.a`
     border-bottom: 1px solid var(--white);
     color: var(--white);
     font-size: 1rem;
     margin: 1rem;
+
+    a {
+        color: var(--white)
+    }
 
     :hover {
         font-weight: bold;
