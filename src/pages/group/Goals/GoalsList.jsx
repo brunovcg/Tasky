@@ -8,14 +8,17 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import Input from '../../../components/Input/Input.jsx';
+import { useContext } from 'react';
+import { NewGoalContext } from '../../../providers/newGoal';
+import { Fade, Modal } from '@material-ui/core';
 
 const GoalsList = () => {
+
+    const { setNewGoalData } = useContext(NewGoalContext)
 
     const [goalPopUp, setGoalPopUp] = useState(false)
 
     const [goalsList, setGoalsList] = useState();
-
-    const [buttonNewGoal, setButtonNewGoal] = useState();
 
     const schema = yup.object().shape({
         title: yup.string().required('This field is required'),
@@ -26,9 +29,11 @@ const GoalsList = () => {
     const { register, handleSubmit, formState: { error } } = useForm({ resolver: yupResolver(schema) })
 
     const handleNewGoal = (data) => {
-        setGoalPopUp(!goalPopUp)
-        console.log(data)
+        setGoalPopUp(false)
+        return setNewGoalData(data)
     }
+
+    const handleCloseModal = () => setGoalPopUp(false);
 
     useEffect( () => {
         UserGoals(setGoalsList)
@@ -43,7 +48,7 @@ const GoalsList = () => {
                             <Button
                                 setSize={"large"}
                                 setColor={"var(--blue)"}   
-                                click={() => setButtonNewGoal(true)}
+                                click={() => setGoalPopUp(true)}
                                 >+ Goal
                             </Button>
                         </div>
@@ -56,14 +61,18 @@ const GoalsList = () => {
                         </div>
 
             </div>
-            { buttonNewGoal && 
-                <div>
-                    <PopUp title='new Goal' onSubmit={handleSubmit(handleNewGoal)} >
-                        <input {...register('title')} />
-                        <input {...register('difficulty')} />
-                        <input {...register('how_much_achieved')} />
-                    </PopUp>
-                </div> 
+            { goalPopUp && 
+                <Modal open={goalPopUp} onClose={handleCloseModal} >
+                    <Fade in={true} >
+                        <div>
+                            <PopUp title='new Goal' onSubmit={handleSubmit(handleNewGoal)} >
+                                <Input register={register} name='title' placeholder='Title' />
+                                <Input register={register} name='difficulty' placeholder='Difficulty' />
+                                <Input register={register} name='how_much_achieved' placeholder='How Much Achieved' />
+                            </PopUp>
+                        </div> 
+                    </Fade>
+                </Modal>
             }
         </>
     )

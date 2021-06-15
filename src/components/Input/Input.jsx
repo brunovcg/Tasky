@@ -4,7 +4,7 @@ const Input = ({register, name, ...rest}) => {
     return (
         
             <StyledInput 
-            // {...register(name)} 
+            {...register(name)}
             { ...rest }/>
        
     )

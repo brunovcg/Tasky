@@ -47,10 +47,10 @@ export const InputsDiv = styled.div `
   align-items: center;
 
   input {
-    width: 100%;
-    padding: 4% 5%;
-    border: none;
-    margin: 3% 0;
+    /* width: 100%; */
+    /* padding: 4% 5%; */
+    /* border: none; */
+    /* margin: 3% 0; */
   }
 `;
 
