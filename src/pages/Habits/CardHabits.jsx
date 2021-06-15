@@ -15,13 +15,15 @@ const CardHabits = ({clickDelete, clickUpdate}) => {
                 <p className="titleCard">{"Title"}</p>
                 <p className="infoCard">Category: <span className="categoryInfo">{"teste categoria"}</span></p>
                 <p className="infoCard">Frequency  <span className="frequencyInfo">{"teste frequencia"}</span></p>
+                <p className="infoCard">Difficulty  <span className="frequencyInfo">{"teste Dificuldade"}</span></p>
+
             </CardText>
             <CardButtons>
                 <Button
                     setColor={'var(--blue)'}
                     setSize={'medium'}
                     click={clickUpdate}
-                >Update</Button>
+                >Done</Button>
                 <Button
                     setColor={'var(--red)'}
                     setSize={'medium'}
