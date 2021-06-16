@@ -57,6 +57,13 @@ export const InputsDiv = styled.div `
     border: none;
     margin: 3% 0;
   }
+
+  select {
+    width: 100%;
+    padding: 4% 5%;
+    border: none;
+    margin: 3% 0;
+  }
 `;
 
 export const EachDivInput = styled.div `
