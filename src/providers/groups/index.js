@@ -19,7 +19,7 @@ export const GroupsProvider = ({children}) => {
                 Authorization: `Bearer ${userToken}`
             }
         })
-        .then((response) => setGroups(response.data))
+        .then((response) => setGroups(response.data.results))
     }
 
     const newGroup = () => {
