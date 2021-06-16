@@ -1,13 +1,13 @@
 import {Card} from './styles';
 import GroupImg from '../../assets/group-img.png';
 
-const CardGroup = () => {
+const CardGroup = ({name, description, category}) => {
     return (
         <Card>
             <div className='info'>
-                <p>Name</p>
-                <p>Description</p>
-                <p>Category</p>
+                <p>{name}</p>
+                <p>{description}</p>
+                <p>{category}</p>
             </div>
             <div className='img'>
                 <img src={GroupImg} alt='group'/>
