@@ -13,6 +13,7 @@ export const Container = styled.div`
     .taskMobile{
         display: none;
     }
+    
 
     .titleMobile{
         display: none;
@@ -53,6 +54,7 @@ export const Container = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: flex-start;
         width: 100vw;
         height: 100vh;
         background: var(--gradient-blue);
@@ -65,6 +67,7 @@ export const Container = styled.div`
             flex-direction: row;
             align-items: center;
             justify-content: center;
+            top: 0rem;
 
             .taskMobile{
                 display: flex;

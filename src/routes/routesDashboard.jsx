@@ -24,9 +24,9 @@ const routesDashboard = () => {
             <Route path='/dashboard/groups'>
                 <Groups/>
             </Route>
-            {/* <Route path='/dashboard/group'>
+            <Route path='/dashboard/group'>
                 <Group/>
-            </Route> */}
+            </Route>
             { ['num1', 'num2'].map((el) => userGroupRoutes(el)) }
             <Route>
                 <PageNotFound/>
