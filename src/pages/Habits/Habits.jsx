@@ -1,4 +1,4 @@
-import { CardsPlace, HeaderOfHabits } from './styles';
+import { CardsPlace, HeaderOfHabits, ErrorPop, PopUpContainer } from './styles';
 import Button from '../../components/button/Button';
 import CardHabits from './CardHabits';
 import {useState} from 'react';
@@ -10,36 +10,40 @@ import * as yup from 'yup';
 import { api } from '../../service/api';
 import jwt_decode from 'jwt-decode';
 import { useEffect } from 'react';
-
+import { toast } from 'react-toastify'
 
 
 const Habits = () => {
 
     const [token] = useState(JSON.parse(localStorage.getItem("@tasky/login/token")) || "");
 
-    const [decodedId] = useState(jwt_decode(token).user_id || "")
+    const [decodedId] = useState(jwt_decode(token).user_id || "");
 
 
-    const [showNewHabit, setShowNewHabit] = useState(false)
+    const [showNewHabit, setShowNewHabit] = useState(false);
 
-   const [habits, setHabits] = useState([]);
+    const [habits, setHabits] = useState([]);
 
-   const schema = yup.object().shape({
+    const schema = yup.object().shape({
         title: yup.string().required('A title is required'),
         category: yup.string().required('You need to categorize'),
         difficulty:yup.string().required("You need to set the Difficult"),
         frequency:yup.string().required("You need to set the Frequency"), 
    });
 
-
    const {
        register,
        handleSubmit,
-       formState: {errors}
+       formState: {errors},
+       reset,
    } = useForm({
        resolver: yupResolver(schema)
    });
 
+   const handlePopUp = () => {
+    setShowNewHabit(!showNewHabit)
+    reset()
+   }
 
    const submitFunction = ({title, category, difficulty, frequency}) => {
        const user = {
@@ -59,7 +63,12 @@ const Habits = () => {
                 Authorization: `Bearer ${token}`,
             },
            }
-       ).then((_)=> {alert("POSTED!")}).catch(()=>alert('something wrong happend'))
+       )
+       .then((_)=>{
+           toast.success(`${title} Added!`)
+        })
+       .catch((_)=> toast.error("Something went wrong, try again!"))
+       handlePopUp()
    }
 
    const deleteFunction = (hab) => {
@@ -69,17 +78,16 @@ const Habits = () => {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
-            }
-        ).then((_)=> alert(`${hab.title} deleted`))
+            })
+                .then((_)=>{toast.success(`${hab.title} deleted`)})
+                .catch((_)=> toast.error("Something went wrong, try again!"))
    }
 
    const updateFunction=(hab)=>{
     const task = {
         how_much_achieved: 100,
         achieved: true
-
     }
-
         api.patch(
             `/habits/${hab.id}/`,
             task,
@@ -88,7 +96,8 @@ const Habits = () => {
                     Authorization: `Bearer ${token}`,
                 },
             }
-        ).then((_)=> alert(`${hab.title} updated`))
+        ).then((_)=>{toast.success(`${hab.title} done!`)})
+        .catch((_)=> toast.error("Something went wrong, try again!"))
    }
 
    const initFunction=()=>{
@@ -98,24 +107,13 @@ const Habits = () => {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
-               }
+                }
         ).then(response=> setHabits(response.data))
    }
 
-
-    const handlePopUp = () => {
-        setShowNewHabit(!showNewHabit)
-    }
-
-    useEffect(()=>{
-        initFunction()
-    },[habits])
-
-
+    useEffect(()=>{initFunction()},[habits])
 
     return (
-        <>
-            <button onClick={()=> console.log(showNewHabit)}>user</button>
             <main>
                 <HeaderOfHabits>
                     <h2>Habits</h2>
@@ -127,7 +125,6 @@ const Habits = () => {
                 </HeaderOfHabits>
 
                 <CardsPlace>
-
                     {habits.map(res=>
                         <CardHabits
                             clickDelete={()=>deleteFunction(res)}
@@ -137,70 +134,45 @@ const Habits = () => {
                             frequency={res.frequency}
                             category={res.category}
                             status={res.achieved}
-                        
-                        />)
-                    
-                    }
-                   
-                                    
+                        />
+                    )}                             
                 </CardsPlace>
                 
-               {    <div className="popUpContainer">{
+               {    <PopUpContainer>{
                          showNewHabit && 
                             <PopUp 
                                 title="Add New Habit"
-                                onSubmit={
-                                handleSubmit(submitFunction)                               
-                                }
-                                click={
-                                    
-                                    errors.length ===0 ? handleSubmit : null
-                                    
-                                    // ()=>{
-                                    
-                                    
-                                    // if( errors.length === 0){handlePopUp()}
-                                    // }
-                                    
-                                
-                                }
-                                    
+                                onSubmit={handleSubmit(submitFunction)}
                             >     
-                                      
                                 <Input 
                                     name="title"
                                     register={register}
-                                    placeholder="Name this Habbit!"/>
-
+                                    placeholder="Name this Habbit!"
+                                />
+                                <ErrorPop>{errors.title?.message}</ErrorPop>
                                 <Input 
                                     name="frequency"
                                     register={register}
-                                    placeholder="How often??"/>
+                                    placeholder="How often?"
+                                />
+                                <ErrorPop className="errorPopUp">{errors.frequency?.message}</ErrorPop>
                                 <Input 
                                     name="difficulty"
                                     register={register}
-                                    placeholder="How hard is it?"/>
+                                    placeholder="How hard is it?"
+                                />
+                                <ErrorPop className="errorPopUp">{errors.difficulty?.message}</ErrorPop>
                                 <Input 
                                     name="category"
                                     register={register}
-                                    placeholder="Categorize it!"/>
-                                    
+                                    placeholder="Categorize it!"
+                                />
+                                <ErrorPop className="errorPopUp">{errors.category?.message}</ErrorPop>
                             </PopUp>
-                            
-                }  </div>
+                }  </PopUpContainer>
                }
 
-        
-
-
-
-
-
-
-
-            </main>
-            
-        </>
+            </main>           
     )
 }
 
