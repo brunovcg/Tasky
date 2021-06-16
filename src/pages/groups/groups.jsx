@@ -8,6 +8,7 @@ import Input from '../../components/Input/Input';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
+import { ControlCameraOutlined } from '@material-ui/icons';
 
 const Groups = () => {
 
@@ -44,6 +45,7 @@ const Groups = () => {
 
     return (
         <>
+        <button onClick={() => console.log(groups)}>test</button>
             <main>
                 <HeaderContainer>
                     <h2>Groups</h2>
