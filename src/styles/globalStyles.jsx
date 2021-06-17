@@ -4,6 +4,7 @@ export default createGlobalStyle`
     :root {
         --gradient-blue: linear-gradient(#06cbf7, #22b9df);
         --gradient-optional: linear-gradient(to right, #88aef5, #8eb6ee);
+        --transparent-black: #3a3939e8 ;
         --red: #ff8484;
         --dark-red: #f20505;
         --green: #7FC15E;
@@ -12,7 +13,7 @@ export default createGlobalStyle`
         --white: #ffffff;
         --maroon: #a85454;
         --grey: #e6e5e5;
-        --dark-grey: #3c3737;
+        --dark-grey: #444444;
         --blue: #70B5F9;
     }
 
@@ -30,7 +31,7 @@ export default createGlobalStyle`
 
     h1 {
         font-family: 'Shadows Into Light Two', cursive;
-        color: var(--red);
+        color: var(--white);
     }
     
 

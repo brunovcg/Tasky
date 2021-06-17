@@ -57,82 +57,81 @@ const SignUp = () => {
 
     return(
         <Container>
-            <div className="whiteBox">
-                <div className="whiteBoxTitle">
+            <div className="transparentBox">
+                <div className="headerBox">
+                    
                     <h2>Sign Up</h2>
                     <p>Already have an account? <Link to={"/login"}>Login</Link></p>
-                </div>
-                <div className="whiteBoxName">
                     <h1>Tasky</h1>
+                                   
                 </div>
 
+                <div className="whiteBox">
+                    <h3>Please enter you info:</h3>
+                    <form onSubmit={ handleSubmit(onSubmitFunction) }>
+                        <div className="whiteForm">
+                            
+                                <Input
+                                    placeholder="User Name"    
+                                    register={register}
+                                    name="username"
+                                />
+                                <div className={"formError"}>
+                                    <p>{errors.username?.message}</p>
+                                </div>
+
+                                <Input
+                                    placeholder="What's your e-email?"    
+                                    register={register}
+                                    name="email"
+                                />
+                                <div className={"formError"}>
+                                    <p>{errors.email?.message}</p>
+                                </div>
+
+                                <Input
+                                    placeholder="Please confirm you e-mail"    
+                                    register={register}
+                                    name="confirmEmail"
+                                />
+                                <div className={"formError"}>
+                                    <p>{errors.confirmEmail?.message}</p>
+                                </div>
+
+                                <Input
+                                    placeholder="Chose a password"    
+                                    register={register}
+                                    name="password"
+                                    type="password"
+                                />
+                                <div className={"formError"}>
+                                    <p>{errors.password?.message}</p>
+                                </div>
+
+                                <Input
+                                    placeholder="Please confirm password"    
+                                    register={register}
+                                    name="confirmPassword"
+                                    type="password"
+                                />
+                                <div className={"formError"}>
+                                    <p>{errors.confirmPassword?.message}</p>
+                                </div>
+                            </div>  
+
+                            <div className="buttonBox">
+
+                                <Button 
+                                    setColor={'var(--red)'}
+                                    setSize={'huge'}
+                                    click={()=>console.log("test sign up")}
+                                    type="submit"
+                                    >Sign Up
+                                </Button>
+                            </div>
+                        </form>
+                </div>
             </div>
-
-            <div className="blueBox">
-                <form onSubmit={ handleSubmit(onSubmitFunction) }>
-                    <div className="blueBoxForm">
-                        
-                            <Input
-                                placeholder="User Name"    
-                                register={register}
-                                name="username"
-                            />
-                            <div className={"blueBoxFormError"}>
-                                <p>{errors.username?.message}</p>
-                            </div>
-
-                            <Input
-                                placeholder="What's your e-email?"    
-                                register={register}
-                                name="email"
-                            />
-                            <div className={"blueBoxFormError"}>
-                                <p>{errors.email?.message}</p>
-                            </div>
-
-                            <Input
-                                placeholder="Please confirm you e-mail"    
-                                register={register}
-                                name="confirmEmail"
-                            />
-                            <div className={"blueBoxFormError"}>
-                                <p>{errors.confirmEmail?.message}</p>
-                            </div>
-
-                            <Input
-                                placeholder="Chose a password"    
-                                register={register}
-                                name="password"
-                                type="password"
-                            />
-                            <div className={"blueBoxFormError"}>
-                                <p>{errors.password?.message}</p>
-                            </div>
-
-                            <Input
-                                placeholder="Please confirm password"    
-                                register={register}
-                                name="confirmPassword"
-                                type="password"
-                            />
-                            <div className={"blueBoxFormError"}>
-                                <p>{errors.confirmPassword?.message}</p>
-                            </div>
-                        </div>  
-
-                        <div className="blueBoxButton">
-
-                            <Button 
-                                setColor={'var(--red)'}
-                                setSize={'large'}
-                                click={()=>console.log("test sign up")}
-                                type="submit"
-                                >Sign Up
-                            </Button>
-                        </div>
-                    </form>
-            </div>
-            
         </Container>
     )
 }
