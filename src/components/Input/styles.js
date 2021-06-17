@@ -26,7 +26,7 @@ export const StyledInput = styled.input`
     color: var(--dark-grey);
     width: 90%;
     border: none;
-    border-bottom: solid 1px var(--red);
+    border-bottom: solid 1px ${props=> props.setBorder};
     &::placeholder{
         color: var(--grey)
     }

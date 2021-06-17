@@ -27,8 +27,6 @@ export const Container = styled.div`
             justify-content: center;
             align-items: center;
 
-            
-
             h2{
                 display: flex;
                 align-items: flex-end;
@@ -92,8 +90,7 @@ export const Container = styled.div`
                     align-items: center;
 
                     input{
-                        height: 40px;
-                        
+                        height: 40px;             
                     }
 
                     .formError{
@@ -102,28 +99,20 @@ export const Container = styled.div`
                         width: 90%;
                         padding-left: 5px;
                     
-
                         p{
                             font-size: 0.7rem;
                             text-align: justify;
-                        }
-                        
+                        }       
                     }
                 }
             }
-           
 
             .buttonBox{
                 height: 20%;
                 display: flex;
                 justify-content: center;
             }
-
-
-
         }
-
-
     }
 
     @media (max-width:500px){
@@ -153,16 +142,15 @@ export const Container = styled.div`
 
                     .whiteForm{
                         height: 100%;
+                        .formError{
+
+                            p{
+                                font-size: 0.85rem;
+                            }
+                        }   
                     }
                 }
-
-                
             }
-
-           
         }
     }
-
-
-
 `
