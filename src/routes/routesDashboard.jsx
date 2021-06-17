@@ -21,7 +21,7 @@ const RoutesDashboard = () => {
             <Route path='/dashboard/groups'>
                 <Groups/>
             </Route>
-            { [...groups].map((group) => {
+            { groups.map((group) => {
                 return <Route path={`/dashboard/group/${group.id}`}>
                     <Group/>
                 </Route>

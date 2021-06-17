@@ -3,16 +3,17 @@ import GroupImg from '../../assets/group-img.png';
 import { useHistory } from 'react-router-dom';
 import Button from '../../components/button/Button';
 import { useGoalsList } from '../../providers/GetGoals';
+import { useNewGoal } from '../../providers/addNewGoal';
 
 const CardGroup = ({name, description, category, path, group}) => {
 
     const history = useHistory();
 
     const { setWhichGroup } = useGoalsList();
+    const { setWichGroupToCreate } = useNewGoal();
 
     setWhichGroup(group.id)
-
-    // console.log(group);
+    setWichGroupToCreate(group.id)
 
     const redirect = (path) => {
         history.push(`/dashboard/group/${path}`);

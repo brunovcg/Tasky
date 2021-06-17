@@ -15,7 +15,7 @@ export const UserGoalsProvider = ({ children }) => {
   useEffect( () => {
 
     if (whichGroup) {
-      console.log(whichGroup)
+      
       axios.get('https://kabit-api.herokuapp.com/goals/', goalsQuery)
         .then(response => setGoalsList(response.data.results))
     }

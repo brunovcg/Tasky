@@ -1,19 +1,18 @@
 import { createContext, useState, useEffect, useContext } from "react";
-import { api }                                from '../../service/api';
-import { useGoalsList, UserGoalsProvider }                       from "../GetGoals";
+import { api }                                            from '../../service/api';
 
-export const NewGoalContext   = createContext();
+export const NewGoalContext = createContext();
 
-export const NewGoalProvider  = ({ children }) => {
+export const NewGoalProvider = ({ children }) => {
 
-  const [newGoalData, setNewGoalData] = useState();
-  const userToken                     = JSON.parse( localStorage.getItem('@tasky/login/token') );
-  // const { whichGroup }                = useContext(UserGoalsProvider);
+  const [newGoalData, setNewGoalData]             = useState();
+  const [wichGroupToCreate, setWichGroupToCreate] = useState();
+  const userToken                                 = JSON.parse( localStorage.getItem('@tasky/login/token') );
 
   const newGoalRequest = () => {
 
-    // newGoalData['group'] = whichGroup;
-
+    newGoalData['group'] = wichGroupToCreate;
+    
     const goalsConfig = { headers:
       { 
         'Content-Type': 'application/json',
@@ -30,8 +29,10 @@ export const NewGoalProvider  = ({ children }) => {
   }, [newGoalData] );
 
   return (
-    <NewGoalContext.Provider value={{setNewGoalData}}> 
+    <NewGoalContext.Provider value={{setNewGoalData, setWichGroupToCreate}}> 
       { children }
     </NewGoalContext.Provider>
   );
 };
+
+export const useNewGoal = () => useContext(NewGoalContext);
