@@ -1,17 +1,18 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 import { api }                                from '../../service/api';
+import { useGoalsList, UserGoalsProvider }                       from "../GetGoals";
 
 export const NewGoalContext   = createContext();
 
 export const NewGoalProvider  = ({ children }) => {
 
-  const userToken = JSON.parse( localStorage.getItem('@tasky/login/token') );
-  
   const [newGoalData, setNewGoalData] = useState();
+  const userToken                     = JSON.parse( localStorage.getItem('@tasky/login/token') );
+  // const { whichGroup }                = useContext(UserGoalsProvider);
 
   const newGoalRequest = () => {
 
-    newGoalData['group'] = 442;
+    // newGoalData['group'] = whichGroup;
 
     const goalsConfig = { headers:
       { 
@@ -26,7 +27,7 @@ export const NewGoalProvider  = ({ children }) => {
 
   useEffect( () => {
     if (newGoalData) newGoalRequest();
-  }, [newGoalData]);
+  }, [newGoalData] );
 
   return (
     <NewGoalContext.Provider value={{setNewGoalData}}> 

@@ -2,8 +2,6 @@ import Goals from './Goals';
 import Button from '../../../components/button/Button';
 import {PopUp} from '../../../components/pop-up/PopUp';
 import { useState } from 'react';
-import { UserGoals } from './userGoals';
-import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -14,12 +12,10 @@ import { Fade, Modal } from '@material-ui/core';
 import { useGoalsList } from '../../../providers/GetGoals';
 
 const GoalsList = () => {
-
-    const { setNewGoalData } = useContext(NewGoalContext)
-
-    const { goalsList } = useGoalsList();
-
+    
     const [goalPopUp, setGoalPopUp] = useState(false)
+    const { setNewGoalData }        = useContext(NewGoalContext)
+    const { goalsList }             = useGoalsList();
 
     // const [goalsList, setGoalsList] = useState();
 

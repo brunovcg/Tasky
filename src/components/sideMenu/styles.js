@@ -67,7 +67,7 @@ export const LinkContainer = styled.div`
     margin-top: 1.5rem;
 `;
 
-export const StyledLink = styled.a`
+export const StyledLink = styled.div`
     border-bottom: 1px solid var(--white);
     color: var(--white);
     font-size: 1rem;

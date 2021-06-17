@@ -33,6 +33,8 @@ export const Card = styled.div`
     }
 
     img {
+        display: flex;
+        flex-direction: column;
         width: 50px;
         height: 50px;
     }
@@ -55,3 +57,14 @@ export const CardsContainer = styled.div`
         align-items: center;
     }
 `;
+
+export const PopUpContainer = styled.div`
+  position: absolute;
+  top:-70px;
+`
+
+export const ErrorPop = styled.div`
+    color: var(--red);
+    font-size: 0.8rem;
+    min-height: 20px;
+`

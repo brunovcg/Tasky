@@ -1,28 +1,31 @@
-import { createContext, useState } from 'react';
-import axios from 'axios';
+import { createContext, useState, useContext, useEffect } from 'react';
+import axios                                              from 'axios';
 
 export const CurrentGoalsListContext = createContext();
 
-// export const UserGoals = (setGoalsList) => {
 export const UserGoalsProvider = ({ children }) => {
 
-  const [goalsList, setGoalsList] = useState();
-
+  const [goalsList, setGoalsList]   = useState();
   const [whichGroup, setWhichGroup] = useState();
 
   const goalsQuery = {
     params: { group: whichGroup, },
   }
 
-  axios.get('https://kabit-api.herokuapp.com/goals/', goalsQuery)
-    .then(response => setGoalsList(response.data.results))
+  useEffect( () => {
 
+    if (whichGroup) {
+      console.log(whichGroup)
+      axios.get('https://kabit-api.herokuapp.com/goals/', goalsQuery)
+        .then(response => setGoalsList(response.data.results))
+    }
+  }, [whichGroup]);
 
   return (
-    <CurrentGoalsListContext.Provider value={{goalsList, setGoalsList, setWhichGroup}} >
+    <CurrentGoalsListContext.Provider value={{goalsList, setGoalsList, setWhichGroup, whichGroup}} >
       { children }
     </CurrentGoalsListContext.Provider>
   )
 };
 
-export const useGoalsList = () => createContext(CurrentGoalsListContext)
+export const useGoalsList = () => useContext(CurrentGoalsListContext)
