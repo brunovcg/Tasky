@@ -20,6 +20,8 @@ const SideMenu = ({setVisibility}) => {
 
     const {width} = useWindowDimensions()
 
+    const [username] = useState(JSON.parse(localStorage.getItem('@tasky/login/user')) || '');
+
     const changeDisplay = () => {
         setHidden(!hidden)
         console.log(show)
@@ -50,7 +52,7 @@ const SideMenu = ({setVisibility}) => {
             
         <UserContainer>
             <Img src={User} alt='user'/>
-            <p>User Name</p>
+            <p>{username}</p>
             <LinkContainer>
                     <StyledLink><Link to='/dashboard/habits'>Habits</Link></StyledLink>
                     <StyledLink><Link to='/dashboard/groups'>Groups</Link></StyledLink>
