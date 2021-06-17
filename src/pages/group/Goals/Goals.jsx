@@ -2,7 +2,7 @@ import { GoalsContainer } from "../styles"
 import {PieChart} from '../Charts/Charts'
 // import {data} from '../Graphic/data'
 
-const Goals = ({ title, difficulty, how_much_achieved }) => {
+const Goals = ({ title, difficulty, how_much_achieved, click }) => {
 
     const hasToDo = 100 - how_much_achieved; 
 
@@ -16,6 +16,7 @@ const Goals = ({ title, difficulty, how_much_achieved }) => {
             </div>
             <div className="chartContainer">
                 <PieChart doneData={how_much_achieved} todoData={hasToDo}/>
+                <button onClick={click}>Add 10%</button>
             </div>
         </GoalsContainer>
     )

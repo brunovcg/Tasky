@@ -6,15 +6,16 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import Input from '../../../components/Input/Input.jsx';
-import { useContext } from 'react';
 import {  useGoalsRequest } from '../../../providers/addNewGoal';
-import { Fade, Modal } from '@material-ui/core';
 import { PopUpContainer } from '../../Habits/styles';
+import { api } from '../../../service/api';
+import { toast } from 'react-toastify';
 
-const GoalsList = () => {
+const GoalsList = ({specifGroup}) => {
     
     const [goalPopUp, setGoalPopUp]     = useState(false)
     const { setNewGoalData, goalsList } = useGoalsRequest() //REFATORAR
+    const userToken = JSON.parse( localStorage.getItem('@tasky/login/token') );
 
     // const [goalsList, setGoalsList] = useState();
 
@@ -33,9 +34,42 @@ const GoalsList = () => {
 
     const handleCloseModal = () => setGoalPopUp(false);
 
+    const [howPercent, setHowPercent] = useState(0)
+
+    const handleSum = () => {
+       if (howPercent<100){setHowPercent(howPercent + 10)} 
+    }
+
+    const [ goalsListRender, setGoalsListRender] = useState([])
     // useEffect( () => {
     //     UserGoals(setGoalsList)
     // }, [])
+
+    const handleLoadGoals = (id) => {
+        api.get(`/groups/${id}/`, {
+            headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${userToken}`,
+            },
+            })
+            .then(response => setGoalsListRender(response.data.goals))
+        };
+    
+    const handleUpdate = (goal) => {
+        // const handleSum = () => {
+        //     if (howPercent<100){setHowPercent(howPercent + 10)} 
+        //  } 
+        const addTen = { how_much_achieved: handleSum()}
+
+        api.patch(`/goals/${goal.id}/`, addTen)
+        .then((_)=>{
+            toast.success(`updated`)
+            handleLoadGoals(specifGroup.id)
+            .catch((_)=> toast.error("Something went wrong, try again!"))
+        })
+    }
+
+    handleLoadGoals(specifGroup.id)
 
     return(
         <>
@@ -52,7 +86,19 @@ const GoalsList = () => {
                             </Button>
                         </div>
                         <div className="goalMain">
-                            { goalsList && goalsList.map((el, index) => <Goals {...el} key={index}/>) }
+                            {/* { goalsList && goalsList.map((el, index) => <Goals {...el} key={index}/>) } */}
+                            {
+                            goalsListRender.map((goal) => (
+                                <Goals
+                                    key={goal.id}
+                                    title={goal.title}
+                                    dificult={goal.title}
+                                    how_much_achieved={goal.how_much_achieved}
+                                    click={() => handleUpdate(goal.id)}
+                                />
+                                
+                            ))
+                        }
                         </div>
 
                         <div className="popUps">
