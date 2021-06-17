@@ -241,6 +241,7 @@ export const PopUpContainer = styled.div`
       
     }
 
+    
     .erro{
         color: var(--dark-red);
         font-size: 0.8rem;
