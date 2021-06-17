@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useContext } from 'react';
 import { api } from '../../service/api';
 
 export const LoginRequestContext = createContext();
@@ -10,7 +10,7 @@ export const LoginRequestProvider = ({ children }) => {
   const addTokenLocalStorage = (data) => {
     localStorage.setItem('@tasky/login/token', JSON.stringify(data));
   }
-  console.log(userLoginData)
+
   const makeLoginRequest = () => {
     api.post('sessions/', userLoginData.data)
       .then( response => {
@@ -24,8 +24,10 @@ export const LoginRequestProvider = ({ children }) => {
   }, [userLoginData]);
 
   return (
-    <LoginRequestContext.Provider value={{setUserLoginData}} >
+    <LoginRequestContext.Provider value={{setUserLoginData, userLoginData}} >
       {children}
     </LoginRequestContext.Provider>
   );
 };
+
+export const useLoginData = () => useContext(LoginRequestContext);
