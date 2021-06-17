@@ -8,7 +8,7 @@ import * as yup from 'yup';
 import Input from '../../../components/Input/Input.jsx';
 import { useContext } from 'react';
 import { ActivitieContext } from '../../../providers/ActivitiesCtx'
-import { Fade, Modal } from '@material-ui/core';
+import { PopUpContainer} from "../styles"
 
 const ActivitiesList = () => {
 
@@ -36,7 +36,7 @@ const ActivitiesList = () => {
         title: yup.string().required('This field is required'),
     })
 
-    const { register, handleSubmit, formState: { error } } = useForm({ resolver: yupResolver(formSchema) })
+    const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(formSchema) })
 
     return(
             <>
@@ -65,19 +65,25 @@ const ActivitiesList = () => {
                     </div>
                 </div>
                 { activitiesPopUp && 
-                    <Modal open={activitiesPopUp} onClose={handleCloseModal} >
-                        <Fade in={true} >
-                            <div>
-                                <PopUp title='New Activitie' onSubmit={handleSubmit(addActivitie)} >
+                    <PopUpContainer open={activitiesPopUp} onClose={handleCloseModal} >
+                        
+                       
+                                <PopUp
+                                    title='New Activity'
+                                    onSubmit={handleSubmit(addActivitie)}
+                                    onClickClose={handleNewActivitie}
+                                    >
                                     <Input 
                                             register={register} 
                                             name='title' 
-                                            placeholder='Title' 
+                                            placeholder='Title'
+                                            setBorder='var(--green)'
                                     />
+                                    <div className="erro">{errors.title?.message}</div>
                                 </PopUp>
-                            </div> 
-                        </Fade>
-                    </Modal>
+                            
+                        
+                    </PopUpContainer>
                 }
             </>
     )

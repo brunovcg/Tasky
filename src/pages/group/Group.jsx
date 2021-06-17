@@ -31,8 +31,8 @@ const Group = () => {
                 </div>
                 <div className="buttonContainer">
                     <Button
-                        setSize={"huge"}
-                        setColor={"var(--grey)"}  
+                        setSize={"giant"}
+                        setColor={"var(--green)"}  
                         click={changeDisplay}              
                         >{`change to ${hidden ? "Goals" : "Activities"}`}
                     </Button>
