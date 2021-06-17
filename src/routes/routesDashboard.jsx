@@ -19,7 +19,7 @@ const RoutesDashboard = () => {
             <Route path='/dashboard/groups'>
                 <Groups/>
             </Route>
-            <Route path="/dashboard/group">
+            <Route path="/dashboard/group/:id">
                 <Group/>
             </Route>            
             <Route>
