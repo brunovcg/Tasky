@@ -14,10 +14,15 @@ export const LoginRequestProvider = ({ children }) => {
     localStorage.setItem('@tasky/login/token', JSON.stringify(data));
   }
 
+  const addUserLocalStorage = (data) =>{
+    localStorage.setItem('@tasky/login/user', JSON.stringify(data));
+  }
+
   const makeLoginRequest = () => {
     api.post('sessions/', userLoginData.data)
       .then( response => {
         addTokenLocalStorage(response.data.access)
+        addUserLocalStorage(userLoginData.data.username)
         setAuthenticated(true)
         return userLoginData.redirect
       })
