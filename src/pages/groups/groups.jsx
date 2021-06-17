@@ -61,6 +61,7 @@ const Groups = () => {
                                 name={group.name}
                                 description={group.description}
                                 category={group.category}
+                                path={group.id}
                             />
                         ))
                     }

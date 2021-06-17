@@ -19,6 +19,7 @@ export const Container = styled.div`
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        justify-content: flex-start;
         width: 100vw;
         height: 100vh;
         background-color: var(--transparent-black);
