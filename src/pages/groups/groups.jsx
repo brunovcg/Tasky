@@ -14,6 +14,8 @@ const Groups = () => {
 
     const {groups, newGroup, setGroups} = useGroups();
 
+    const [userGroupSubscription, setUserGroupSubscription] = useState();
+
     const [token] = useState(JSON.parse(localStorage.getItem('@tasky/login/token')) || '');
 
     const [showNewGroup, setShowNewGroup] = useState(false);
@@ -38,8 +40,20 @@ const Groups = () => {
         .then((response) => {
             setGroups(response.data.results)
         })
-        //passar um filtro para mostrar os grupos que o usuário esta inserido
     }
+
+    const getUserOnGroup = () => {
+        api.get('/groups/subscriptions/', {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        .then((response) => {
+            setUserGroupSubscription(response.data)
+        })
+    }
+
+    // getUserOnGroup();
 
     const {
        register,
@@ -55,15 +69,15 @@ const Groups = () => {
         handlePopUp();
     }
 
-   
-
     useEffect(() => {
-        getGroups()}, []
+        getGroups()
+        getUserOnGroup()
+    }, []
     )
 
     return (
         <>
-        {/* <button onClick={() => console.log(groups)}>test</button> */}
+        {/* <button onClick={() => console.log(userGroupSubscription)}>test</button> */}
             <main>
                 <HeaderContainer>
                     <h2>Groups</h2>
@@ -75,7 +89,8 @@ const Groups = () => {
                 </HeaderContainer>
                 <CardsContainer>
                     {
-                        groups.map((group) => (
+                        userGroupSubscription &&
+                        userGroupSubscription.map((group) => (
                             <CardGroup key={group.id} 
                                 name={group.name}
                                 description={group.description}
