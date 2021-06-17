@@ -6,10 +6,12 @@ import Habits from '../pages/Habits/Habits';
 import PageNotFound from '../pages/pageNotFound/PageNotFound';
 import {useGroups} from '../providers/groups';
 
+
 const RoutesDashboard = () => {
 
     const {groups} = useGroups();
 
+   
     return (
         <Switch>
             <Route exact path='/dashboard/'>
@@ -21,11 +23,13 @@ const RoutesDashboard = () => {
             <Route path='/dashboard/groups'>
                 <Groups/>
             </Route>
-            { [...groups].map((group) => {
-                return <Route path={`/dashboard/group/${group.id}`}>
-                    <Group/>
-                </Route>
-            }) }
+            { groups.length > 0 ?
+                [...groups].map((group) => {
+                    return <Route path={`/dashboard/group/${group.id}`}>
+                        <Group/>
+                    </Route>
+                }) : null
+            }
             <Route>
                 <PageNotFound/>
             </Route>

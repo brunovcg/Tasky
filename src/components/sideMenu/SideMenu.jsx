@@ -45,17 +45,17 @@ const SideMenu = ({setVisibility}) => {
         <Container setVisibility={show}>
             
         <UserContainer>
-        <Img src={User} alt='user'/>
-        <p>User Name</p>
-        <LinkContainer>
-                <StyledLink><Link to='/dashboard/habits'>Habits</Link></StyledLink>
-                <StyledLink><Link to='/dashboard/groups'>Groups</Link></StyledLink>
-        </LinkContainer>
-        </UserContainer>
+            <Img src={User} alt='user'/>
+            <p>User Name</p>
+            <LinkContainer>
+                    <StyledLink><Link to='/dashboard/habits'>Habits</Link></StyledLink>
+                    <StyledLink><Link to='/dashboard/groups'>Groups</Link></StyledLink>
+            </LinkContainer>
+            </UserContainer>
         <ButtonContainer>
         <Button
-                setColor={'var(--red)'}
-                setSize={'medium'}
+                setColor={'var(--dark-red)'}
+                setSize={'large'}
                 click={() => handleClick('/')}
 
         >Logout</Button>

@@ -54,9 +54,9 @@ export const Container = styled.div`
            
 
             p{
-                font-family: 'Viaoda Libre', cursive;
+                font-family: 'Josefin Sans', sans-serif;
                 color: var(--white);
-                font-size: 3.5rem;
+                font-size: 3rem;
                 text-align: center;
                 width: 70%;
 
@@ -90,7 +90,15 @@ export const Container = styled.div`
                 }
             }
 
+            .descriptionBox{
+            p{
+                font-size: 2.5rem;
+            }
         }
+
+        }
+
+        
     }
     
     

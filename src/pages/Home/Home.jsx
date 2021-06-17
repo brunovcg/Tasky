@@ -28,7 +28,7 @@ const Home = () => {
                 </div>
 
                 <div className="descriptionBox">   
-                    <p>Hit your goals through team working</p>
+                    <p>Hit your goals through team working..</p>
                 </div>
             
                 <div className="buttonBox">

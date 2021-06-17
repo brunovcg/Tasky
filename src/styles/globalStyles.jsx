@@ -20,6 +20,7 @@ export default createGlobalStyle`
     #mainBody{
         /* max-width: 2000px; */
         margin: 0 auto;
+       height: available;
     }
 
     * {
@@ -27,6 +28,7 @@ export default createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         outline: none;
+        
     } 
 
     h1 {

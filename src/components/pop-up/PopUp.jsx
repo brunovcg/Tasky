@@ -1,25 +1,29 @@
-import { StyledPaper, StyledGrid, Form, InputsDiv } from './styles';
-import { Input, DivH1, H1, DivButton, Select }              from './styles';
+
+import { Container}              from './styles';
 import MyButton                                     from '../button/Button'
 
-export const PopUp = ({ children, title, onClick, ...rest }) => {
+export const PopUp = ({ children, title, onClick, onClickClose, ...rest }) => {
 
 
   return (
-    <StyledGrid>
-      <StyledPaper>
-        <DivH1>
-          <H1>{title}</H1>
-        </DivH1>
-        <Form {...rest} >
-          <InputsDiv>
+    <Container>
+      <div className="popUp">
+        <div className="titleBox">
+          <h2>{title}</h2>
+          <MyButton click={onClickClose}  setColor='red' >X</MyButton>
+        </div>
+        <div className="formBox">
+        <form {...rest} >
+          <div className='inputBox'>
             {children}
-          </InputsDiv>
-          <DivButton>
-            <MyButton click={onClick} type='submit' setColor='red' setSize='large' >Salvar</MyButton>
-          </DivButton>
-        </Form>
-      </StyledPaper>
-    </StyledGrid>
+          </div>
+          <div className="buttonBox">
+            
+            <MyButton click={onClick} type='submit' setColor='var(--green)' setSize='large' >Save</MyButton>
+          </div>
+        </form>
+        </div>
+      </div>
+    </Container>
   );
 };

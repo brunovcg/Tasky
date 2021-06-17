@@ -21,12 +21,12 @@ const CardHabits = ({title, frequency, status, difficulty,category, clickDelete,
             <CardButtons>
                 <Button
                     setColor={'var(--blue)'}
-                    setSize={'medium'}
+                    setSize={'large'}
                     click={clickUpdate}
                 >Done</Button>
                 <Button
                     setColor={'var(--red)'}
-                    setSize={'medium'}
+                    setSize={'large'}
                     click={clickDelete}
                 >Delete</Button>
             </CardButtons>    
