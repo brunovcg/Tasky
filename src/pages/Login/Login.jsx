@@ -55,7 +55,7 @@ const Login = () => {
           </EachDivInput>
         </DivsInputs>
         <DivButton>
-          <Button type='submit' setColor='red' setSize='large' >Login</Button>
+          <Button type='submit' setColor='var(--red)' setSize='large' >Login</Button>
         </DivButton>
       </BodyForm>
     </StyledGrid>

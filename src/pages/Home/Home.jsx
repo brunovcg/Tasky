@@ -31,34 +31,38 @@ const Home = () => {
                         <h1>Tasky</h1>
                 </div>
             </div>
-            
-            <div className="whiteBox">
-                <div className="title">
-                    <h1>Tasky</h1>
-                </div>
-                
-                <div className="boxText">
-                    <p>
-                        Hit your goals through team working.
-                    </p>
-                </div>
-                
-                <div className="buttonPlace">
-                    
-                    <Button 
-                        setColor={'var(--red)'} 
-                        setSize={'large'} 
-                        click={() => handleGoToSignUp('/signup')}
-                    >Sign Up</Button>
-                    
-                    <Button 
-                        setColor={'var(--blue)'} 
-                        setSize={'large'} 
-                        click={() => handleGoToLogin('/login')}
-                    >Login</Button>
 
+            <div className="whiteContainer">
+            
+                <div className="whiteBox">
+                    <div className="title">
+                        <h1>Tasky</h1>
+                    </div>
+                    
+                    <div className="boxText">
+                        <p>
+                            Hit your goals through team working.
+                        </p>
+                    </div>
+                    
+                    <div className="buttonPlace">
+                        
+                        <Button 
+                            setColor={'var(--red)'} 
+                            setSize={'large'} 
+                            click={() => handleGoToSignUp('/signup')}
+                        >Sign Up</Button>
+                        
+                        <Button 
+                            setColor={'var(--green)'} 
+                            setSize={'large'} 
+                            click={() => handleGoToLogin('/login')}
+                        >Login</Button>
+
+                    </div>
                 </div>
-            </div>
+                </div>
+
             
             
         </Container>

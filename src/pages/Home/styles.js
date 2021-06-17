@@ -3,7 +3,7 @@ import styled, {css} from 'styled-components'
 export const Container = styled.div`
 
     display: flex;
-    flex-diretion: row;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     width: 100vw;
@@ -18,10 +18,20 @@ export const Container = styled.div`
         display: none;
     }
 
+    .whiteContainer{
+        width:40%;
+
+    }
+
     p{
-        font-size: 0.8rem;
-        color: var(--maroon);
+        font-size: 1.1rem;
+        color: var(--dark-grey);
+        font-weight:bold;
         margin-top: 1rem;
+        width: 100%;
+        text-align: center;
+        padding: 0 15%;
+        font-family: 'Shadows Into Light Two', cursive;
     }
 
     h1{
@@ -38,24 +48,31 @@ export const Container = styled.div`
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+
+      
     }
 
     .buttonPlace{
         margin-top: 2rem;
         margin-bottom: -1rem;
 
-        Button{
+        button{
             margin: 1rem;
         }
     }
 
-    @media (max-width: 660px){
+    @media (max-width: 500px){
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 100vw;
         height: 100vh;
         background: var(--gradient-blue);
+
+        h1{
+            font-size: 5rem;
+        }
 
         .mobileTop{
             background: var(--white);
@@ -78,13 +95,29 @@ export const Container = styled.div`
                 display: none
             }
         }    
+
+        .whiteContainer{
+       
+            width: 100%;
+            height: 80%;
+            display: flex;
+            justify-content: center;
+        
+        }
         
         .whiteBox{
-
+            width: 80%;
+            height: 60%;
             margin-top: 4rem;
 
             .title{
                 display: none;
+            }
+
+            .boxText{
+                p{
+                    font-size: 2rem;
+                }
             }
         }
         

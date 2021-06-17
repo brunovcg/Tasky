@@ -11,7 +11,7 @@ export const Container = styled.div`
     input{
         background: transparent;
     padding-left: 2px;
-    color: var(--grey);
+    color: var(--dark-grey);
     border: 0;
     height: 90%;
     width: 90%;
@@ -26,7 +26,7 @@ export const Container = styled.div`
 export const StyledInput = styled.input`
     background: var(--white);
     padding-left: 2px;
-    color: var(--grey);
+    color: var(--dark-grey);
     border: 0;
     height: 90%;
     width: 90%;

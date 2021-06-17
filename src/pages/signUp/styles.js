@@ -17,6 +17,7 @@ export const Container = styled.div`
 
     .whiteBox{
         background-color: var(--white);
+        height: 40%;
     
         
         .whiteBoxTitle{
@@ -37,12 +38,14 @@ export const Container = styled.div`
 
             p{
                 font-size: 0.8rem;
-                color: var(--dark-red);
+                color: var(--maroon);
                 text-align: center;
+                font-size: 1rem;
+                font-weight: bold;
             }
 
             a{
-                color: var(--blue)
+                color: var(--green)
             }
         }
 
@@ -62,11 +65,23 @@ export const Container = styled.div`
         justify-content: center;
         height: 100%;
 
+        form{
+            height: 70%;
+        }
+
         .blueBoxForm{
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            width: 100%;
+
+            
+
+            input{
+                width: 100%;
+                height: 50px;
+            }
 
            
             div{
@@ -84,10 +99,8 @@ export const Container = styled.div`
                     padding-left: 2px;
                     height: 1rem;
                     height: fit-content;
-                    background-color: var(--dark-red);
-                    font-size: 1rem;
-                    font-variant: small-caps;
-                    color: var(--white);
+                    font-size: 0.8rem;
+                    color: var(--dark-red);
                     font-family: sans-serif;
                     font-weight: bold;  
 
@@ -138,9 +151,8 @@ export const Container = styled.div`
                     height: 8%;
 
                     p{               
-                        width: 80%;
-                        background-color: var(--dark-red);
-                        font-size: 1.2rem;         
+                        width: 100%;
+                        font-size: 1rem;         
                     }
             }
         }

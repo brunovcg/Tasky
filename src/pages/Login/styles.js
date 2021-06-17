@@ -67,6 +67,7 @@ export const H1 = styled.h1 `
 export const H1Title = styled.h1 `
   font-family: unset;
   font-size: 280%;
+  color: var(--red);
 
   @media (min-width: 600px) {
     font-size: 380%;
@@ -74,7 +75,8 @@ export const H1Title = styled.h1 `
 `
 
 export const H1text = styled.p `
-  color: var(--dark-red);
+  color: var(--maroon);
+  
 
   @media (min-width: 600px) {
     display: none;
@@ -82,7 +84,7 @@ export const H1text = styled.p `
 `
 
 export const StyledLink = styled(Link) `
-  color: var(--blue);
+  color: var(--green);
   font-weight: 600;
 `
 
