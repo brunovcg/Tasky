@@ -7,14 +7,14 @@ export const GroupContainer = styled.div`
 
         .titleContainer{
             h2{
-                color: var(--dark-red);
+                color: var(--dark-grey);
                 margin-bottom:20px;
             }
 
             h3{
-                color: var(--blue);
+                color: var(--dark-grey);
                 span{
-                    color:var(--red);
+                    color:var(--blue);
                 }
             }
 
@@ -37,6 +37,7 @@ export const GroupContainer = styled.div`
         display: flex;
         justify-content: space-between;
         width: 100%;
+        height: fit-content;
         margin-top:10px;
 
         .groupGoals{
@@ -48,6 +49,7 @@ export const GroupContainer = styled.div`
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                max-width: 400px;
 
                 h3{
                     color:var(--red);
@@ -72,7 +74,8 @@ export const GroupContainer = styled.div`
             .activitiesTitle{
                 display: flex;
                 justify-content: space-between;
-                align-items: center;     
+                align-items: center;    
+                max-width: 480px; 
 
                 h3{
                     color:var(--red);
@@ -98,12 +101,16 @@ export const GroupContainer = styled.div`
 `
 
 export const GoalsContainer = styled.div`
-    background-color: var(--dark-grey);
+    background-color: var(--white);
     width: 100%;
-    height: 170px;
+    max-width: 400px;
+    height: 200px;
+    max-height: 200px;
     margin: 10px 0;
     display: flex;
     border-radius: 8px;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.3);
+
 
     .infoContainer{
         width:50%;
@@ -114,21 +121,29 @@ export const GoalsContainer = styled.div`
 
         h3{
             padding-bottom: 7px;
-            color: var(--white);
+            color: var(--dark-grey);
         }
 
         p{
-            color: white;
-            font-variant: small-caps;
-            font-weight: bold;
+            color: var(--dark-grey);
             width: 100px;
             margin: 5px 0;
             border-radius: 8px;
             padding: 2px 0 2px 5px;
+            font-size: 1rem;
+
+            span{
+                color: var(--blue);
+            }
+        }
+
+        .difficult{
+            color: var(dark-grey);
         }
 
         .doneContainer{
                 background-color: var(--blue);
+                color: var(--white);
                 .doneInfo{
                     font-weight: normal;
                 }
@@ -136,8 +151,9 @@ export const GoalsContainer = styled.div`
            
         .todoContainer{
             background-color: var(--red); 
+            color: var(--white);
             .todoInfo{
-                
+                color: var(--white);
                 font-weight: normal;
             }
         }
@@ -170,21 +186,23 @@ export const GoalsContainer = styled.div`
 `
 
 export const ActivitiesContainer = styled.div`
-    background-color: var(--dark-grey);
+    background-color: var(--white);
     width: 100%;
+    max-width: 480px;
     height: 120px;
     margin: 10px 0;
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.3);
 
     .taskContainer{
         width: 80%;
 
         p{  
             font-size: 0.9rem;
-            color: var(--white);
+            color: var(--dark-grey);
             padding: 12px 12px 12px 20px;
             display: flex;
             height: 100%;
@@ -206,6 +224,32 @@ export const ActivitiesContainer = styled.div`
             width: 30%;
         }
     }
+
+    
+`
+
+export const PopUpContainer = styled.div`
+    position: absolute;
+    width:99vw;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 3;
+
+    @media (max-width: 500px){
+      width: 100vw;
+      
+    }
+
+    .erro{
+        color: var(--dark-red);
+        font-size: 0.8rem;
+        min-height: 20px;
+        width: 90%;
+        padding-left: 8px;
+    }
+
+
 `
 
 

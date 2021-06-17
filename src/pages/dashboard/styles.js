@@ -22,7 +22,8 @@ export const Container = styled.div`
 
 export const MainContainer = styled.article`
     
-    height: 85%;
+    height: fit-content;
+    min-height: 80vh;
     width: 100%;
     background-color: var(--grey);
 

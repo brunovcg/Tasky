@@ -7,7 +7,7 @@ const Activities = ({id, title, group, click }) => {
     return(
         <ActivitiesContainer>
             <div className="taskContainer">
-                <p><b>Title: </b> {title}</p>
+                <p>{title}</p>
             </div>
             <div className="buttonContainer">
                 <Button
