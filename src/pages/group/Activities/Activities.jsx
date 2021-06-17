@@ -2,18 +2,18 @@ import Button from "../../../components/button/Button"
 import { ActivitiesContainer } from "../styles"
 
 
-const Activities = () => {
+const Activities = ({id, title, group, click }) => {
 
     return(
         <ActivitiesContainer>
             <div className="taskContainer">
-                <p>Esse é um exemplo de Task, Lorem, ipsum dolor sit amet consecteit.</p>
+                <p><b>Title: </b> {title}</p>
             </div>
             <div className="buttonContainer">
                 <Button
                     setColor={'var(--red)'}
                     setSize={'medium'}
-                    click={()=>console.log("teste done!")}
+                    click={click}
                     >Done!
                 </Button>
             </div>

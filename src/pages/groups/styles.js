@@ -33,6 +33,8 @@ export const Card = styled.div`
     }
 
     img {
+        display: flex;
+        flex-direction: column;
         width: 50px;
         height: 50px;
     }
