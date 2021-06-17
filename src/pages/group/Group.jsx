@@ -67,7 +67,7 @@ const Group = () => {
 
                  { width > 500 ? 
                     <>
-                        <GoalsList/>
+                        <GoalsList specifGroup={specifGroup}/>
                         <ActivitiesList specifGroup={specifGroup}/>
                     </>
                     
