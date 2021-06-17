@@ -9,16 +9,19 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import Input from '../../../components/Input/Input.jsx';
 import { useContext } from 'react';
-import { NewGoalContext } from '../../../providers/newGoal';
+import { NewGoalContext } from '../../../providers/addNewGoal';
 import { Fade, Modal } from '@material-ui/core';
+import { useGoalsList } from '../../../providers/GetGoals';
 
 const GoalsList = () => {
 
     const { setNewGoalData } = useContext(NewGoalContext)
 
+    const { goalsList } = useGoalsList();
+
     const [goalPopUp, setGoalPopUp] = useState(false)
 
-    const [goalsList, setGoalsList] = useState();
+    // const [goalsList, setGoalsList] = useState();
 
     const schema = yup.object().shape({
         title: yup.string().required('This field is required'),
@@ -35,9 +38,9 @@ const GoalsList = () => {
 
     const handleCloseModal = () => setGoalPopUp(false);
 
-    useEffect( () => {
-        UserGoals(setGoalsList)
-    }, [])
+    // useEffect( () => {
+    //     UserGoals(setGoalsList)
+    // }, [])
 
     return(
         <>
