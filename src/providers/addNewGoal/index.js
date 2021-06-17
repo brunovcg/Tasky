@@ -1,13 +1,32 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { api }                                            from '../../service/api';
 
-export const NewGoalContext = createContext();
 
-export const NewGoalProvider = ({ children }) => {
+export const GoalsRequestsContext = createContext();
+
+export const GoalsRequestsProvider = ({ children }) => {
+
 
   const [newGoalData, setNewGoalData]             = useState();
   const [wichGroupToCreate, setWichGroupToCreate] = useState();
   const userToken                                 = JSON.parse( localStorage.getItem('@tasky/login/token') );
+
+  const [goalsList, setGoalsList]   = useState();
+  const [whichGroup, setWhichGroup] = useState();
+
+  const getGoalsQuery = {
+    params: { group: whichGroup, },
+  }
+
+  const getGoals = () => {
+    api.get('goals/', getGoalsQuery) //REFATORADO
+    .then(response => setGoalsList(response.data.results))
+  }
+
+  useEffect( () => {
+    if (whichGroup) getGoals();
+  }, [whichGroup]);
+
 
   const newGoalRequest = () => {
 
@@ -21,18 +40,21 @@ export const NewGoalProvider = ({ children }) => {
     };
     
     api.post('goals/', newGoalData, goalsConfig)
-      .then( response => response.status === 201 && window.location.reload() )
+      .then( response => response.status === 201 && getGoals() )
   };
+
 
   useEffect( () => {
     if (newGoalData) newGoalRequest();
+    
   }, [newGoalData] );
 
+
   return (
-    <NewGoalContext.Provider value={{setNewGoalData, setWichGroupToCreate}}> 
+    <GoalsRequestsContext.Provider value={{setNewGoalData, setWichGroupToCreate, goalsList, setGoalsList, setWhichGroup, whichGroup}}> 
       { children }
-    </NewGoalContext.Provider>
+    </GoalsRequestsContext.Provider>
   );
 };
 
-export const useNewGoal = () => useContext(NewGoalContext);
+export const useGoalsRequest = () => useContext(GoalsRequestsContext)

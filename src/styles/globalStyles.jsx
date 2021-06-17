@@ -2,20 +2,25 @@ import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
     :root {
-        --gradient-blue: linear-gradient(#00b4db, #0083b0);
-        --red: #f20505;
-        --dark-red: #bf0404;
-        --sand: #bfac95;
+        --gradient-blue: linear-gradient(#06cbf7, #22b9df);
+        --gradient-optional: linear-gradient(to right, #88aef5, #8eb6ee);
+        --transparent-black: #3a3939e8 ;
+        --red: #ff8484;
+        --dark-red: #f20505;
+        --green: #7FC15E;
+        --dark-green: #358f08 ;
+        --yellow:#e9e394;
         --white: #ffffff;
         --maroon: #a85454;
-        --grey: #6f6f6f;
-        --dark-grey: #646464;
-        --blue: #42b1dc;
+        --grey: #e6e5e5;
+        --dark-grey: #444444;
+        --blue: #70B5F9;
     }
 
     #mainBody{
         /* max-width: 2000px; */
         margin: 0 auto;
+       height: available;
     }
 
     * {
@@ -23,11 +28,12 @@ export default createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         outline: none;
+        
     } 
 
     h1 {
         font-family: 'Shadows Into Light Two', cursive;
-        color: var(--red);
+        color: var(--white);
     }
     
 

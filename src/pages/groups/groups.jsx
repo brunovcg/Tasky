@@ -8,10 +8,15 @@ import Input from '../../components/Input/Input';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
+import {api} from '../../service/api'
 
 const Groups = () => {
 
-    const {groups, getGroups, newGroup} = useGroups();
+    const {groups, newGroup, setGroups} = useGroups();
+
+    const [userGroupSubscription, setUserGroupSubscription] = useState();
+
+    const [token] = useState(JSON.parse(localStorage.getItem('@tasky/login/token')) || '');
 
     const [showNewGroup, setShowNewGroup] = useState(false);
 
@@ -25,6 +30,30 @@ const Groups = () => {
         setShowNewGroup(!showNewGroup);
         reset();
     }
+
+    const getGroups = () => {
+        api.get('/groups/', {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        .then((response) => {
+            setGroups(response.data.results)
+        })
+    }
+
+    const getUserOnGroup = () => {
+        api.get('/groups/subscriptions/', {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        .then((response) => {
+            setUserGroupSubscription(response.data)
+        })
+    }
+
+    // getUserOnGroup();
 
     const {
        register,
@@ -40,11 +69,15 @@ const Groups = () => {
         handlePopUp();
     }
 
-    useEffect(() => {getGroups()}, [groups])
+    useEffect(() => {
+        getGroups()
+        getUserOnGroup()
+    }, []
+    )
 
     return (
         <>
-        {/* <button onClick={() => console.log(groups)}>test</button> */}
+        {/* <button onClick={() => console.log(userGroupSubscription)}>test</button> */}
             <main>
                 <HeaderContainer>
                     <h2>Groups</h2>
@@ -56,9 +89,10 @@ const Groups = () => {
                 </HeaderContainer>
                 <CardsContainer>
                     {
-                        groups.map((group) => (
+                        userGroupSubscription &&
+                        userGroupSubscription.map((group) => (
                             <CardGroup 
-                                group={group}
+                                group={group} //Feito agora
                                 key={group.id} 
                                 name={group.name}
                                 description={group.description}

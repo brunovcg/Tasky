@@ -1,112 +1,106 @@
 import styled, {css} from 'styled-components'
+import back from '../../assets/background.jpg'
+
 
 export const Container = styled.div`
 
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background: var(--gradient-blue);
-    
-    .taskMobile{
-        display: none;
-    }
-    
+    background-image: url(${back});
+    background-size: cover;
+    background-repeat: no-repeat;
 
-    .titleMobile{
-        display: none;
-    }
-
-    p{
-        font-size: 150%;
-        color: var(--maroon);
-        margin-top: 1rem;
-        text-align: center;
-    }
-
-    h1{
-        font-size: 550%;
-    }
-
-    .whiteBox{
-        background-color: var(--white);
-        height: 65%;
-        width: 35%;
-        margin-top: 2rem;
-        border-radius: 2rem;
+    .transparentBox{
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-    }
-
-    .task {
-        img {
-            width: 40vw;
-        }
-    }
-
-    .buttonPlace{
-        margin-top: 2rem;
-        margin-bottom: -1rem;
-
-        Button{
-            margin: 1rem;
-        }
-    }
-
-    @media (max-width: 660px){
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
         justify-content: flex-start;
         width: 100vw;
         height: 100vh;
-        background: var(--gradient-blue);
+        background-color: var(--transparent-black);
 
-        .mobileTop{
-            background: var(--white);
+        .headerBox{
+
             height: 30%;
-            width: 100%;
+
             display: flex;
-            flex-direction: row;
+            align-items: center;
+
+
+            img{
+                width: 11rem;
+                height: 11rem;
+                
+            }
+
+            h1{
+                display: flex;
+                font-size: 7rem;
+                align-items: center;
+                margin-top: 20px;
+            }
+        }
+
+        .descriptionBox{
+            height: 40%;
+            display: flex;
             align-items: center;
             justify-content: center;
-            top: 0rem;
+           
 
-            .taskMobile{
-                display: flex;
-            }
-        
-            .titleMobile{
-                display: flex;
+            p{
+                font-family: 'Josefin Sans', sans-serif;
+                color: var(--white);
+                font-size: 3rem;
+                text-align: center;
+                width: 70%;
+
             }
 
-            .task{
-                display: none
-            }
-        }    
-        
-        p{
-            font-size: 155%;
-        }
-    
-        h1{
-            font-size: 450%;
         }
 
-        .whiteBox{
-            height: 50%;
-            width: 80%;
-            margin-top: 4rem;
+        .buttonBox{
+            height: 30%;
+            display: flex;
+            align-items: center;
+        }
 
-            .title{
-                display: none;
+
+
+    }
+
+    @media (max-width: 500px){
+
+        .transparentBox{
+
+            .headerBox{
+
+                img{
+                    width: 8rem;
+                    height: 8rem;
+                }
+
+                h1{
+                    font-size: 5rem;
+                }
+            }
+
+            .descriptionBox{
+            p{
+                font-size: 2.5rem;
             }
         }
+
+        }
+
         
     }
+    
+    
+   
 `

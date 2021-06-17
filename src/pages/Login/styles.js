@@ -1,158 +1,158 @@
-import { Grid, Typography } from '@material-ui/core';
-import { styled as materialStyled } from '@material-ui/core';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled, {css} from 'styled-components'
+import back from '../../assets/background.jpg'
 
-export const StyledGrid = materialStyled(Grid) ( ({ theme }) => ({
-  width: '100%',
-  height: '100vh',
-  background: 'white',
+export const Container = styled.div`
 
-  display: 'flex',
-  flexDirection: 'column',
-  [theme.breakpoints.up('sm')]: {
-    flexDirection: 'row-reverse',
-  }
-}))
+    width: 100vw;
+    height: 100vh;
+    background-image: url(${back});
+    background-size: cover;
+    background-repeat: no-repeat;
 
-export const HeaderGrid = materialStyled(Grid) ( ({ theme }) => ({
-  width: '100%',
-  height: '30%',
-  [theme.breakpoints.up('sm')]: {
-    height: '100%',
-  }
-}))
+    .transparentBox{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--transparent-black);
+        box-shadow: 0 0 0 20px white;
 
-export const BodyForm = styled.form`
-  width: 100%;
-  height: 70%;
-  background-image: var(--gradient-blue);
-  @media (min-width: 600px) {
-    height: 100%;  
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center
-  }
-`
+        .headerBox{
+            height: 100%;
+            width: 55%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
 
+            h2{
+                display: flex;
+                align-items: flex-end;
+                color: var(--white);
+                font-family: 'Poppins', sans-serif;
+                font-size: 5.5rem;
+                height:50%;
+            }
 
-export const FirstDiv = styled.div `
-  width: 100%;
-  height: 25%;
-`
+            p{
+                color: var(--grey);
+                text-align: center;
+                height:20%;
 
-export const SecondDiv = styled.div `
-    width: 100%;
-    height: 40%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+                a{
+                    color: var(--red)
+                }
+            }
 
-  @media (min-width: 600px) {
-    flex-direction: column;
-    justify-content: center;
-  }
-`
+            h1{
+                text-align: center;
+                height:30%;
+                display: flex;
+                align-items: center;
+            }
+        }
 
-export const H1 = styled.h1 `
-  font-size: 150%;
-  padding: 2%;
+        .whiteBox{
+            height: 100%;
+            width: 45%;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--white);
+            
+            h3{
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+                text-align: center;
+                height: 20%;
+                font-family: 'Poppins', sans-serif;
+                color: var(--dark-grey);
+                font-size: 2 rem;
+            }
 
-  @media (min-width: 600px) {
-    display: none;
-  }
-`
+            form{
+                height: 80%;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
 
-export const H1Title = styled.h1 `
-  font-family: unset;
-  font-size: 280%;
+                .whiteForm{
+                    height: 100%;
+                    width: 80%;
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    align-items: center;
 
-  @media (min-width: 600px) {
-    font-size: 380%;
-  }
-`
+                    input{
+                        height: 40px;             
+                    }
 
-export const H1text = styled.p `
-  color: var(--dark-red);
+                    .formError{
+                        height: 35px;
+                        color: var(--dark-red);
+                        width: 90%;
+                        padding-left: 5px;
+                    
+                        p{
+                            font-size: 0.7rem;
+                            text-align: justify;
+                        }       
+                    }
+                }
+            }
 
-  @media (min-width: 600px) {
-    display: none;
-  }
-`
+            .buttonBox{
+                height: 20%;
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+            }
+        }
+    }
 
-export const StyledLink = styled(Link) `
-  color: var(--blue);
-  font-weight: 600;
-`
+    @media (max-width:500px){
 
-export const ThirdDiv = styled.div `
-  width: 100%;
-  height: 35%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
+        .transparentBox{
+            flex-direction: column;
 
-export const DivsInputs = styled.div `
-  width: 100%;
-  height: 70%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+            .headerBox{
+                width: 100%;
+                height: 30%;
 
-  @media (min-width: 600px) {
-    height: 30%;
-    margin-top: 15%;
-    justify-content: space-evenly;
-  }
-`
+                h2{
+                    font-size: 3.5rem;
+                }
+            }
 
-export const EachDivInput = styled.div `
-  width: 80%;
-  margin-top: 20%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 20%;
+            .whiteBox{
+                width: 100%;
+                height: 70%;
 
-  @media (min-width: 600px) {
-    width: 60%;
-    margin-top: 0%;
-  }
-`
+                h3{
+                    height: 10%;
+                }
 
-export const DivButton = styled.div `
-  width: 100%;
-  height: 10%;
-  display: flex;
-  justify-content: center;
-`
+                form{
+                    height: 90%;
 
-export const BottomH1 = styled.h1 `
-  display: none;
+                    .whiteForm{
+                        height: 100%;
 
-  @media (min-width: 600px) {
-    font-size: 250%;
-    display: unset;
-  }
-`
+                        .formError{
 
-export const H1DesktopText = styled.p `
-  display: none;
-
-@media (min-width: 600px) {
-  color: var(--dark-red);
-  margin-top: 3%;
-  display: unset;
-}
-`
-
-export const ErrorMSG = styled.p `
-  color: var(--dark-red);
-  font-weight: 600;
-  width: 100%;
-  height: 35%;
-  text-align: center;
+                          p{
+                            font-size: 0.85rem;
+                          }
+                        }
+                    }
+                }
+            }
+        }
+    }
 `

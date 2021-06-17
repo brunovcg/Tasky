@@ -7,15 +7,13 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import Input from '../../../components/Input/Input.jsx';
 import { useContext } from 'react';
-import { NewGoalContext } from '../../../providers/addNewGoal';
+import {  useGoalsRequest } from '../../../providers/addNewGoal';
 import { Fade, Modal } from '@material-ui/core';
-import { useGoalsList } from '../../../providers/GetGoals';
 
 const GoalsList = () => {
     
-    const [goalPopUp, setGoalPopUp] = useState(false)
-    const { setNewGoalData }        = useContext(NewGoalContext)
-    const { goalsList }             = useGoalsList();
+    const [goalPopUp, setGoalPopUp]     = useState(false)
+    const { setNewGoalData, goalsList } = useGoalsRequest() //REFATORAR
 
     // const [goalsList, setGoalsList] = useState();
 
