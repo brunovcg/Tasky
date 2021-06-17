@@ -1,4 +1,4 @@
-import {CardsContainer, ErrorPop, HeaderContainer, PopUpContainer} from './styles';
+import {CardsContainer, ErrorPop, HeaderContainer, PopUpContainer, Main} from './styles';
 import Button from '../../components/button/Button';
 import CardGroup from './cardGroup';
 import { useState, useEffect } from 'react';
@@ -102,11 +102,11 @@ const Groups = () => {
     return (
         <>
         {/* <button onClick={() => console.log(userGroupSubscription)}>test</button> */}
-            <main>
+            <Main>
                 <HeaderContainer>
                     <h2>Groups</h2>
                     <Button
-                        setColor={'var(--blue)'}
+                        setColor={'var(--green)'}
                         setSize={'large'}
                         click={() => handlePopUp()}
                     >+ New Group</Button>
@@ -126,37 +126,43 @@ const Groups = () => {
                         ))
                     }
                 </CardsContainer>
-                {    
-                    <PopUpContainer>
+                 
+                    
                     {
                         showNewGroup && 
+                        <PopUpContainer>
                         <PopUp 
                             title="Add New Group"
                             onSubmit={handleSubmit(submitFunction)}
+                            onClickClose={()=>handlePopUp()}
                         >     
                             <Input 
                                 name="name"
                                 register={register}
                                 placeholder="Name this Group!"
+                                setBorder="var(--green)"
                             />
                             <ErrorPop>{errors.name?.message}</ErrorPop>
                             <Input 
                                 name="description"
                                 register={register}
                                 placeholder="Give a Desciption to this group"
+                                setBorder="var(--green)"
                             />
                             <ErrorPop className="errorPopUp">{errors.description?.message}</ErrorPop>
                             <Input 
                                 name="category"
                                 register={register}
                                 placeholder="What Category is it?"
+                                setBorder="var(--green)"
                             />
-                            <ErrorPop className="errorPopUp">{errors.difficulty?.message}</ErrorPop>
+                            <ErrorPop className="errorPopUp">{errors.category?.message}</ErrorPop>
                         </PopUp>
+                        </PopUpContainer>
                     }  
-                    </PopUpContainer>
-                }
-            </main>
+                    
+                
+            </Main>
         </>
     )
 }
