@@ -115,7 +115,9 @@ const Groups = () => {
                     {
                         userGroupSubscription &&
                         userGroupSubscription.map((group) => (
-                            <CardGroup key={group.id} 
+                            <CardGroup 
+                                group={group} //Feito agora
+                                key={group.id} 
                                 name={group.name}
                                 description={group.description}
                                 category={group.category}

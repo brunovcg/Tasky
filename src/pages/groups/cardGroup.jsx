@@ -1,14 +1,20 @@
 import {Card} from './styles';
 import { useHistory } from 'react-router-dom';
 import Button from '../../components/button/Button';
+import { useGoalsRequest } from '../../providers/addNewGoal';
 
-const CardGroup = ({name, description, category, path}) => {
+const CardGroup = ({name, description, category, path, group}) => {
 
     const history = useHistory();
 
+    const { setWhichGroup,setWichGroupToCreate } = useGoalsRequest();
+
+    setWhichGroup(group.id)
+    setWichGroupToCreate(group.id)
+
     const redirect = (path) => {
-        history.push(`/dashboard/group/${path}`);
-        console.log(`/dashboard/group/${path}`)
+        history.push(`/dashboard/group`);
+        console.log(`/dashboard/group`)
     }
 
     return (
