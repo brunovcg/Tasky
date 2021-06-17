@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 600px;
+  width: 100%;
   height: 100%;
   background-color: var(--transparent-black);
   display: flex;
@@ -14,6 +14,14 @@ export const Container = styled.div`
     padding: 15px;
     background-color: var(--white);
     margin-top: 40px;
+
+    @media (max-width: 500px){
+      width: 80%;
+      box-sizing: content-box;
+      margin-top: 100px;
+    }
+
+  
 
     .titleBox{
 
@@ -58,10 +66,10 @@ export const Container = styled.div`
   }
 
   @media (max-width: 500px){
-    width: 300px;
+    width: 100vw;
     position: absolute;
-    top: -115px;
-    left: -40px;
+    top: -100px;
+    left: 0;
   }
 
 

@@ -75,8 +75,8 @@ export const CardButtons = styled.div`
 `
 export const Main = styled.main`
     width: 100%;
-    min-height: fit-content;
-
+    min-height: 100%;
+    
 
     
 
@@ -110,17 +110,27 @@ export const CardsPlace = styled.div`
 `;
 
 export const ErrorPop = styled.div`
-    color: var(--red);
+    color: var(--dark-red);
     font-size: 0.8rem;
     min-height: 20px;
+    width: 90%;
+    padding-left: 8px;
+
 `
 
 
 export const PopUpContainer = styled.div`
   position: absolute;
-  top: 20vh;
-  left: 25vw;
-  height: 450px;
+  width:99vw;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 3;
+
+  @media (max-width: 500px){
+      width: 100vw;
+      
+    }
 
 `
 
