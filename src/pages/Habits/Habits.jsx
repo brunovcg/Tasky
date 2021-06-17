@@ -92,7 +92,10 @@ const Habits = () => {
                         Authorization: `Bearer ${token}`,
                     },
             })
-                .then((_)=>{toast.success(`${hab.title} deleted`)})
+                .then((_)=>{
+                    toast.success(`${hab.title} deleted`)
+                    initFunction()
+                })
                 .catch((_)=> toast.error("Something went wrong, try again!"))
    }
 
