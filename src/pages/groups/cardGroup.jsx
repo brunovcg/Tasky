@@ -13,8 +13,7 @@ const CardGroup = ({name, description, category, path, group}) => {
     setWichGroupToCreate(group.id)
 
     const redirect = (path) => {
-        history.push(`/dashboard/group`);
-        console.log(`/dashboard/group`)
+        history.push(`/dashboard/group/${path}`);
     }
 
     return (

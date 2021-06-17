@@ -1,6 +1,6 @@
 import { api } from '../../service/api';
 import { createContext, useContext, useState } from "react";
-import jwt_decode from 'jwt-decode';
+// import jwt_decode from 'jwt-decode';
 import { toast } from 'react-toastify';
 import { useGoalsList } from '../GetGoals';
 
@@ -10,7 +10,7 @@ export const GroupsProvider = ({children}) => {
     
     const [token] = useState(JSON.parse(localStorage.getItem('@tasky/login/token')) || '');
 
-    const [decodedId] = useState(jwt_decode(token).user_id || {});
+    // const [decodedId] = useState(jwt_decode(token).user_id || {});
 
     const [ groups, setGroups ] = useState([]);
 

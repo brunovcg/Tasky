@@ -10,6 +10,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import {api} from '../../service/api'
 import { toast } from 'react-toastify';
+import jwt_decode from 'jwt-decode';
 
 const Groups = () => {
 
@@ -18,6 +19,8 @@ const Groups = () => {
     const [userGroupSubscription, setUserGroupSubscription] = useState();
 
     const [token] = useState(JSON.parse(localStorage.getItem('@tasky/login/token')) || '');
+
+    const [decodedId] = useState(jwt_decode(token).user_id || {});
 
     const [showNewGroup, setShowNewGroup] = useState(false);
 
