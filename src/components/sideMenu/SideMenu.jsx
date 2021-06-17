@@ -6,8 +6,11 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { useWindowSize } from '../../providers/windowSize';
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import {useAuth} from '../../providers/Authentication/Authentication'
 
 const SideMenu = ({setVisibility}) => {
+
+    const {authenticated, setAuthenticated} = useAuth()
 
     const [hidden, setHidden] = useState(false);
 
@@ -32,6 +35,7 @@ const SideMenu = ({setVisibility}) => {
     const handleClick = (path) => {
         history.push(path);
         localStorage.clear();
+        setAuthenticated(false)
     }
 
     return(

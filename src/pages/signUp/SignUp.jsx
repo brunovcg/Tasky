@@ -6,12 +6,17 @@ import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { api } from '../../service/api'
+import { useAuth } from '../../providers/Authentication/Authentication';
+import { Redirect } from 'react-router'; 
 
 
 
 
 
 const SignUp = () => {
+
+    const {authenticated, setAuthenticated} = useAuth()
+
     const formSchema = yup.object().shape({
         
         username: yup.string().required("User is required"),
@@ -54,6 +59,10 @@ const SignUp = () => {
         })
         // .catch(alert("Alguma coisa me parece errada, tente outro E-mail"))
     };
+
+    if(authenticated) {
+        return <Redirect to="/dashboard"/>
+    }
 
     return(
         <Container>

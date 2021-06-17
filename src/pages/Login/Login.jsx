@@ -7,12 +7,16 @@ import * as yup from 'yup';
 import { useContext } from 'react';
 import { LoginRequestContext } from '../../providers/login';
 import { useHistory, Link } from 'react-router-dom';
+import {useAuth} from '../../providers/Authentication/Authentication'
+import { Redirect } from 'react-router';
 
 const Login = () => {
 
   const { setUserLoginData } = useContext(LoginRequestContext);
 
   const history = useHistory();
+
+  const {authenticated, setAuthenticated} = useAuth()
 
   const schema = yup.object().shape({
     username: yup.string().required('Email is required'),
@@ -26,6 +30,10 @@ const Login = () => {
   const submitFunc = (data) => {
     setUserLoginData({data, redirect: redirect()});
   };
+
+  if(authenticated) {
+    return <Redirect to="/dashboard"/>
+}
 
   return (
       <Container >
