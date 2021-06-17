@@ -44,7 +44,7 @@ const Groups = () => {
 
     return (
         <>
-        <button onClick={() => console.log(groups)}>test</button>
+        {/* <button onClick={() => console.log(groups)}>test</button> */}
             <main>
                 <HeaderContainer>
                     <h2>Groups</h2>
