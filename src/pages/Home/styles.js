@@ -3,8 +3,8 @@ import styled, {css} from 'styled-components'
 export const Container = styled.div`
 
     display: flex;
-    flex-diretion: row;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-evenly;
     align-items: center;
     width: 100vw;
     height: 100vh;
@@ -19,25 +19,32 @@ export const Container = styled.div`
     }
 
     p{
-        font-size: 0.8rem;
+        font-size: 150%;
         color: var(--maroon);
         margin-top: 1rem;
+        text-align: center;
     }
 
     h1{
-        font-size: 3.5rem;
+        font-size: 550%;
     }
 
     .whiteBox{
         background-color: var(--white);
-        height: 18rem;
-        width: 18rem;
+        height: 65%;
+        width: 35%;
         margin-top: 2rem;
         border-radius: 2rem;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: space-evenly;
+    }
+
+    .task {
+        img {
+            width: 40vw;
+        }
     }
 
     .buttonPlace{
@@ -52,6 +59,7 @@ export const Container = styled.div`
     @media (max-width: 660px){
         display: flex;
         flex-direction: column;
+        justify-content: flex-start;
         align-items: center;
         width: 100vw;
         height: 100vh;
@@ -79,8 +87,17 @@ export const Container = styled.div`
             }
         }    
         
-        .whiteBox{
+        p{
+            font-size: 155%;
+        }
+    
+        h1{
+            font-size: 450%;
+        }
 
+        .whiteBox{
+            height: 50%;
+            width: 80%;
             margin-top: 4rem;
 
             .title{
