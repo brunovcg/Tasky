@@ -1,11 +1,19 @@
 import Button from '../../components/button/Button';
 import {Container} from './styles' 
 import Task from '../../assets/task2.png'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Redirect } from 'react-router-dom'
+import { useAuth } from '../../providers/Authentication/Authentication';
+
 
 
 const Home = () => {
     const history = useHistory()
+
+    const {authenticated, setAuthenticated} = useAuth()
+
+    if(authenticated) {
+        return <Redirect to="/dashboard"/>
+    }
 
     const handleGoToSignUp = (path) => {
         return history.push(path)
