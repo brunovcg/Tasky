@@ -1,6 +1,6 @@
 import Activities from './Activities';
 import Button from '../../../components/button/Button'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {PopUp} from '../../../components/pop-up/PopUp';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -9,11 +9,13 @@ import Input from '../../../components/Input/Input.jsx';
 import { useContext } from 'react';
 import { ActivitieContext } from '../../../providers/ActivitiesCtx'
 import { Fade, Modal } from '@material-ui/core';
-import { NewGoalContext } from '../../../providers/newGoal';
 
 const ActivitiesList = () => {
 
-    const {activitiesRenderList, deleteActivitie} = useContext(ActivitieContext)
+    const { activitiesRenderList, 
+            deleteActivitie, 
+            addActivitie
+        } = useContext(ActivitieContext)
 
     const [activitiesPopUp, setActivitiesPopUp] = useState(false)
 
@@ -25,6 +27,10 @@ const ActivitiesList = () => {
         setActivitiesPopUp(false)
         // return setNewActivitiesData(data) -> puxar no provider
     }
+
+    useEffect( () => {
+        setActivitiesPopUp(false)
+    }, [activitiesRenderList])
 
     const formSchema = yup.object().shape({
         title: yup.string().required('This field is required'),
@@ -62,8 +68,12 @@ const ActivitiesList = () => {
                     <Modal open={activitiesPopUp} onClose={handleCloseModal} >
                         <Fade in={true} >
                             <div>
-                                <PopUp title='New Activitie' onSubmit={handleSubmit(handleNewActivitie)} >
-                                    <Input register={register} name='title' placeholder='Title' />
+                                <PopUp title='New Activitie' onSubmit={handleSubmit(addActivitie)} >
+                                    <Input 
+                                            register={register} 
+                                            name='title' 
+                                            placeholder='Title' 
+                                    />
                                 </PopUp>
                             </div> 
                         </Fade>
