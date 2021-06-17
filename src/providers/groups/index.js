@@ -9,27 +9,38 @@ export const GroupsProvider = ({children}) => {
     
     const [token] = useState(JSON.parse(localStorage.getItem('@tasky/login/token')) || '');
 
-    // const [decodedId] = useState(jwt_decode(token).user_id || '');
+    const [decodedId] = useState(jwt_decode(token).user_id || '');
 
     const [ groups, setGroups ] = useState([]);
 
     
 
-    const newGroup = () => {
-        api.post('/groups/', {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }).then((_) => {
-            toast.success('Group Added!')
-        }).catch((_) => {
-            toast.error('Something went wrong, try again!')
-        })
-    }
+    // const newGroup = () => {
+
+    //     const addGroup = {
+    //         name: ,
+    //         description,
+    //         category,
+    //         creator:  decodedId,
+    //         users_on_groups: [],
+    //         goals: [],
+    //         activities: []
+    //     }
+
+    //     api.post('/groups/', addGroup, {
+    //         headers: {
+    //             Authorization: `Bearer ${token}`
+    //         }
+    //     }).then((_) => {
+    //         toast.success('Group Added!')
+    //     }).catch((_) => {
+    //         toast.error('Something went wrong, try again!')
+    //     })
+    // }
 
     return (
         <GroupsContext.Provider
-            value={{groups, newGroup, setGroups}}
+            value={{groups, setGroups}}
         >
             {children}
         </GroupsContext.Provider>
