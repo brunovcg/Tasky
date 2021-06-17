@@ -14,22 +14,27 @@ export const Card = styled.div`
     width: 30%;
     height: 10%;
     padding: 1rem;
-    margin: 1rem;
+    margin: 0.5rem;
     background-color: var(--maroon);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     border-radius: 8px;
     transition: 0.3s;
 
     :hover {
-        box-shadow: 1px 1px 5px var(--grey);
+        box-shadow: 2px 2px 5px var(--dark-grey);
+        opacity: 0.9;
     }
 
     .info {
         color: var(--white);
+        padding: 2px;
+
+        span{
+            color: var(--blue);
+        }
     }
 
     img {
