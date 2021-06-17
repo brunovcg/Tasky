@@ -49,9 +49,9 @@ const Group = () => {
 
             <div className="headerGroup">
                 <div className="titleContainer">
-                    <h2>Group Name</h2>
-                    <h3>Description: <span className="titleSpan">{"test descrição"}</span></h3>
-                    <h3>Category: <span className="titleSpan">{"teste categoria"}</span></h3>
+                    <h2>{specifGroup.name}</h2>
+                    <h3>Description: <span className="titleSpan">{specifGroup.description}</span></h3>
+                    <h3>Category: <span className="titleSpan">{specifGroup.category}</span></h3>
                 </div>
                 <div className="buttonContainer">
                     <Button
