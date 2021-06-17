@@ -1,4 +1,4 @@
-import { CardsPlace, HeaderOfHabits, ErrorPop, PopUpContainer } from './styles';
+import { CardsPlace, HeaderOfHabits, ErrorPop, PopUpContainer, Main } from './styles';
 import Button from '../../components/button/Button';
 import CardHabits from './CardHabits';
 import {useState} from 'react';
@@ -17,7 +17,7 @@ const Habits = () => {
 
     const [token] = useState(JSON.parse(localStorage.getItem("@tasky/login/token")) || "");
 
-    const [decodedId] = useState(jwt_decode(token).user_id || "");
+    const [decodedId] = useState(jwt_decode(token).user_id || {});
 
 
     const [showNewHabit, setShowNewHabit] = useState(false);
@@ -53,7 +53,8 @@ const Habits = () => {
            frequency, 
            achieved: false,
            how_much_achieved: 0,
-           user: decodedId}
+           user: decodedId
+    }
 
        api.post(
            '/habits/',
@@ -114,15 +115,16 @@ const Habits = () => {
     useEffect(()=>{initFunction()},[habits])
 
     return (
-            <main>
-                <HeaderOfHabits>
+            <Main>
+                <div className="headerBox">
                     <h2>Habits</h2>
                     <Button
-                        setColor={'var(--blue)'}
+                        setColor={'var(--green)'}
                         setSize={'large'}
                         click={()=>handlePopUp()}
-                    >+ New Habit</Button>
-                </HeaderOfHabits>
+                     >+ New Habit
+                    </Button>
+                </div>
 
                 <CardsPlace>
                     {habits.map(res=>
@@ -138,41 +140,47 @@ const Habits = () => {
                     )}                             
                 </CardsPlace>
                 
-               {    <PopUpContainer>{
-                         showNewHabit && 
-                            <PopUp 
-                                title="Add New Habit"
-                                onSubmit={handleSubmit(submitFunction)}
-                            >     
-                                <Input 
-                                    name="title"
-                                    register={register}
-                                    placeholder="Name this Habbit!"
-                                />
-                                <ErrorPop>{errors.title?.message}</ErrorPop>
-                                <Input 
-                                    name="frequency"
-                                    register={register}
-                                    placeholder="How often?"
-                                />
-                                <ErrorPop className="errorPopUp">{errors.frequency?.message}</ErrorPop>
-                                <Input 
-                                    name="difficulty"
-                                    register={register}
-                                    placeholder="How hard is it?"
-                                />
-                                <ErrorPop className="errorPopUp">{errors.difficulty?.message}</ErrorPop>
-                                <Input 
-                                    name="category"
-                                    register={register}
-                                    placeholder="Categorize it!"
-                                />
-                                <ErrorPop className="errorPopUp">{errors.category?.message}</ErrorPop>
-                            </PopUp>
-                }  </PopUpContainer>
+               {    
+                    showNewHabit && <PopUpContainer>
+                    <PopUp 
+                        title="Add New Habit"
+                        onSubmit={handleSubmit(submitFunction)}
+                        onClickClose={handlePopUp}
+                    >     
+                        <Input 
+                            name="title"
+                            register={register}
+                            placeholder="Name this Habbit!"
+                            setBorder="var(--green)"
+                        />
+                        <ErrorPop>{errors.title?.message}</ErrorPop>
+                        <Input 
+                            name="frequency"
+                            register={register}
+                            placeholder="How often?"
+                            setBorder="var(--green)"
+                        />
+                        <ErrorPop className="errorPopUp">{errors.frequency?.message}</ErrorPop>
+                        <Input 
+                            name="difficulty"
+                            register={register}
+                            placeholder="How hard is it?"
+                            setBorder="var(--green)"
+                        />
+                        <ErrorPop className="errorPopUp">{errors.difficulty?.message}</ErrorPop>
+                        <Input 
+                            name="category"
+                            register={register}
+                            placeholder="Categorize it!"
+                            setBorder="var(--green)"
+                        />
+                        <ErrorPop className="errorPopUp">{errors.category?.message}</ErrorPop>
+                    </PopUp>
+                    </PopUpContainer>
+                
                }
 
-            </main>           
+            </Main>           
     )
 }
 

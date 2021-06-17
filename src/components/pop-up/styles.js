@@ -1,85 +1,71 @@
-import { Paper, Grid, styled as materialStyled } from '@material-ui/core';
 import styled from 'styled-components';
 
-export const StyledGrid = materialStyled(Grid) ( ({ theme }) => ({
-  position: 'absolute',
-  width: '85vw',
-  height: 'auto',
-  left: '7vw',
-  top: '35vh',
-  [theme.breakpoints.up('sm')]: {
-    width: '25vw',
-    left: '35vw',
-    top: '35vh',
-  }
-}));
-
-export const StyledPaper = materialStyled(Paper) ( ({ theme }) => ({
-  width: '100%',
-  height: '100%',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
-  backgroundImage: 'var(--gradient-blue)',
-}));
-
-export const DivH1 = styled.div `
-  width: 80%;
-  height: 10%;
-  margin: 5%;
-`;
-
-export const H1 = styled.h1 `
-  font-size: 130%;
-  font-weight: 400;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: white;
-`;
-
-export const Form = styled.form `
-  width: 80%;
-  height: 60%;
-  margin-bottom: 5%;
-`;
-
-export const InputsDiv = styled.div `
-  width: 100%;
+export const Container = styled.div`
+  width: 600px;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-
-  input {
-    width: 100%;
-    padding: 4% 5%;
-    border: none;
-    margin: 3% 0;
-  }
-
-  select {
-    width: 100%;
-    padding: 4% 5%;
-    border: none;
-    margin: 3% 0;
-  }
-`;
-
-export const EachDivInput = styled.div `
-`;
-
-export const DivButton = styled.div `
-  width: 100%;
-  margin: 5% 0 0 0;
+  background-color: var(--transparent-black);
   display: flex;
   justify-content: center;
-`;
 
-export const Select = styled.select `
-  width: 100%;
-  padding: 4% 5%;
-  border: none;
-  margin: 2% 0;
+
+  .popUp{
+    width: 400px;
+    height: fit-content;
+    padding: 15px;
+    background-color: var(--white);
+    margin-top: 40px;
+
+    .titleBox{
+
+      display: flex;
+      justify-content: space-evenly;
+      h2{
+        color: var(--dark-grey);
+
+      }
+
+      button{
+        font-size: 1rem;
+      }
+      
+    }
+
+    .formBox{
+      margin-bottom: 20px;
+      form{
+
+        box-sizing: content-box;
+          padding-top: 30px;
+
+        
+
+        .inputBox{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .buttonBox{
+          box-sizing: content-box;
+          padding-top: 30px;
+          display: flex;
+          justify-content:center;
+        }
+      }
+
+    }
+  }
+
+  @media (max-width: 500px){
+    width: 300px;
+    position: absolute;
+    top: -115px;
+    left: -40px;
+  }
+
+
 `
+
+
 

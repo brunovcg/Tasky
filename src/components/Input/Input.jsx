@@ -1,11 +1,14 @@
 import {Container, StyledInput} from './styles'
 
-const Input = ({register, name, ...rest}) => {
+const Input = ({register, name, setBorder, ...rest}) => {
     return (
         
             <StyledInput 
             {...register(name)} 
-            { ...rest }/>
+            { ...rest }
+            setBorder={setBorder}
+            />
+            
        
     )
 }

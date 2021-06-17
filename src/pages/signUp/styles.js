@@ -1,149 +1,156 @@
 import styled, {css} from 'styled-components'
+import back from '../../assets/background.jpg'
 
 export const Container = styled.div`
 
-    display: flex;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
+    background-image: url(${back});
+    background-size: cover;
+    background-repeat: no-repeat;
 
-    .whiteBox, .blueBox{
-        width: 50%;
-        height: 100%;
+    .transparentBox{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
-        align-items: center; 
-    }
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--transparent-black);
+        box-shadow: 0 0 0 20px white;
 
-    .whiteBox{
-        background-color: var(--white);
-    
-        
-        .whiteBoxTitle{
-            height: 85%;
+        .headerBox{
+            height: 100%;
+            width: 55%;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
 
             h2{
-                font-size: 4rem;
-                text-align: center;
-                color: var(--red);
-
-                @media (max-width:500px){
-                    font-size: 3rem;
-                }
+                display: flex;
+                align-items: flex-end;
+                color: var(--white);
+                font-family: 'Poppins', sans-serif;
+                font-size: 5.5rem;
+                height:50%;
             }
 
             p{
-                font-size: 0.8rem;
-                color: var(--dark-red);
+                color: var(--grey);
                 text-align: center;
-            }
+                height:20%;
 
-            a{
-                color: var(--blue)
-            }
-        }
-
-        .whiteBoxName{
-            height: 15%;
-            
-            h1{
-                font-size: 2rem;
-            }
-        }
-    }
-
-    .blueBox{
-        background: var(--gradient-blue);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: 100%;
-
-        .blueBoxForm{
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-
-           
-            div{
-                margin-top: 15px;
-            }
-
-            .blueBoxFormError{
-                height: 5%;
-                margin-top: 1px;
-                margin-bottom: 5px;
-
-                p{               
-
-                    width: 80%;
-                    padding-left: 2px;
-                    height: 1rem;
-                    height: fit-content;
-                    background-color: var(--dark-red);
-                    font-size: 1rem;
-                    font-variant: small-caps;
-                    color: var(--white);
-                    font-family: sans-serif;
-                    font-weight: bold;  
-
-                    ${ props=> props.isError && css`
-                        display: flex;                                                                
-                    `}
+                a{
+                    color: var(--blue)
                 }
             }
-        }
 
-        .blueBoxButton{
-            margin-top: 10px;
-            height: 15%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    }
-
-    @media (max-width: 660px){
-
-        flex-direction: column;
-
-        .whiteBox, .blueBox{
-            width: 100vw;
+            h1{
+                text-align: center;
+                height:30%;
+                display: flex;
+                align-items: center;
+            }
         }
 
         .whiteBox{
-            height: 25%;
-
-            .whiteBoxTitle{
-                padding-top:15%;
-            }
-
-            .whiteBoxName{
-                position: absolute;
-                top: 15px;
-                left: 15px;
-            }
-        }
-
-        .blueBox{
             height: 100%;
+            width: 45%;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--white);
+            
+            h3{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                height: 20%;
+                font-family: 'Poppins', sans-serif;
+                color: var(--dark-grey);
+                font-size: 2 rem;
+            }
 
-            .blueBoxForm{
+            form{
+                height: 80%;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
 
-                .blueBoxFormError{
-                    height: 8%;
+                .whiteForm{
+                    height: 100%;
+                    width: 80%;
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    align-items: center;
 
-                    p{               
-                        width: 80%;
-                        background-color: var(--dark-red);
-                        font-size: 1.2rem;         
+                    input{
+                        height: 40px;             
                     }
+
+                    .formError{
+                        height: 35px;
+                        color: var(--dark-red);
+                        width: 90%;
+                        padding-left: 5px;
+                    
+                        p{
+                            font-size: 0.7rem;
+                            text-align: justify;
+                        }       
+                    }
+                }
+            }
+
+            .buttonBox{
+                height: 20%;
+                display: flex;
+                justify-content: center;
             }
         }
     }
 
-}`
+    @media (max-width:500px){
+
+        .transparentBox{
+            flex-direction: column;
+
+            .headerBox{
+                width: 100%;
+                height: 30%;
+
+                h2{
+                    font-size: 3.5rem;
+                }
+            }
+
+            .whiteBox{
+                width: 100%;
+                height: 70%;
+
+                h3{
+                    height: 10%;
+                }
+
+                form{
+                    height: 90%;
+
+                    .whiteForm{
+                        height: 100%;
+                        .formError{
+
+                            p{
+                                font-size: 0.85rem;
+                            }
+                        }   
+                    }
+                }
+            }
+        }
+    }
+`

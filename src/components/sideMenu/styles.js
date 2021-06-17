@@ -3,11 +3,12 @@ import styled from 'styled-components';
 export const Container = styled.div`
     width: 100%;
     height: 100%;
-    background: var(--gradient-blue);
+    background: var(--white);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    
  
     @media (max-width: 500px) {
         visibility: ${props => {
@@ -17,7 +18,8 @@ export const Container = styled.div`
         position: absolute;
         z-index: 2;
         width: 50%;
-        height: 100vh;         
+               
+        box-shadow: 0px 4px 5px rgba(0,0,0,0.5);
     }
 `;
 
@@ -33,31 +35,31 @@ export const MenuBurguer = styled.button`
 
 export const UserContainer = styled.div`
     text-align: center;
-    transition: 0.1s;
 
     p {
         text-align: center;
-        color: var(--white);
+        color: var(--dark-grey);
+        font-weight: bold;     
+
+        @media (max-width: 500px) {
+        font-size: 1.5rem;
+    }  
     }
 
-    @media (max-width: 500px) {
-        
-    }
+    
 
 `;
 
 export const Img = styled.img`
     width: 4rem;
-    height: 4rem;
     padding: 0.3rem;
     border-radius: 50%;
     background-color: #dcdcdc;
     margin-top: 2rem;
     align-items: center;
 
-    @media (max-width: 700px) {
-        width: 2rem;
-        height: 2rem;
+    @media (max-width: 500px) {
+        width: 5rem;
     }
 `;
 
@@ -68,13 +70,16 @@ export const LinkContainer = styled.div`
 `;
 
 export const StyledLink = styled.div`
-    border-bottom: 1px solid var(--white);
-    color: var(--white);
+    border-bottom: 1px solid var(--blue);
     font-size: 1rem;
     margin: 1rem;
 
     a {
-        color: var(--white)
+        color: var(--blue);
+
+        @media (max-width: 500px) {
+            font-size: 1.5rem;
+        }
     }
 
     :hover {
@@ -82,7 +87,7 @@ export const StyledLink = styled.div`
         border-bottom: 2px solid var(--white);
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 500px) {
         font-size: 0.8rem;
     }
 `;
@@ -90,9 +95,12 @@ export const StyledLink = styled.div`
 export const ButtonContainer = styled.div`
     margin: 1rem;
 
-    @media (max-width: 500px) {
-        
+    button{
+        transition: none;
     }
+    
+
+    
 `;
 
 export const GroupMembers = styled.div`
