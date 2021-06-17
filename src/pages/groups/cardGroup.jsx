@@ -21,12 +21,12 @@ const CardGroup = ({name, description, category, path, group}) => {
     return (
         <Card>
             <div className='info'>
-                <p>{name}</p>
-                <p>{description}</p>
-                <p>{category}</p>
+                <h4>{name}</h4>
+                <p><span>Description: </span>{description}</p>
+                <p><span>Category: </span>{category}</p>
             </div>
             <div className='img'>
-                <img src={GroupImg} alt='group'/>
+                {/* <img src={GroupImg} alt='group'/> */}
                 <Button
                     setColor={'var(--blue)'}
                     setSize={'large'}

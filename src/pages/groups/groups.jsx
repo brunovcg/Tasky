@@ -9,10 +9,11 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import {api} from '../../service/api'
+import { toast } from 'react-toastify';
 
 const Groups = () => {
 
-    const {groups, newGroup, setGroups} = useGroups();
+    const {groups, setGroups} = useGroups();
 
     const [userGroupSubscription, setUserGroupSubscription] = useState();
 
@@ -53,6 +54,30 @@ const Groups = () => {
         })
     }
 
+    const newGroup = ({name, category, description}) => {
+
+        const addGroup = {
+            name: name,
+            category: category,
+            description: description
+        }
+
+        console.log(groups)
+
+        api.post('/groups/', addGroup, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((_) => {
+            toast.success('Group Added!')
+            getUserOnGroup();
+            setShowNewGroup(!showNewGroup);
+        }).catch((_) => {
+            toast.error('Something went wrong, try again!')
+        })
+    }
+
+
     // getUserOnGroup();
 
     const {
@@ -64,9 +89,8 @@ const Groups = () => {
        resolver: yupResolver(schema)
     })
 
-    const submitFunction = () => {
-        newGroup();
-        handlePopUp();
+    const submitFunction = (data) => {
+        newGroup(data);
     }
 
     useEffect(() => {
@@ -84,7 +108,7 @@ const Groups = () => {
                     <Button
                         setColor={'var(--blue)'}
                         setSize={'large'}
-                        click={() => console.log('New Group')}
+                        click={() => handlePopUp()}
                     >+ New Group</Button>
                 </HeaderContainer>
                 <CardsContainer>

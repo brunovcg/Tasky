@@ -22,6 +22,29 @@ export const ActivitieProvider = ({ children }) => {
 
     };
 
+    const addActivitie = ({title}) => {
+        const activitieAddTitle = {
+            title,
+            realization_time: "2021-03-10T15:00:00Z",
+            group: "442"
+        }
+        
+        api.post(
+            '/activities/',
+            activitieAddTitle,
+            {
+             headers: {
+                 Authorization: `Bearer ${userToken}`,
+             },
+            }
+        )
+        .then((_)=>{
+            toast.success(`Added!`)
+            handleLoadActivities()
+         })
+        .catch((_)=> toast.error("Something went wrong, try again!"))
+    }
+
     const deleteActivitie = (activitie) =>{
         api.delete(
             `/activities/${activitie.id}/`, 
@@ -42,7 +65,11 @@ export const ActivitieProvider = ({ children }) => {
       }, []);
 
     return (
-        <ActivitieContext.Provider value={{activitiesRenderList, deleteActivitie}}>
+        <ActivitieContext.Provider value={{
+                                            activitiesRenderList, 
+                                            deleteActivitie, 
+                                            addActivitie
+                                        }}>
             {children}
         </ActivitieContext.Provider>
     )
