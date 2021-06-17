@@ -8,10 +8,13 @@ import Input from '../../components/Input/Input';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
+import {api} from '../../service/api'
 
 const Groups = () => {
 
-    const {groups, getGroups, newGroup} = useGroups();
+    const {groups, newGroup, setGroups} = useGroups();
+
+    const [token] = useState(JSON.parse(localStorage.getItem('@tasky/login/token')) || '');
 
     const [showNewGroup, setShowNewGroup] = useState(false);
 
@@ -24,6 +27,18 @@ const Groups = () => {
     const handlePopUp = () => {
         setShowNewGroup(!showNewGroup);
         reset();
+    }
+
+    const getGroups = () => {
+        api.get('/groups/', {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        .then((response) => {
+            setGroups(response.data.results)
+        })
+        //passar um filtro para mostrar os grupos que o usuário esta inserido
     }
 
     const {
@@ -40,7 +55,11 @@ const Groups = () => {
         handlePopUp();
     }
 
-    useEffect(() => {getGroups()}, [groups])
+   
+
+    useEffect(() => {
+        getGroups()}, []
+    )
 
     return (
         <>

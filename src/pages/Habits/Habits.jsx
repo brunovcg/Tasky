@@ -45,6 +45,17 @@ const Habits = () => {
     reset()
    }
 
+   const initFunction=()=>{
+    api.get(
+        '/habits/personal/', 
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+    ).then(response=> setHabits(response.data))
+}
+
    const submitFunction = ({title, category, difficulty, frequency}) => {
        const user = {
            title, 
@@ -67,6 +78,7 @@ const Habits = () => {
        )
        .then((_)=>{
            toast.success(`${title} Added!`)
+           initFunction()
         })
        .catch((_)=> toast.error("Something went wrong, try again!"))
        handlePopUp()
@@ -101,18 +113,9 @@ const Habits = () => {
         .catch((_)=> toast.error("Something went wrong, try again!"))
    }
 
-   const initFunction=()=>{
-        api.get(
-            '/habits/personal/', 
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                }
-        ).then(response=> setHabits(response.data))
-   }
+   
 
-    useEffect(()=>{initFunction()},[habits])
+    useEffect(()=>{initFunction()},[])
 
     return (
             <Main>

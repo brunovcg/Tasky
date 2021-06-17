@@ -9,19 +9,11 @@ export const GroupsProvider = ({children}) => {
     
     const [token] = useState(JSON.parse(localStorage.getItem('@tasky/login/token')) || '');
 
-    const [decodedId] = useState(jwt_decode(token).user_id || {});
+    // const [decodedId] = useState(jwt_decode(token).user_id || '');
 
     const [ groups, setGroups ] = useState([]);
 
-    const getGroups = () => {
-        api.get('/groups/', {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        })
-        .then((response) => setGroups(response.data.results))
-        //passar um filtro para mostrar os grupos que o usuário esta inserido
-    }
+    
 
     const newGroup = () => {
         api.post('/groups/', {
@@ -37,7 +29,7 @@ export const GroupsProvider = ({children}) => {
 
     return (
         <GroupsContext.Provider
-            value={{groups, getGroups, newGroup}}
+            value={{groups, newGroup, setGroups}}
         >
             {children}
         </GroupsContext.Provider>
