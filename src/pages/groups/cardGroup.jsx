@@ -24,7 +24,6 @@ const CardGroup = ({name, description, category, path, group}) => {
                 <p><span>Category: </span>{category}</p>
             </div>
             <div className='img'>
-                {/* <img src={GroupImg} alt='group'/> */}
                 </div>
             <div className="buttonBox">
                 <Button
@@ -32,9 +31,7 @@ const CardGroup = ({name, description, category, path, group}) => {
                     setSize={'large'}
                     click={() => redirect(path)}
                 >Access</Button>
-            </div>
-                {/* <button onClick={() => redirect(path)}>Access</button> */}
-            
+            </div>            
         </Card>
     )
 }

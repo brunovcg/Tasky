@@ -4,8 +4,6 @@ import { useState } from "react";
 import {api} from '../../../service/api'
 import { toast } from 'react-toastify';
 
-// import {data} from '../Graphic/data'
-
 const Goals = ({ title, difficulty, how_much_achieved, click }) => {
 
     const hasToDo = 100 - how_much_achieved; 

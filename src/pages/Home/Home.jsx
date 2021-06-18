@@ -9,7 +9,7 @@ import { useAuth } from '../../providers/Authentication/Authentication';
 const Home = () => {
     const history = useHistory()
 
-    const {authenticated, setAuthenticated} = useAuth()
+    const {authenticated} = useAuth()
 
     if(authenticated) {
         return <Redirect to="/dashboard"/>
@@ -30,7 +30,7 @@ const Home = () => {
 
         
                 <div className="headerBox">
-                    <img src={Task}/>
+                    <img src={Task} alt='logo'/>
                 
                     <h1>Tasky</h1>
                 </div>

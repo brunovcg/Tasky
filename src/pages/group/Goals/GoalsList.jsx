@@ -51,7 +51,7 @@ const GoalsList = ({specifGroup}) => {
             }
         )
         .then((_)=>{
-            toast.success(`Added!`)
+            toast.success(`Goal Added!`)
             handleLoadGoals(specifGroup.id)
             })
         .catch((_)=> toast.error("Something went wrong, try again!"))
@@ -78,7 +78,7 @@ const GoalsList = ({specifGroup}) => {
         })
     }
 
-    // handleLoadGoals(specifGroup.id)
+
     useEffect(() => {
         handleLoadGoals(specifGroup.id);
       }, [specifGroup]);
@@ -99,8 +99,7 @@ const GoalsList = ({specifGroup}) => {
                             </Button>
                         </div>
                         <div className="goalMain">
-                            {/* { goalsList && goalsList.map((el, index) => <Goals {...el} key={index}/>) } */}
-                            {
+                        {
                             goalsListRender.map((goal) => (
                                 <Goals
                                     key={goal.id}
