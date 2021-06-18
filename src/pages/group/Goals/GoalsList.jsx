@@ -48,11 +48,11 @@ const GoalsList = ({specifGroup}) => {
     const handleLoadGoals = (id) => {
         api.get(`/groups/${id}/`, {
             headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${userToken}`,
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${userToken}`,
             },
-            })
-            .then(response => setGoalsListRender(response.data.goals))
+        })
+        .then(response => setGoalsListRender(response.data.goals))
         };
     
     const handleUpdate = (goal) => {
@@ -69,7 +69,7 @@ const GoalsList = ({specifGroup}) => {
         })
     }
 
-    handleLoadGoals(specifGroup.id)
+    // handleLoadGoals(specifGroup.id)
 
     return(
         <>
