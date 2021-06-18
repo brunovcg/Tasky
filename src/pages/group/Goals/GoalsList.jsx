@@ -6,7 +6,6 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import Input from '../../../components/Input/Input.jsx';
-import {  useGoalsRequest } from '../../../providers/addNewGoal';
 import { PopUpContainer } from '../../Habits/styles';
 import { api } from '../../../service/api';
 import { toast } from 'react-toastify';
@@ -14,23 +13,16 @@ import { toast } from 'react-toastify';
 const GoalsList = ({specifGroup}) => {
     
     const [goalPopUp, setGoalPopUp]     = useState(false)
-    const { setNewGoalData, goalsList } = useGoalsRequest() //REFATORAR
+   
     const userToken = JSON.parse( localStorage.getItem('@tasky/login/token') );
-
-    // const [goalsList, setGoalsList] = useState();
 
     const schema = yup.object().shape({
         title: yup.string().required('This field is required'),
         difficulty: yup.string().required('This field is required'),
-        how_much_achieved: yup.string().required('This field is required'),
     })
 
     const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(schema) })
 
-    const handleNewGoal = (data) => {
-        setGoalPopUp(false)
-        return setNewGoalData(data)
-    }
 
     const handleCloseModal = () => setGoalPopUp(false);
 
@@ -42,6 +34,28 @@ const GoalsList = ({specifGroup}) => {
 
     const [ goalsListRender, setGoalsListRender] = useState([])
 
+    const addGoal = ({title, difficulty}) => {
+        const goalsAdd = {
+            title,
+            difficulty,
+            how_much_achieved: 0,
+            group: specifGroup.id
+        }
+        api.post(
+            `/goals/`,
+            goalsAdd,
+            {
+                headers: {
+                    Authorization: `Bearer ${userToken}`,
+                },
+            }
+        )
+        .then((_)=>{
+            toast.success(`Added!`)
+            handleLoadGoals(specifGroup.id)
+            })
+        .catch((_)=> toast.error("Something went wrong, try again!"))
+    }
 
     const handleLoadGoals = (id) => {
         api.get(`/groups/${id}/`, {
@@ -110,15 +124,13 @@ const GoalsList = ({specifGroup}) => {
                         <PopUpContainer>
                             <PopUp 
                                 title='Add New Goal'
-                                onSubmit={handleSubmit(handleNewGoal)} 
+                                onSubmit={handleSubmit(addGoal)} 
                                 onClickClose={handleCloseModal}
                             >
                                 <Input register={register} name='title' placeholder='Title' setBorder="var(--green)"/>
                                 <div className="erro">{errors.title?.message}</div>
                                 <Input register={register} name='difficulty' placeholder='Difficulty' setBorder="var(--green)"/>
                                 <div className="erro">{errors.difficulty?.message}</div>
-                                <Input register={register} name='how_much_achieved' placeholder='How Much Achieved' setBorder="var(--green)"/>
-                                <div className="erro">{errors.how_much_achieved?.message}</div>
                             </PopUp>
                         </PopUpContainer> 
                  
