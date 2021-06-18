@@ -1,10 +1,12 @@
-import {Container, StyledInput} from './styles'
+import {StyledInput} from './styles'
 
-const Input = ({...rest }) => {
+const Input = ({register, name, setBorder, ...rest}) => {
     return (
-        <Container>
-           <StyledInput {...rest}/>
-        </Container>
+            <StyledInput 
+            {...register(name)} 
+            { ...rest }
+            setBorder={setBorder}
+            />
     )
 }
 

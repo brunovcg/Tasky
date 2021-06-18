@@ -24,6 +24,27 @@ export const Container = styled.div`
         padding: 2rem;
         color: var(--dark-grey);
     }
+
+    a {
+        color: var(--blue);
+    }
+
+    @media (max-width: 500px) {
+        flex-direction: column;
+
+        img {
+            width: 60%;
+            height: 70%;
+        }
+
+        h3 {
+            font-size: 1rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+    }
 `;
 
 export const Info = styled.div`

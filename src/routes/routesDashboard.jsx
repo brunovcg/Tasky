@@ -3,8 +3,11 @@ import Groups from '../pages/groups/groups';
 import HomeDashboard from '../pages/homeDashboard/homeDashboard';
 import Group from '../pages/group/Group';
 import Habits from '../pages/Habits/Habits';
+import PageNotFound from '../pages/pageNotFound/PageNotFound';
 
-const routesDashboard = () => {
+const RoutesDashboard = () => {
+
+    
     return (
         <Switch>
             <Route exact path='/dashboard/'>
@@ -16,11 +19,14 @@ const routesDashboard = () => {
             <Route path='/dashboard/groups'>
                 <Groups/>
             </Route>
-            <Route path='/dashboard/group'>
+            <Route path="/dashboard/group/:id">
                 <Group/>
+            </Route>            
+            <Route>
+                <PageNotFound/>
             </Route>
         </Switch>
     )
 }
 
-export default routesDashboard;
+export default RoutesDashboard;
