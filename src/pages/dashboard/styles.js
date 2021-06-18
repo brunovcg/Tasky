@@ -22,7 +22,7 @@ export const Container = styled.div`
 
 export const MainContainer = styled.article`
     
-    height: fit-content;
+    height: 100vh;
     min-height: 80vh;
     width: 100%;
     background-color: var(--grey);
@@ -32,7 +32,7 @@ export const MainContainer = styled.article`
         position: absolute;
         left: 0;
         width: 100vw;
-        min-height: 90vh; 
+        height: 6000px;
     }
 `;
 

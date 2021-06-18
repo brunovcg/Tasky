@@ -118,6 +118,7 @@ export const GoalsContainer = styled.div`
         flex-direction: column;
         justify-content: center;
         padding-left: 30px;
+        
 
         h3{
             padding-bottom: 7px;
