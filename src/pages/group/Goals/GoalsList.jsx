@@ -30,6 +30,7 @@ const GoalsList = ({specifGroup}) => {
 
     const handleSum = () => {
        if (howPercent<100){setHowPercent(howPercent + 10)} 
+       return howPercent
     }
 
     const [ goalsListRender, setGoalsListRender] = useState([])
@@ -68,13 +69,21 @@ const GoalsList = ({specifGroup}) => {
         };
     
     const handleUpdate = (goal) => {
-        const addTen = { how_much_achieved: handleSum()}
+        const addTen = {
+                achieved: true,
+                how_much_achieved: goal.how_much_achieved + 10 
+        }
 
-        api.patch(`/goals/${goal.id}/`, addTen)
+        api.patch(`/goals/${goal.id}/`, 
+            addTen,
+            {headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${userToken}`,
+                }})
         .then((_)=>{
             toast.success(`updated`)
             handleLoadGoals(specifGroup.id)
-            .catch((_)=> toast.error("Something went wrong, try again!"))
+            // .catch((_)=> toast.error("Something went wrong, try again!"))
         })
     }
 
@@ -106,7 +115,7 @@ const GoalsList = ({specifGroup}) => {
                                     title={goal.title}
                                     dificult={goal.title}
                                     how_much_achieved={goal.how_much_achieved}
-                                    click={() => handleUpdate(goal.id)}
+                                    click={() => handleUpdate(goal)}
                                 />
                                 
                             ))
