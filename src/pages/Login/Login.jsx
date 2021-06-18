@@ -16,7 +16,7 @@ const Login = () => {
 
   const history = useHistory();
 
-  const {authenticated, setAuthenticated} = useAuth()
+  const {authenticated} = useAuth()
 
   const schema = yup.object().shape({
     username: yup.string().required('Email is required'),
@@ -86,12 +86,6 @@ const Login = () => {
 
 
           </form>
-
-
-        
-
-           
-
         
         </div>
 

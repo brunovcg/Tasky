@@ -7,7 +7,7 @@ import { Redirect } from 'react-router';
 
 const Dashboard = () => {
 
-    const {authenticated, setAuthenticated} = useAuth()
+    const {authenticated} = useAuth()
 
     if(!authenticated) {
         return <Redirect to={"/"}/>

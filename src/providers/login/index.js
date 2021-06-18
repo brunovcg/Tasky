@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect, useContext } from 'react';
 import { api } from '../../service/api';
 import {useAuth} from '../Authentication/Authentication'
+import { toast } from 'react-toastify';
 
 export const LoginRequestContext = createContext();
 
@@ -8,7 +9,7 @@ export const LoginRequestProvider = ({ children }) => {
 
   const [ userLoginData, setUserLoginData ] = useState();
 
-  const {authenticated, setAuthenticated} = useAuth()
+  const {setAuthenticated} = useAuth()
 
   const addTokenLocalStorage = (data) => {
     localStorage.setItem('@tasky/login/token', JSON.stringify(data));
@@ -24,8 +25,10 @@ export const LoginRequestProvider = ({ children }) => {
         addTokenLocalStorage(response.data.access)
         addUserLocalStorage(userLoginData.data.username)
         setAuthenticated(true)
+        toast.success(`Welcome!`)
         return userLoginData.redirect
       })
+      .catch((_)=> toast.error("Something went wrong, try again!"))
   }
 
   useEffect( () => {

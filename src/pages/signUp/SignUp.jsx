@@ -8,14 +8,12 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { api } from '../../service/api'
 import { useAuth } from '../../providers/Authentication/Authentication';
 import { Redirect } from 'react-router'; 
-
-
-
+import { toast } from 'react-toastify';
 
 
 const SignUp = () => {
 
-    const {authenticated, setAuthenticated} = useAuth()
+    const {authenticated} = useAuth()
 
     const formSchema = yup.object().shape({
         
@@ -55,9 +53,10 @@ const SignUp = () => {
         api
         .post("/users/", user)
         .then((_) => {
+            toast.success(`Thank's for subscribing!`)
             return history.push('/login')
         })
-        // .catch(alert("Alguma coisa me parece errada, tente outro E-mail"))
+        .catch((_)=> toast.error("Something went wrong, try again!"))
     };
 
     if(authenticated) {

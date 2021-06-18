@@ -2,7 +2,7 @@ import Button from "../../../components/button/Button"
 import { ActivitiesContainer } from "../styles"
 
 
-const Activities = ({id, title, group, click }) => {
+const Activities = ({title, click }) => {
 
     return(
         <ActivitiesContainer>

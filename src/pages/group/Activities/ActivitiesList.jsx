@@ -12,7 +12,6 @@ import { PopUpContainer} from "../styles"
 
 const ActivitiesList = ({specifGroup}) => {
     
-    // Área de declarações e schema -------------------------------------------------
     const formSchema = yup.object().shape({
         title: yup.string().required('This field is required'),
     })
@@ -26,9 +25,8 @@ const ActivitiesList = ({specifGroup}) => {
     const userToken = JSON.parse( localStorage.getItem('@tasky/login/token') );
 
     const [activitiesPopUp, setActivitiesPopUp] = useState(false)
-// ---------------------------------------------------------------------------------
 
-// Área de Funções que manipulam as Activities-------------------------------------------
+
     const handleLoadActivities = (id) => {
         api.get(`/groups/${id}/`, {
             headers: {
@@ -55,7 +53,7 @@ const ActivitiesList = ({specifGroup}) => {
             }
         )
         .then((_)=>{
-            toast.success(`Added!`)
+            toast.success(`Activity Added!`)
             handleLoadActivities(specifGroup.id)
             })
         .catch((_)=> toast.error("Something went wrong, try again!"))
@@ -75,10 +73,8 @@ const ActivitiesList = ({specifGroup}) => {
                 })
                 .catch((_)=> toast.error("Something went wrong, try again!"))
     }
-// --------------------------------------------------------------------------------
 
-// Função de Load das atividades e outras funçoes. ----
-    // handleLoadActivities(specifGroup.id);
+
     useEffect(() => {
         handleLoadActivities(specifGroup.id);
       }, [specifGroup]);
@@ -86,7 +82,7 @@ const ActivitiesList = ({specifGroup}) => {
     const handleCloseModal = () => {
         setActivitiesPopUp(false);
     }
-// -----------------------------------------------------
+
 
     return(
             <>
@@ -94,13 +90,6 @@ const ActivitiesList = ({specifGroup}) => {
                 <div className="groupActivities">
                     <div className="activitiesTitle">
                         <h3>Activities</h3>
-                        
-                        {/* <Button
-                            setSize={"large"}
-                            setColor={"var(--blue)"}
-                            click={() => handleLoadActivities(specifGroup.id)}
-                            >Show Activities
-                        </Button> */}
 
                         <Button
                             setSize={"large"}
