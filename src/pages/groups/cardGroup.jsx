@@ -13,6 +13,8 @@ const CardGroup = ({name, description, category, path, group}) => {
     setWichGroupToCreate(group.id)
 
     const redirect = (path) => {
+
+        localStorage.setItem('@tasky/dashboard/group', JSON.stringify(path));
         history.push(`/dashboard/group/${path}`);
     }
 
