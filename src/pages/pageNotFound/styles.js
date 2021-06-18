@@ -4,7 +4,9 @@ export const Container = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 10rem 5rem;
+    margin: 20vh auto;
+    width: 100%;
+    background-color: var(--white);
 
     img {
         width: 50vw;
@@ -21,6 +23,27 @@ export const Container = styled.div`
         font-size: 3rem;
         padding: 2rem;
         color: var(--dark-grey);
+    }
+
+    a {
+        color: var(--blue);
+    }
+
+    @media (max-width: 500px) {
+        flex-direction: column;
+
+        img {
+            width: 60%;
+            height: 70%;
+        }
+
+        h3 {
+            font-size: 1rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
     }
 `;
 

@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components'
+import styled from 'styled-components'
 import back from '../../assets/background.jpg'
 
 export const Container = styled.div`
@@ -11,7 +11,7 @@ export const Container = styled.div`
 
     .transparentBox{
         display: flex;
-        flex-direction: row;
+        flex-direction: row-reverse;
         justify-content: center;
         align-items: center;
         width: 100vw;
@@ -42,7 +42,7 @@ export const Container = styled.div`
                 height:20%;
 
                 a{
-                    color: var(--blue)
+                    color: var(--red)
                 }
             }
 
@@ -65,7 +65,7 @@ export const Container = styled.div`
             h3{
                 display: flex;
                 justify-content: center;
-                align-items: center;
+                align-items: flex-end;
                 text-align: center;
                 height: 20%;
                 font-family: 'Poppins', sans-serif;
@@ -111,6 +111,7 @@ export const Container = styled.div`
                 height: 20%;
                 display: flex;
                 justify-content: center;
+                align-items: flex-end;
             }
         }
     }
@@ -142,12 +143,13 @@ export const Container = styled.div`
 
                     .whiteForm{
                         height: 100%;
+
                         .formError{
 
-                            p{
-                                font-size: 0.85rem;
-                            }
-                        }   
+                          p{
+                            font-size: 0.85rem;
+                          }
+                        }
                     }
                 }
             }
