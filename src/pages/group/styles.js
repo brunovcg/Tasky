@@ -118,6 +118,7 @@ export const GoalsContainer = styled.div`
         flex-direction: column;
         justify-content: center;
         padding-left: 30px;
+        
 
         h3{
             padding-bottom: 7px;
@@ -133,12 +134,16 @@ export const GoalsContainer = styled.div`
             font-size: 1rem;
 
             span{
-                color: var(--blue);
+                color: var(--white);
             }
         }
 
-        .difficult{
-            color: var(dark-grey);
+        .difficulty{
+            color: var(--dark-grey);
+
+            .infoDif{
+                color: var(--blue);
+            }
         }
 
         .doneContainer{
