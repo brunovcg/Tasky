@@ -1,4 +1,4 @@
-import { CardsPlace, HeaderOfHabits, ErrorPop, PopUpContainer, Main } from './styles';
+import { CardsPlace, ErrorPop, PopUpContainer, Main } from './styles';
 import Button from '../../components/button/Button';
 import CardHabits from './CardHabits';
 import {useState} from 'react';

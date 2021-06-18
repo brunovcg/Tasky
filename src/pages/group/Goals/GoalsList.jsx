@@ -51,7 +51,7 @@ const GoalsList = ({specifGroup}) => {
             }
         )
         .then((_)=>{
-            toast.success(`Added!`)
+            toast.success(`Goal Added!`)
             handleLoadGoals(specifGroup.id)
             })
         .catch((_)=> toast.error("Something went wrong, try again!"))
@@ -60,11 +60,11 @@ const GoalsList = ({specifGroup}) => {
     const handleLoadGoals = (id) => {
         api.get(`/groups/${id}/`, {
             headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${userToken}`,
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${userToken}`,
             },
-            })
-            .then(response => setGoalsListRender(response.data.goals))
+        })
+        .then(response => setGoalsListRender(response.data.goals))
         };
     
     const handleUpdate = (goal) => {
@@ -78,7 +78,7 @@ const GoalsList = ({specifGroup}) => {
         })
     }
 
-    // handleLoadGoals(specifGroup.id)
+
     useEffect(() => {
         handleLoadGoals(specifGroup.id);
       }, [specifGroup]);
@@ -99,8 +99,7 @@ const GoalsList = ({specifGroup}) => {
                             </Button>
                         </div>
                         <div className="goalMain">
-                            {/* { goalsList && goalsList.map((el, index) => <Goals {...el} key={index}/>) } */}
-                            {
+                        {
                             goalsListRender.map((goal) => (
                                 <Goals
                                     key={goal.id}

@@ -81,7 +81,6 @@ const Groups = () => {
     }
 
 
-    // getUserOnGroup();
 
     const {
        register,
@@ -104,7 +103,6 @@ const Groups = () => {
 
     return (
         <>
-        {/* <button onClick={() => console.log(userGroupSubscription)}>test</button> */}
             <Main>
                 <HeaderContainer>
                     <h2>Groups</h2>
@@ -119,7 +117,7 @@ const Groups = () => {
                         userGroupSubscription &&
                         userGroupSubscription.map((group) => (
                             <CardGroup 
-                                group={group} //Feito agora
+                                group={group}
                                 key={group.id} 
                                 name={group.name}
                                 description={group.description}

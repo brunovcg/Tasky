@@ -8,9 +8,9 @@ import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import {useAuth} from '../../providers/Authentication/Authentication'
 
-const SideMenu = ({setVisibility}) => {
+const SideMenu = () => {
 
-    const {authenticated, setAuthenticated} = useAuth()
+    const {setAuthenticated} = useAuth()
 
     const [hidden, setHidden] = useState(false);
 
@@ -68,10 +68,7 @@ const SideMenu = ({setVisibility}) => {
                 </ButtonContainer>
                 <GroupMembers>
                     <MembersContainer>
-                        {/* <div>membro 1</div>
-                        <div>membro 2</div>
-                        <div>membro 3</div>
-                        <div>membro 4</div> */} 
+
                     </MembersContainer>
                 </GroupMembers>
         </Container>
