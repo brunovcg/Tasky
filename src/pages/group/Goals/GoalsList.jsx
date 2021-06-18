@@ -1,7 +1,7 @@
 import Goals from './Goals';
 import Button from '../../../components/button/Button';
 import {PopUp} from '../../../components/pop-up/PopUp';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -41,9 +41,7 @@ const GoalsList = ({specifGroup}) => {
     }
 
     const [ goalsListRender, setGoalsListRender] = useState([])
-    // useEffect( () => {
-    //     UserGoals(setGoalsList)
-    // }, [])
+
 
     const handleLoadGoals = (id) => {
         api.get(`/groups/${id}/`, {
@@ -56,9 +54,6 @@ const GoalsList = ({specifGroup}) => {
         };
     
     const handleUpdate = (goal) => {
-        // const handleSum = () => {
-        //     if (howPercent<100){setHowPercent(howPercent + 10)} 
-        //  } 
         const addTen = { how_much_achieved: handleSum()}
 
         api.patch(`/goals/${goal.id}/`, addTen)
@@ -69,14 +64,18 @@ const GoalsList = ({specifGroup}) => {
         })
     }
 
-    handleLoadGoals(specifGroup.id)
+    // handleLoadGoals(specifGroup.id)
+    useEffect(() => {
+        handleLoadGoals(specifGroup.id);
+      }, [specifGroup]);
+    
 
     return(
         <>
             <div className="groupGoals">
 
                         <div className="goalTitle">   
-                            <h3>Goals</h3>
+                            <h3>Goals</h3>   
                             <Button
                                 setSize={"large"}
                                 setColor={"var(--blue)"}   
