@@ -1,7 +1,7 @@
 import Goals from './Goals';
 import Button from '../../../components/button/Button';
 import {PopUp} from '../../../components/pop-up/PopUp';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -69,7 +69,11 @@ const GoalsList = ({specifGroup}) => {
         })
     }
 
-    handleLoadGoals(specifGroup.id)
+    // handleLoadGoals(specifGroup.id)
+    useEffect(() => {
+        handleLoadGoals(specifGroup.id);
+      }, [specifGroup]);
+    
 
     return(
         <>
@@ -77,6 +81,14 @@ const GoalsList = ({specifGroup}) => {
 
                         <div className="goalTitle">   
                             <h3>Goals</h3>
+                            {/* <Button
+                                setSize={"large"}
+                                setColor={"var(--blue)"}   
+                                click={() => handleLoadGoals(specifGroup.id)}
+                                
+                                >Show Goal
+                            </Button> */}
+                            
                             <Button
                                 setSize={"large"}
                                 setColor={"var(--blue)"}   

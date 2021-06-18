@@ -1,6 +1,6 @@
 import Activities from './Activities';
 import Button from '../../../components/button/Button'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {PopUp} from '../../../components/pop-up/PopUp';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -78,7 +78,10 @@ const ActivitiesList = ({specifGroup}) => {
 // --------------------------------------------------------------------------------
 
 // Função de Load das atividades e outras funçoes. ----
-    handleLoadActivities(specifGroup.id);
+    // handleLoadActivities(specifGroup.id);
+    useEffect(() => {
+        handleLoadActivities(specifGroup.id);
+      }, [specifGroup]);
 
     const handleCloseModal = () => {
         setActivitiesPopUp(false);
@@ -91,6 +94,14 @@ const ActivitiesList = ({specifGroup}) => {
                 <div className="groupActivities">
                     <div className="activitiesTitle">
                         <h3>Activities</h3>
+                        
+                        {/* <Button
+                            setSize={"large"}
+                            setColor={"var(--blue)"}
+                            click={() => handleLoadActivities(specifGroup.id)}
+                            >Show Activities
+                        </Button> */}
+
                         <Button
                             setSize={"large"}
                             setColor={"var(--blue)"}
