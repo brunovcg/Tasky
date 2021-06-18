@@ -10,11 +10,13 @@ import { toast } from 'react-toastify';
 import { api } from '../../../service/api';
 import { PopUpContainer} from "../styles"
 
-const ActivitiesList = ({specifGroup}) => {
+const ActivitiesList = () => {
     
     const formSchema = yup.object().shape({
         title: yup.string().required('This field is required'),
     })
+
+    const params = JSON.parse( localStorage.getItem('@tasky/dashboard/group') );
 
     const { register, handleSubmit, formState: { errors }
             } = useForm({ resolver: yupResolver(formSchema)
@@ -37,11 +39,15 @@ const ActivitiesList = ({specifGroup}) => {
             .then(response => setActivitiesRenderList(response.data.activities))
     };
 
+    const handleAct = ()=>{
+        setActivitiesPopUp(!activitiesPopUp)
+    }
+
     const addActivitie = ({title}) => {
         const activitieAddTitle = {
             title,
             realization_time: "2021-03-10T15:00:00Z",
-            group: specifGroup.id
+            group: params
         }
         api.post(
             '/activities/',
@@ -54,7 +60,8 @@ const ActivitiesList = ({specifGroup}) => {
         )
         .then((_)=>{
             toast.success(`Activity Added!`)
-            handleLoadActivities(specifGroup.id)
+            handleLoadActivities(params)
+            handleAct()
             })
         .catch((_)=> toast.error("Something went wrong, try again!"))
     }
@@ -68,16 +75,16 @@ const ActivitiesList = ({specifGroup}) => {
                     },
             })
                 .then((_)=>{
-                    toast.success(`${activitie.title} deleted`)
-                    handleLoadActivities(specifGroup.id)
+                    toast.success(`${activitie.title} Done!`)
+                    handleLoadActivities(params)
                 })
                 .catch((_)=> toast.error("Something went wrong, try again!"))
     }
 
 
     useEffect(() => {
-        handleLoadActivities(specifGroup.id);
-      }, [specifGroup]);
+        handleLoadActivities(params);
+      }, [params]);
 
     const handleCloseModal = () => {
         setActivitiesPopUp(false);

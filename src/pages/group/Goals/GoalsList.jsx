@@ -10,11 +10,13 @@ import { PopUpContainer } from '../../Habits/styles';
 import { api } from '../../../service/api';
 import { toast } from 'react-toastify';
 
-const GoalsList = ({specifGroup}) => {
+const GoalsList = () => {
     
     const [goalPopUp, setGoalPopUp]     = useState(false)
    
     const userToken = JSON.parse( localStorage.getItem('@tasky/login/token') );
+
+    const params = JSON.parse( localStorage.getItem('@tasky/dashboard/group') );
 
     const schema = yup.object().shape({
         title: yup.string().required('This field is required'),
@@ -40,7 +42,7 @@ const GoalsList = ({specifGroup}) => {
             title,
             difficulty,
             how_much_achieved: 0,
-            group: specifGroup.id
+            group: params
         }
         api.post(
             `/goals/`,
@@ -53,7 +55,8 @@ const GoalsList = ({specifGroup}) => {
         )
         .then((_)=>{
             toast.success(`Goal Added!`)
-            handleLoadGoals(specifGroup.id)
+            handleLoadGoals(params)
+            handleCloseModal()
             })
         .catch((_)=> toast.error("Something went wrong, try again!"))
     }
@@ -71,7 +74,7 @@ const GoalsList = ({specifGroup}) => {
     const handleUpdate = (goal) => {
         const addTen = {
                 achieved: true,
-                how_much_achieved: goal.how_much_achieved + 10 
+                how_much_achieved: goal.how_much_achieved < 100 ? goal.how_much_achieved + 10 : 100
         }
 
         api.patch(`/goals/${goal.id}/`, 
@@ -82,15 +85,15 @@ const GoalsList = ({specifGroup}) => {
                 }})
         .then((_)=>{
             toast.success(`updated`)
-            handleLoadGoals(specifGroup.id)
+            handleLoadGoals(params)
             // .catch((_)=> toast.error("Something went wrong, try again!"))
         })
     }
 
 
     useEffect(() => {
-        handleLoadGoals(specifGroup.id);
-      }, [specifGroup]);
+        handleLoadGoals(params);
+      }, [params]);
     
 
     return(
@@ -113,7 +116,7 @@ const GoalsList = ({specifGroup}) => {
                                 <Goals
                                     key={goal.id}
                                     title={goal.title}
-                                    dificult={goal.title}
+                                    difficulty={goal.difficulty}
                                     how_much_achieved={goal.how_much_achieved}
                                     click={() => handleUpdate(goal)}
                                 />

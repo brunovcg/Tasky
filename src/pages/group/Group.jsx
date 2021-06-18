@@ -12,7 +12,8 @@ import { api } from '../../service/api';
 
 const Group = () => {
 
-    const params = useParams()
+    const params = JSON.parse( localStorage.getItem('@tasky/dashboard/group') );
+
 
     const userToken = JSON.parse( localStorage.getItem('@tasky/login/token') );
 
@@ -30,7 +31,7 @@ const Group = () => {
 
     const groupRequest = () => {
         api
-            .get(`/groups/${params.id}/`, {
+            .get(`/groups/${params}/`, {
                 headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${userToken}`,
@@ -67,8 +68,8 @@ const Group = () => {
 
                  { width > 500 ? 
                     <>
-                        <GoalsList specifGroup={specifGroup}/>
-                        <ActivitiesList specifGroup={specifGroup}/>
+                        <GoalsList />
+                        <ActivitiesList/>
                     </>
                     
                     : ( hidden ? <ActivitiesList/> : <GoalsList/>)

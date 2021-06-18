@@ -133,12 +133,16 @@ export const GoalsContainer = styled.div`
             font-size: 1rem;
 
             span{
-                color: var(--blue);
+                color: var(--white);
             }
         }
 
-        .difficult{
-            color: var(dark-grey);
+        .difficulty{
+            color: var(--dark-grey);
+
+            .infoDif{
+                color: var(--blue);
+            }
         }
 
         .doneContainer{
