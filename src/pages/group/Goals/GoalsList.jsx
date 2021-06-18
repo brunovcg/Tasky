@@ -41,9 +41,7 @@ const GoalsList = ({specifGroup}) => {
     }
 
     const [ goalsListRender, setGoalsListRender] = useState([])
-    // useEffect( () => {
-    //     UserGoals(setGoalsList)
-    // }, [])
+
 
     const handleLoadGoals = (id) => {
         api.get(`/groups/${id}/`, {
@@ -56,9 +54,6 @@ const GoalsList = ({specifGroup}) => {
         };
     
     const handleUpdate = (goal) => {
-        // const handleSum = () => {
-        //     if (howPercent<100){setHowPercent(howPercent + 10)} 
-        //  } 
         const addTen = { how_much_achieved: handleSum()}
 
         api.patch(`/goals/${goal.id}/`, addTen)
@@ -80,15 +75,7 @@ const GoalsList = ({specifGroup}) => {
             <div className="groupGoals">
 
                         <div className="goalTitle">   
-                            <h3>Goals</h3>
-                            {/* <Button
-                                setSize={"large"}
-                                setColor={"var(--blue)"}   
-                                click={() => handleLoadGoals(specifGroup.id)}
-                                
-                                >Show Goal
-                            </Button> */}
-                            
+                            <h3>Goals</h3>   
                             <Button
                                 setSize={"large"}
                                 setColor={"var(--blue)"}   
