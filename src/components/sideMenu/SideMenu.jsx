@@ -24,7 +24,6 @@ const SideMenu = () => {
 
     const changeDisplay = () => {
         setHidden(!hidden)
-        console.log(show)
         if (hidden === false) {
             setShow('visible');
         } else {
